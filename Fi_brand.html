@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="WEB_PORTPOLIO/project-02-01.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>FI Fish Chips</title>
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #ff9900;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .logo h1 {
+      font-size: 2em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #333;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #555;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+      color: white;
+      min-height: auto;
+    }
+
+    .flavour {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .flavour img {
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    }
+
+    .flavourtwo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .flavourtwo img {
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    }
+
+    .flavour h2 {
+      font-size: 2em;
+    }
+
+    .flavour p.description {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .garlic { background-color: #d8b200; }
+    .tomato { background-color: #c0392b; }
+    .bbq { background-color: #27ae60; }
+    .ingredients { background-color: #fff; }
+    .process { background-color: #ff9900; }
+    .garlicOp {background-color: #d8b200;}
+
+    footer {
+      background: #ff9900;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .testimonial {
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+      
+      .logo {
+        flex-direction: column;
+      }
+      
+      .logo h1 {
+        font-size: 1.5em;
+      }
+      
+      section {
+        padding: 30px 15px;
+      }
+      
+      .flavour p.description {
+        padding: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        padding: 10px 12px;
+        font-size: 0.9em;
+      }
+      
+      .flavour h2 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="WEB_PORTPOLIO/project-02-01.png" alt="FI Chips Logo" />
+      <h1>FI Fish Chips</h1>
+    </div>
+    <p>100% Organic | Crunchy | Spicy | Healthy</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#garlic">Garlic</a>
+    <a href="#tomato">Tomato</a>
+    <a href="#bbq">BBQ</a>
+    <a href="#ingredients">Ingredients</a>
+    <a href="#process">Process</a>
+  </nav>
+
+  <section id="about" class="about">
+    <img src="WEB_PORTPOLIO/Brandlogo (1).png" alt="Fi chips brand" style="max-width:500px; height: auto;">
+    <div class="flavour">
+      <p class="description">
+        FI Fish Chips brings you an innovative snack experience combining the nutritional benefits of freshwater fish 
+        with irresistible flavors. Our chips are made from premium Puntius fish, carefully processed to preserve 
+        their natural goodness while delivering exceptional crunch. Each bite offers a perfect balance of health 
+        and taste, making them ideal for health-conscious snack lovers who don't want to compromise on flavor.
+      </p>
+    </div>
+  </section>
+
+  <section id="garlic" class="garlic">
+    <div class="flavour">
+      <h2>Proposed Garlic Flavour</h2>
+      <img src="WEB_PORTPOLIO/Fishchips (6).png" alt="Garlic Flavour">
+      <p>Enjoy the crispiness with the punch of real garlic. 100% organic and irresistibly delicious!</p>
+      <p class="description">
+        Our Garlic Flavor Fish Chips are crafted with freshly crushed garlic and a blend of aromatic herbs 
+        that create a bold yet balanced taste profile. The garlic is slow-roasted to perfection before being 
+        incorporated into our special seasoning mix, ensuring a deep, rich flavor without overpowering the natural 
+        taste of the fish. These chips pair wonderfully with dips or can be enjoyed on their own as a satisfying 
+        snack any time of day.
+      </p>
+    </div>
+  </section>
+
+  <section id="garlicOp" class="garlicOp">
+    <div class="flavourtwo">
+      <img src="WEB_PORTPOLIO/Fishchips (3).png" alt="Garlic Flavour Packaging">
+      <p class="description">
+        The packaging for our Garlic Flavor is designed to preserve freshness while being environmentally 
+        conscious. Each bag contains a single serving of protein-rich fish chips that provide energy and 
+        satisfaction. The resealable feature ensures your snacks stay crispy till the last bite. Perfect for 
+        lunchboxes, road trips, or as a post-workout recovery snack.
+      </p>
+    </div>
+  </section>
+
+  <section id="tomato" class="tomato">
+    <div class="flavour">
+      <h2>Proposed Tomato Flavour</h2>
+      <img src="WEB_PORTPOLIO/Fishchips (5).png" alt="Tomato Flavour">
+      <p>Tangy and tasty tomato burst with every bite. Perfect for snack time!</p>
+      <p class="description">
+        The Tomato Flavor Fish Chips feature sun-ripened tomatoes that are carefully processed to capture 
+        their natural tanginess and sweetness. Combined with a hint of basil and oregano, these chips offer 
+        a Mediterranean-inspired taste experience. The tomato powder we use is made through a special 
+        dehydration process that locks in nutrients and flavor, resulting in a snack that's as wholesome 
+        as it is delicious.
+      </p>
+    </div>
+  </section>
+
+  <section id="tomato" class="tomato">
+    <div class="flavourtwo">
+      <img src="WEB_PORTPOLIO/Fishchips (2).png" alt="Tomato Flavour Packaging">
+      <p class="description">
+        Our Tomato Flavor packaging stands out with its vibrant red design, making it easy to spot on shelves. 
+        The portion-controlled packs help with mindful snacking while providing a good source of protein and 
+        omega-3 fatty acids from the fish. These chips are school-safe (nut-free) and make an excellent 
+        alternative to traditional potato chips for those seeking more nutritional value from their snacks.
+      </p>
+    </div>
+  </section>
+
+  <section id="bbq" class="bbq">
+    <div class="flavour">
+      <h2>Barbecue Flavour</h2>
+      <img src="WEB_PORTPOLIO/Fishchips (4).png" alt="Barbecue Flavour">
+      <p>Smoky, savory, and crunchy. Barbecue chips just got a bold twist!</p>
+      <p class="description">
+        The Barbecue Flavor Fish Chips deliver a smoky, slightly sweet taste with just the right amount of heat. 
+        We use a special blend of paprika, onion powder, and natural smoke flavor to create that authentic 
+        barbecue taste. Unlike traditional barbecue snacks that can be overly salty, our version maintains 
+        a balanced flavor profile that lets the quality of the fish shine through. These are perfect for 
+        game nights or as a unique addition to your party snack spread.
+      </p>
+    </div>
+  </section>
+  
+  <section id="bbq" class="bbq">
+    <div class="flavourtwo">
+      <img src="WEB_PORTPOLIO/Fishchips (1).png" alt="Barbecue Flavour Packaging">
+      <p class="description">
+        The Barbecue Flavor comes in eye-catching packaging that promises adventure for your taste buds. 
+        We've designed the bag to be sturdy enough to prevent crushing while being lightweight for easy 
+        carrying. The larger family-size package is perfect for sharing, or you can opt for the single-serve 
+        packs for portion control. Either way, you're getting a snack that's high in protein and low in 
+        empty calories compared to conventional chips.
+      </p>
+    </div>
+  </section>
+
+  <section id="ingredients" class="ingredients" style="color: #660366;">
+    <h2>Product Ingredients with examination</h2>
+    <ul style="list-style: none; padding-top: 15px; line-height: 2em;">
+      <li>Staple Material is Puntius Fish</li>
+      <li>Natural Garlic & Herbs</li>
+      <li>Real Tomato Puree</li>
+      <li>Natural Spices</li>
+      <li>No Artificial Flavors</li>
+    </ul>
+    <p class="description" style="color: #660366; margin-top: 20px;">
+      Every ingredient in FI Fish Chips undergoes rigorous quality checks. The Puntius fish is sourced from 
+      trusted suppliers who practice sustainable fishing. Our spices are tested for purity and potency, 
+      and we never use artificial preservatives. The sunflower oil used for frying is cholesterol-free 
+      and rich in vitamin E. We're transparent about our ingredients because we believe you deserve to 
+      know exactly what you're eating. Allergen information is clearly labeled on every package.
+    </p>
+  </section>
+
+  <section id="process" class="process" style="color: #fff;">
+    <h2>How It will Make</h2>
+    <div style="text-align: justify; margin: 20px auto; max-width: 800px;">
+      <p>
+        Craft with care and inspired by coastal freshness. At the heart of every bite is <b>Puntius fish</b>, 
+        a small yet flavorful freshwater catch known for its tender texture and rich taste. Sourced sustainably, 
+        these fish are cleaned, filleted, and transformed into golden, crispy delights.
+      </p>
+      <p>
+        We have intent to fry our chips in pure sunflower oil, ensuring a light and healthy crunch that does not 
+        weigh you down.
+      </p>
+      <p style="margin: 20px 0;">
+        <b>Garlic Glaze</b>: Rich, roast garlic with a hint of lemony zing.<br>
+        <b>Tomato Zest</b>: Tangy sun-dried tomato with a subtle herby note.<br>
+        <b>Smoky BBQ</b>: Deep, smoky spices with a touch of sweetness and fire.
+      </p>
+      <p>
+        To boost both taste and nutrition, we try to sprinkle in a blend of healthy spices such as turmeric 
+        (anti-inflammatory), black cumin (kalonji) for its antioxidant kick, and a dash of moringa powder 
+        for a superfood twist.
+      </p>
+      <p>
+        Our production process maintains strict hygiene standards while preserving the nutritional integrity 
+        of the ingredients. The fish is processed within hours of catch to ensure maximum freshness, then 
+        carefully prepared, seasoned, and packaged to deliver premium quality in every bag.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024-2025 FI Chips (Surrah). All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">  
+    <title>Professional Skills Portfolio</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        /* Variables */
+        :root {
+            --primary-color: #660366;
+            --secondary-color: #e63de6;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .category-description {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .skills-list {
+            list-style-type: none;
+        }
+
+        .skills-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skills-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .skill-details {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        /* Animation classes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .skills-section {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Professional Skills</h1>
+            <p>A comprehensive showcase of my technical and professional capabilities</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <p>With diverse experience across multiple domains, I've developed a robust skill set that combines technical expertise with strong professional competencies. Below you'll find details about my involvement and experience with each skill area.</p>
+        </section>
+
+        <section class="skills-section">
+            <div class="skill-category fade-in">
+                <h2>Technical Skills</h2>
+                <p class="category-description">My core development skills honed through projects, coursework, and professional experience. I continuously expand these skills through practice and learning new technologies.</p>
+                <ul class="skills-list">
+                    <li>
+                        <span class="skill-tag highlight">HTML</span>
+                        <div class="skill-details">Extensive experience building semantic, accessible web pages. Familiar with HTML5 features and best practices for SEO optimization.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag highlight">CSS</span>
+                        <div class="skill-details">Proficient in modern CSS including Flexbox, Grid, and animations. Experience with CSS preprocessors like SASS and responsive design principles.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag highlight">JavaScript</span>
+                        <div class="skill-details">Strong understanding of ES6+ features, DOM manipulation, and asynchronous programming. Experience with various JS frameworks and libraries.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag highlight">Node.js</span>
+                        <div class="skill-details">Built server-side applications and APIs using Express.js. Experience with RESTful services, authentication, and database integration.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag highlight">Git</span>
+                        <div class="skill-details">Daily use for version control in both individual and team projects. Familiar with branching strategies and GitHub workflows.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag highlight">GitHub</span>
+                        <div class="skill-details">Active GitHub user with experience in collaborative development, pull requests, and managing repositories for various projects.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in delay-1">
+                <h2>Software Proficiency</h2>
+                <p class="category-description">Practical experience with business and creative software tools gained through professional work and personal projects.</p>
+                <ul class="skills-list">
+                    <li>
+                        <span class="skill-tag">Tally ERP9</span>
+                        <div class="skill-details">Hands-on experience with accounting, inventory management, and financial reporting in business environments.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag">MS Office</span>
+                        <div class="skill-details">Advanced proficiency with Excel (formulas, pivot tables), Word, PowerPoint for business documentation, analysis, and presentations.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag">Photo & Video Editing</span>
+                        <div class="skill-details">Creative experience with Adobe Photoshop, Lightroom, and Premiere Pro for content creation and digital media projects.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag">UX/UI Design</span>
+                        <div class="skill-details">Understanding of user-centered design principles. Experience with wireframing, prototyping tools, and creating intuitive interfaces.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in delay-2">
+                <h2>Professional Skills</h2>
+                <p class="category-description">Interpersonal and organizational abilities developed through teamwork, leadership roles, and professional environments.</p>
+                <ul class="skills-list">
+                    <li>
+                        <span class="skill-tag">Strong Professional Bonds</span>
+                        <div class="skill-details">Proven ability to build and maintain productive working relationships with colleagues, clients, and stakeholders.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag">Presentation</span>
+                        <div class="skill-details">Experience delivering effective presentations to diverse audiences, from technical demonstrations to business proposals.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag">Marketing</span>
+                        <div class="skill-details">Understanding of digital marketing principles, content strategy, and brand communication from practical experience.</div>
+                    </li>
+                    <li>
+                        <span class="skill-tag">Time Management</span>
+                        <div class="skill-details">Ability to prioritize tasks effectively, meet deadlines consistently, and manage multiple projects simultaneously.</div>
+                    </li>
+
+                    <li>
+                        <span class="skill-tag">Research</span>
+                        <div class="skill-details">Conducted comprehensive market research including competitive analysis, industry trends, and customer needs assessment. Utilized both qualitative and quantitative methods to gather insights that informed business strategies. Experienced in SWOT analysis, benchmarking, and data-driven decision making.</div>
+                    </li>
+
+                    <li>
+                        <span class="skill-tag">Event Decoration</span>
+                        <div class="skill-details">
+
+                            <strong>Expertise in transforming spaces for:</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Corporate events (conferences, product launches)</li>
+                                <li>Weddings and social gatherings</li>
+                                <li>Themed parties and celebrations</li>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Surrah Skills Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Add intersection observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                observer.observe(element);
+            });
+
+            // Toggle skill details on click
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    const details = this.nextElementSibling;
+                    const isShowing = details.style.display === 'block';
+                    
+                    // Close all other open details first
+                    document.querySelectorAll('.skill-details').forEach(d => {
+                        d.style.display = 'none';
+                    });
+                    
+                    // Toggle this one if it wasn't already showing
+                    if (!isShowing) {
+                        details.style.display = 'block';
+                        this.classList.add('highlight');
+                    } else {
+                        this.classList.remove('highlight');
+                    }
+                });
+            });
+        });
+
+        // Simple console greeting
+        console.log('Welcome to my skills portfolio!');
+    </script>
+</body>
+</html>

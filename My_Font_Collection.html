@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Foundry | UnionT26, Smil & Tuafa Fonts</title>
+    <style>
+        @font-face {
+            font-family: 'Uniont26';
+            src: url('Font/Uniont26.ttf') format('truetype');
+        }
+        
+        @font-face {
+            font-family: 'Smil';
+            src: url('Font/Smil.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Tuafa';
+            src: url('Font/Tuafa.ttf') format('truetype');
+        }
+        
+        :root {
+            --primary: #6c00aade;
+            --dark: #6c00aade;
+            --light: #f8f9fa;
+            --accent: #ff2e63;
+            --gray: #6c757d;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: white;
+        }
+        
+        /* Modern header with gradient */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 0 6rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -3rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, white, #a5d8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Card-style font showcase */
+        .font-showcase {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .font-showcase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .font-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .font-title {
+            font-size: 2.5rem;
+            margin-top: 0;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .font-title span {
+            margin-left: 1rem;
+            font-size: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+        }
+        
+        .font-description {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .font-sample {
+            font-size: 2.2rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .font-name {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            text-align: center;
+            color: var(--dark);
+        }
+        
+        .font-union {
+            font-family: 'Uniont26', sans-serif;
+        }
+        
+        .font-smil {
+            font-family: 'Smil', sans-serif;
+        }
+
+        .font-tuafa {
+            font-family: 'Tuafa', sans-serif;
+        }
+        
+        .alphabet-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .alphabet-section {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .alphabet-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .alphabet {
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #2667cc;
+            transform: translateY(-2px);
+        }
+        
+        .secondary-btn {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .secondary-btn:hover {
+            background: var(--light);
+        }
+        
+        /* Features section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .font-sample {
+                font-size: 1.8rem;
+                padding: 1.5rem;
+            }
+            
+            .font-name {
+                font-size: 3rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Type Foundry</h1>
+            <p class="tagline">Showcasing original typeface designs with precision and personality</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- UnionT26 Font Showcase -->
+        <section class="font-showcase">
+            <h2 class="font-title">UnionT26 <span>Modern Sans-Serif</span></h2>
+            <p class="font-description">A contemporary typeface blending geometric precision with organic warmth, perfect for branding and editorial use.</p>
+            
+            <div class="font-sample font-union">
+                "Typography is the craft of endowing human language with a durable visual form."
+            </div>
+            
+            <div class="font-name font-union">
+                UNIONT26
+            </div>
+            
+            <div class="alphabet-container">
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Uppercase</div>
+                    <div class="alphabet font-union">
+                        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+                    </div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Lowercase</div>
+                    <div class="alphabet font-union">
+                        a b c d e f g h i j k l m n o p q r s t u v w x y z
+                    </div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Numerals & Symbols</div>
+                    <div class="alphabet font-union">
+                        0 1 2 3 4 5 6 7 8 9<br>
+                        ! @ # $ % & * ( ) { } [ ]
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <a href="UnionT26.zip" class="download-btn">Download UnionT26</a>
+                <a href="#" class="download-btn secondary-btn">View Specimen</a>
+            </div>
+        </section>
+        
+        <!-- Smil Font Showcase -->
+        <section class="font-showcase">
+            <h2 class="font-title">Smil <span>Friendly Display</span></h2>
+            <p class="font-description">A cheerful typeface with rounded terminals and open forms, bringing warmth to any design project.</p>
+            
+            <div class="font-sample font-smil">
+                "Good design is obvious. Great design is transparent." - Joe Sparano
+            </div>
+            
+            <div class="font-name font-smil">
+                SMIL
+            </div>
+            
+            <div class="alphabet-container">
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Uppercase</div>
+                    <div class="alphabet font-smil">
+                        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+                    </div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Lowercase</div>
+                    <div class="alphabet font-smil">
+                        a b c d e f g h i j k l m n o p q r s t u v w x y z
+                    </div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Numerals & Symbols</div>
+                    <div class="alphabet font-smil">
+                        0 1 2 3 4 5 6 7 8 9<br>
+                        ! @ # $ % & * ( ) { } [ ]
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <a href="Smil.zip" class="download-btn">Download Smil</a>
+                <a href="#" class="download-btn secondary-btn">View Specimen</a>
+            </div>
+        </section>
+
+        <!-- Tuafa Font Showcase -->
+        <section class="font-showcase">
+            <h2 class="font-title">Tuafa <span>Elegant Serif</span></h2>
+            <p class="font-description">A sophisticated serif typeface with balanced proportions and graceful curves, ideal for luxury branding and publications.</p>
+            
+            <div class="font-sample font-tuafa">
+                "Type is a beautiful group of letters, not a group of beautiful letters." - Matthew Carter
+            </div>
+            
+            <div class="font-name font-tuafa">
+                TUAFA
+            </div>
+            
+            <div class="alphabet-container">
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Uppercase</div>
+                    <div class="alphabet font-tuafa">
+                        A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+                    </div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Lowercase</div>
+                    <div class="alphabet font-tuafa">
+                        a b c d e f g h i j k l m n o p q r s t u v w x y z
+                    </div>
+                </div>
+                
+                <div class="alphabet-section">
+                    <div class="alphabet-title">Numerals & Symbols</div>
+                    <div class="alphabet font-tuafa">
+                        0 1 2 3 4 5 6 7 8 9<br>
+                        ! @ # $ % & * ( ) { } [ ]
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <a href="Tuafa.zip" class="download-btn">Download Tuafa</a>
+                <a href="#" class="download-btn secondary-btn">View Specimen</a>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✏️</div>
+                <h3>Original Designs</h3>
+                <p>Each glyph carefully crafted from scratch with attention to detail and consistency.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Multiple Formats</h3>
+                <p>Fonts provided in TTF, OTF, and WOFF formats for all your design needs.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔠</div>
+                <h3>Complete Character Sets</h3>
+                <p>Full support for Latin alphabet with extensive punctuation and symbols.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <h3>Type Foundry</h3>
+            <p>Creating distinctive typefaces since 2023</p>
+            
+            <p>&copy; 2023-2025 Type Foundry(Surrah). All rights reserved.<br>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

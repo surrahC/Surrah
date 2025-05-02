@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surrah | Design & Entrepreneurship</title>
+    <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #660366;
+            --secondary: #4b054b;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --light: #f1f1f1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--primary);
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(105, 3, 100, 0.7), rgba(155, 7, 105, 0.7));
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--highlight);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.4);
+            background: #ff2d55;
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--highlight);
+        }
+        
+        /* Entrepreneurial Ventures */
+        .ventures {
+            background-color: var(--secondary);
+        }
+        
+        .ventures-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .venture-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .venture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .venture-img {
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .venture-img img {
+            margin: 20px;
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .venture-card:hover .venture-img img {
+            transform: scale(1.1);
+        }
+        
+        .venture-content {
+            padding: 1.5rem;
+        }
+        
+        .venture-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--highlight);
+        }
+        
+        .venture-content p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .venture-link {
+            display: inline-block;
+            color: var(--highlight);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid var(--highlight);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .venture-link:hover {
+            color: #ff2d55;
+            border-bottom-color: #ff2d55;
+        }
+        
+        /* Graphics Workshop */
+        .workshop {
+            background-color: var(--primary);
+        }
+        
+        .workshop-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .design-concept {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .design-concept:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        
+        .design-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .design-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .design-concept:hover .design-img img {
+            transform: scale(1.1);
+        }
+        
+        .design-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .design-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .design-info p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--secondary);
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--highlight);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--highlight);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--highlight);
+        }
+        
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Graphical Presentation & Entrepreneurial Aspiration</h1>
+            <p>Bridging creative vision with business innovation through conceptual design and brand development</p>
+            <a href="#ventures" class="cta-button">Explore Ventures</a>
+        </div>
+    </section>
+
+    <section id="ventures" class="ventures">
+        <h2 class="section-title">Entrepreneurial Ventures</h2>
+        <div class="ventures-container">
+            <div class="venture-card">
+                <div class="venture-img">
+                    <img src="WEB_PORTPOLIO/project-01-01.png" alt="Sarachy Perfume" style="
+                        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) hue-rotate(180deg);
+                      ">
+                </div>
+                <div class="venture-content">
+                    <h3>Sarachy Perfume</h3>
+                    <p>An exquisite line of fragrances that capture the essence of sophistication and individuality. Each scent tells a unique story.</p>
+                    <a href="Sarachy.html" class="venture-link">Discover</a>
+                </div>
+            </div>
+            
+            <div class="venture-card">
+                <div class="venture-img">
+                    <img src="WEB_PORTPOLIO/project-02-01.png" alt="Next Fi Chips" style="
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) hue-rotate(180deg);
+                  ">
+                </div>
+                <div class="venture-content">
+                    <h3>Fi Chips</h3>
+                    <p>Revolutionary snack technology combining bold flavors with nutritional innovation for the connected generation.</p>
+                    <a href="Fi_brand.html" class="venture-link">Explore </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workshop" class="workshop">
+        <h2 class="section-title">Graphics Workshop</h2>
+        <div class="workshop-container">
+            <div class="workshop-grid">
+                <div class="design-concept">
+                    <div class="design-img">
+                        <img src="Image/2026_EMBLEM-WC-36-2-01-removebg-preview.png" alt="World Cup 2026 Concept 2" style="
+                        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) hue-rotate(180deg);
+                      ">
+                    </div>
+                    <div class="design-info">
+                        <h3>Design Concept of Union26</h3>
+                        <p>the logo embodies a universal spirit: football belongs to everyone, and so does this event. <br>
+
+                            Through this design, I aimed to break barriers and invite the world to see the 2026 World Cup not just as a competition, but as a collective experience- a celebration of humanity, resilience, and joy. </p>
+                    <a href="Conceptual_Work_FiFaWorldcupLOGo2026.html" class="venture-link">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="design-concept">
+                    <div class="design-img">
+                        <img src="WEB_PORTPOLIO/Typography.png" alt="World Cup 2026 Concept 2" style="
+                        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) hue-rotate(180deg);
+                      ">
+                    </div>
+                    <div class="design-info">
+                        <h3>Historical Tribute</h3>
+                        <p>Three-part design showcasing vintage football elements</p>
+                    <a href="My_Font_Collection.html" class="venture-link">Discover</a>
+                    </div>
+                </div>
+                
+                <div class="design-concept">
+                    <div class="design-img">
+                        <img src="Image/wc-concept2.jpg" alt="World Cup 2026 Concept 2">
+                    </div>
+                    <div class="design-info">
+                        <h3></h3>
+                        <p>Three-part design showcasing vintage football elements</p>
+                    <a href="#" class="venture-link">Discover</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">About The Creator</h2>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="WEB_PORTPOLIO/Gibli.png" alt="SamadTerra">
+            </div>
+            <div class="about-content">
+                <h2>Surrah</h2>
+                <p> The entrepreneurial journey is fueled by curiosity, resilience, and a deep desire to solve problems. Whether shes brainstorming a startup idea, analyzing market trends, or refining a business model, my entrepreneurial mind approaches every challenge with enthusiasm and strategic thinking. I understand that entrepreneurship is not just about making profits its about creating value, inspiring others, and leaving a lasting impact.</p>
+                <p>What truly makes unique love for graphical presentation. I believe that a well-designed visual can convey complex ideas more effectively than words alone. Whether its crafting sleek pitch decks, designing infographics, or developing engaging social media content, I know how to capture attention and tell a compelling story.
+
+                    The skills in tools like Canva, Adobe Illustrator, PowerPoint, Fontforge allow me to transform data and concepts into visually stunning presentations. For Surrah, a great design is not just about aesthetics, its about clarity, persuasion, and making an emotional connection with the audience.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <p class="copyright"> &copy; 2023-2025 Surrah Art Ventures. All rights reserved. </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without page jump
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.venture-card, .design-concept');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state
+        document.querySelectorAll('.venture-card, .design-concept').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease';
+        });
+        
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Current year for copyright
+        document.querySelector('.copyright').innerHTML = `© ${new Date().getFullYear()} Surrah Art Ventures. All rights reserved`;
+    </script>
+</body>
+</html>

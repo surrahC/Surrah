@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+     <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+
+
+    <title>My Vision to </title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0eeee;
+            color: white;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to right, #660366, #841dad);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            max-width: 600px;
+        }
+
+        /* Section Styling */
+        .container {
+            max-width: 100%;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            background: #660366;
+            padding: 40px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Layouts for Different Devices */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+        padding: 0 10px;
+    }
+
+    .section {
+        padding: 30px 20px;
+    }
+
+    .belowtotop a {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 70px;
+    }
+
+    .backtopage a {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .section h2 {
+        font-size: 1.5em;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+
+    footer {
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .belowtotop a i,
+    .backtopage a i {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .hero h1 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 0.95em;
+    }
+
+    .section {
+        margin: 10px 0;
+        padding: 20px 15px;
+    }
+
+    .section h2 {
+        font-size: 1.3em;
+    }
+
+    .section p {
+        font-size: 0.95em;
+    }
+
+    .belowtotop a,
+    .backtopage a {
+        position: static;
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .belowtotop,
+    .backtopage {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+        /* Footer */
+        footer {
+            width: 100%;
+            padding: 20px;
+            background: #5e045e;          
+            font-size: 1em;
+           
+        }
+        
+
+        .belowtotop a {
+        position: relative;
+        bottom: 90px;
+        left: 600px;
+        color: white;
+
+
+        }
+       .belowtotop a i {
+        position: absolute;
+        top: 50px;
+        font-size: 2em;
+        }
+
+        .backtopage  a {
+        position: relative;
+        bottom: 30px;
+        right: 600px;
+        color: white;
+
+        }
+
+      .backtopage a i {
+
+      font-size: 2em;
+      }
+ 
+
+        /* Keyframes for Hero Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll Animation */
+        @media (prefers-reduced-motion: no-preference) {
+            .hidden {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease-out;
+            }
+
+            .visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="top">
+
+    </div>
+
+    <section class="hero">
+
+        
+        
+        <h1>My foresight</h1>
+        <p>From aspiring corporate professional to future entrepreneur_ _ </p>
+    </section>
+
+    <div class="container">
+        <div class="section hidden">
+            <h2>Vision to Achieve Success in the Corporate World</h2>
+
+            <p style="text-align: justify;">
+                My ambition is to establish a strong and effective corporate career through continuous skill improvement, gaining relevant industry exposure, and developing a good professional network. I am keen to excel in my career, contribute towards organizational growth, and position myself as a future leader. <br> <br>
+                <strong>Building a strong fundation</strong> <br> 
+                I possess a solid education in Business Administration, and from this, I am equipping myself with relevant knowledge and the skills required for success in corporate life. The education has supplied me with background knowledge in management of business, finance, marketing, accounting technology, which will be further enriched through experience as well as life-long learning. <br> <br>
+                
+                <strong>Expect to gain corporate experiences</strong> <br>
+                
+                My immediate goal is to obtain a corporate position that is aligned with my interests and objectives. <b>I seek opportunities that will allow me to:</b> <br>
+
+                1. Be part of actual projects that enhance my analytical and problem-solving skills. <br>
+                2. Co-work with professionals and gain knowledge from experienced mentors. <br>
+                3. Be exposed to a range of business functions and industry trends. <br>
+                I am eager to contribute to an organization by applying my knowledge and bringing innovative ideas to the table while learning from industry leaders.  <br> <br>
+
+                <strong>Developing key professional skills</strong> <br>
+                To excel in the business field, I am focusing on learning fundamental skills, including: <br>
+
+                  <b>1. Leadership & Management: </b> Learning how to lead teams, manage projects, and drive business success. <br>
+                  <b>2. Strategic Thinking:</b>  Knowing the market trends, growth strategies for business, and competitive analysis. <br>
+                  <b>3. Effective Communication:</b>  Enhancing my ability to communicate ideas properly and build strong professional relationships. <br>
+                  <b>4. Problem-Solving & Decision Making:</b> Solving problems using analytical thinking and decision-making based on facts. <br>
+                  I am seeking training, mentorship, and certifications to support these skills and put myself in line for leadership roles. <br> <br>
+
+                  <strong>Career growth and leadership aspiration</strong> <br>
+                  In the years to come, I hope to transition into leadership positions where I can: <br>
+
+                  1. Take on more responsibilities and contribute to strategic decision-making. <br>
+                  2. Lead projects and teams that drive business innovation. <br>
+                  3. Build a good reputation in my profession as an effective and reliable professional. <br> <br>
+
+                  <strong>Conclusion</strong> <br>
+                  My ultimate dream is to be a world-class and highly successful corporate executive. Through education, strategic management, and leadership, I hope to make meaningful contributions to my profession and organization. By gaining experience, honing my skills, and building strong professional networks, I hope to excel in roles that promote innovation and business excellence. Through diligence and determination, I am set to grow as a corporate professional, make a mark, and succeed in my career. <br>
+
+
+                </p>
+        </div>
+
+        <div class="section hidden">
+            <h2> Vision to achieve Higher Education</h2>
+            <p style="text-align: justify;">  
+                Higher education plays an important role in shaping my professional and personal growth. My aspiration is to pursue advanced learning opportunities that will enhance my knowledge, hone my skills, and prepare me for a successful career in the business sector. Through dedication, methodical learning, and continuous self-improvement, I aim to leverage my education as a stepping stone to long-term achievement. <br> <br>
+                <strong>Defining My Education Goal</strong> <br>
+                My primary objective is to gain a sound academic grounding that is consistent with my intended career. By majoring in the international Business, economics. I am hoping to: <br>
+
+                1. Gain comprehensive knowledge and practice in my chosen course of study. <br>
+                2. Develop leadership, problem-solving, and critical thinking skills. <br>
+                3. Stay current with industry developments and evolving technologies. <br>
+                I believe that a well-rounded education will provide me with the capability to face the demands of the business world. <br> <br>
+                <strong>Finding Academic Right path</strong> <br>
+                In order to realize my vision, I am determined to pursue the best educational experiences, such as: <br> 
+
+                 <b>1. Undergraduate Studies:</b> Establishing a solid foundation in my discipline by mastering fundamentals and applied subjects. <br>
+                 <b>2. Postgraduate education:</b> Enhancing my abilities using specialist courses such as an MBA or a master's. <br>
+                 <b>3. Professional Certifications:</b> Securing industry-level certifications to upgrade my credibility and competency level. <br> <br>
+                
+                 <strong>Skills development and Practical experiences</strong> <br>
+                 Besides theoretical training, <b> I wish to gain practical experience by: 
+                </b> <br>
+                   <b>1. Internships & Work Placements:</b> Practicing academic theory in real-life business environments. <br>
+                   <b>2. Research & Projects:</b> Carrying out case studies, market research, and problem-solving exercises. <br>
+                   <b>3. Workshops & Seminars:</b> Participating in industry-sponsored training to enhance my technical knowledge and professional network. <br> <br>
+
+                   <Strong>Overcome challenges</Strong> <br>
+                   Achieving a higher learning comes with obstacles that involve tough course loads, organization of time, and adaptation to new learning modes. I am committed to overcome such obstacles by: <br>
+
+                    1. Practicing discipline and perseverance in studying. <br>
+                    2. Seeking advice from industry professionals, professors, and mentors. <br>
+                    3. Participating in lifelong learning to stay improving with business requirements. <br>
+                 With a growth mindset and determination, I will make sure that my academic life remains fruitful and fulfilling. <br> <br>
+
+                 <strong> Long term vision and career impect </strong> <br>
+                 My university education is not merely about gaining degrees, it is about building my future. I see my education being utilized to: <br>
+
+                 1. Gain fulfilling positions in the corporate sector. <br>
+                 2. Take on leadership roles and contribute to business growth. <br>
+                 3.  Keep ahead of the times and keep refining my skill set. <br>
+                 With a good academic foundation, I will be well positioned to tackle my career and make meaningful contributions in my field of work. <br> <br>
+
+                 <strong>Conclusion</strong> <br>
+                 My future at the higher learning is to provide myself with the knowledge, skills, and experience needed to excel in business life. Focusing on academic excellence, hands-on experience, and continuous self-improvement, I intend to position myself as a brilliant professional. Education has the potential to open doors to new horizons, and I am committed to maximizing it to achieve my long term career goals.
+
+
+ 
+
+            </p>
+        </div>
+
+        <div class="section hidden">
+            <h2>Finding a Mentor</h2>
+            <p style="text-align: justify;">
+                A mentor plays a pivotal role in professional success through mentoring, wisdom, and motivation. I wish to encounter a mentor with similar career aspirations, provide assistance in breaking obstacles, and motivate me to be a better corporate professional. I aim to learn industry knowledge, develop essential skills, and make suitable career decisions leading to long-term success through mentorship. <br> <br>
+                <strong>Importance of mentorship</strong> <br>
+                
+                I firmly believe that mentorship is the source of both professional and personal development. <b>A mentor can:</b> <br>
+
+               1. Provide valuable advice based on practical experience. <br>
+               2. Offer professional guidance and help me set realistic, clear goals. <br>
+               3. Provide insights on business strategies, industry trends, and leadership skills. <br>
+               4. Lead me to build confidence and resilience in resolving professional problems. <br>
+               By learning from someone who has already walked the path that I want to walk, I can accelerate my growth and avoid mistakes. <br> <br>
+
+               <strong>Identifying the right mentor</strong> <br>
+               To find a perfect mentor, <b>I seek one who:</b> <br>
+ 
+               1. Has a lot of experience in my raw area. <br>
+               2. Aligns with my values, ambitions, and long term goals. <br>
+               3. Has strong leadership attributes and an ability to pass on information. <br>
+               4. Promotes lifelong learning and professional development. <br>
+              I hope to join the community of industry leaders, senior professionals, and experienced colleagues who can offer me guidance on how to succeed. <br> <br>
+
+              <strong>Establishing Solid Mentorship Ties</strong> <br>
+              Once I identify a suitable mentor, <b>my plan is to:</b> <br>
+
+              1. Sit down with them and give them a good idea of what I want to do. <br>
+              2. Listen actively and implement their suggestions to practical situations. <br>
+              3. Follow open and respectful communication. <br>
+              4. Show appreciation for their time and advice. <br>
+             A sound mentorship relationship is grounded on trust, respect, and learning. I am committed to being an active and serious mentee. <br> <br>
+
+             <strong>Pursuing Mentorship from Various Avenues</strong> <br> 
+              To find the right mentor, I plan to follow several avenues, <b>including:</b> <br>
+
+               <b>1. Networking Sessions & Seminars:</b> Meeting and talking to industry experts and leaders. <br>
+              <b>2. Professional Associations & LinkedIn:</b> Connecting with experienced professionals in my field. <br>
+              <b>3. Workplace Mentorship Programs:</b> Seeking advice from experienced supervisors or coworkers. <br>
+             <b>4. Online Learning Platforms & Webinars:</b>Learning from thought leaders and industry influencers. <br>
+             Through networking and contacting them, I expect to have mentors who will provide useful tips and career direction. <br> <br>
+             
+             
+
+
+             <strong>Using Mentorship for Professional Achievement</strong> <br>
+              Mentorship is not just following advice, it's about acting on that to resolve actual professional challenges. <b>I aim to:</b> <br>
+                1. Enhance leadership and decision-making skills. <br>
+               2. Be confident in addressing complex professional issues. <br>
+              3. Set and achieve career landmarks with strategic guidance. <br>
+              4. Create a road map to long-term corporate success. <br>
+             I will always seek counsel, better myself, and stay devoted to learning to ensure that mentorship makes a lasting impact on my career. <br> <br>
+
+             <strong>Conclusion</strong> <br>
+             Finding a mentor will be a significant aspect of my professional life. By networking with successful individuals, building close relationships, and following their guidance, I aim to develop my professional growth and achieve my corporate aspirations. Mentorship will provide me with the skills, knowledge, and self-confidence to excel in my desired profession and become a successful leader in the future. <br> <br>
+
+
+            </p>
+        </div>
+
+        <div class="section hidden">
+            <h2>My Entrepreneurship Vision</h2>
+            <p style="text-align: justify;">Entrepreneurship is not just starting a business but innovation, leadership, and value creation. My dream is to establish a successful business that not only fulfills market needs but also creates a long-lasting legacy. With my corporate experience, knowledge, and industry insight, I see myself transforming from a corporate expert into a successful entrepreneur. Through strategic planning, continuous learning, and perseverance, I am committed to long-term business success. <br> <br>
+                
+                
+                <strong>Building strong basement</strong> <br>
+                Before I take the leap into entrepreneurship, <b>I wish to lay a solid groundwork by:</b> <br> 
+
+                <b>1. Acquiring Corporate Experience:</b> Learning business operations, finance management, and leadership through real-world corporate experience. <br>
+                <b>2. Developing Key Skills:</b> Developing problem-solving, decision-making, risk management, and strategic planning skills. <br>
+                <b>3. Market Needs Understanding:</b> Conducting research to identify industry gaps and areas of innovation. <br>
+                A strong background will make me more capable of dealing with the struggles of being an entrepreneur. <br> <br>
+
+                <strong>Making the Right Choice of Career</strong> <br>
+
+                 I will be setting up an enterprise that aligns with my strengths, interests, and the market demand. <b>My focus will be on:</b> <br>
+
+                <b>1. Industry & Market Research:</b> Looking for an industry with room for growth and reasonable prospects. <br>
+                <b>2. Innovative Solutions:</b> Offering new products or services that address customer pain points. <br>
+                <b>3. Scalability & Sustainability:</b> Ensuring my business model is scalable and can support long-term growth. <br>
+                By choosing the right business niche, I will have the greatest opportunity for success and influence. <br> <br>
+
+                <strong>Developing a Business Plan  </strong> <br>
+                 In creating a sound and competitive business, <b>I will take note of:</b> <br>
+
+                  <b>1. Developing a Business Plan:</b> Defining my vision, goals, target market, and financial plan. <br>
+                  <b>2. Establishing a Powerful Brand:</b> Developing a unique brand that resonates with customers. <br>
+                  <b>3. Financial Planning & Investment: </b>Raising funds, managing cash flow, and ensuring profitability. <br>
+                  <b>4. Harnessing Technology & Innovation: </b>Deploying technology tools and innovative techniques to streamline operations and maximize efficiency. <br> 
+                    A well-crafted business plan will be my roadmap to success. <br> <br>
+                <strong>Overcoming Challenges & Embracing Risks </strong> <br>
+                Entrepreneurship doesn't come without taking some uncertainties and challenges, but <b>I'm willing to:</b> <br>
+
+               <b>1. Make Informed Decisions:</b> Taking calculated risks based on weighing risk and opportunity. <br>
+                <b>2. Adapting to Market Changes:</b> Staying flexible and sensitive to industry trends and customer needs. <br>
+                <b>3. Building Resilience:</b> Learning from my failures and continually working on my strategies. <br>
+                <b>Through embracing challenges</b>, I will increase my ability to cope with the entrepreneurial world's dynamism. <br>  <br>
+ 
+                <strong>Leadership & Team Building</strong> <br>
+                 Entrepreneurship also requires being a good leader. <b> My vision includes:</b> <br>
+
+                <b>1. Establishing a Talented Team:</b> Hiring and collaborating with talented individuals who share my vision. <br>
+                <b>2. Establishing a Positive Work Culture:</b> Creating an atmosphere of innovation and collaboration. <br>
+                <b>3. Empowering Others:</b> Supporting and guiding prospective professionals and businesspersons. <br>
+                 Strong leadership and cooperation will be important in driving my business to achievement. <br> <br>
+
+                 <strong>Scaling & Long-Term Growth</strong> <br>
+                  Apart from starting my business, <b> my goal is to:</b> <br>
+
+                    <b>1. Scale Nationally & Internationally: </b>Looking for expansion opportunities in new markets. <br>
+                  <b>2. Diversify Offerings: </b>Diversifying product or service lines through innovation. <br>
+                 <b>3. Create a Social Impact: </b>Creating a business that not only generates profit but also positively impacts society. <br>
+                 A long-term vision will help me to sustain and grow my entrepreneurial journey. <br> <br>
+
+
+             
+            </p>
+
+            <a href="Project_Views.html" style="float: right; text-decoration: none; font-size: 20px ; cursor: pointer; color: white;">Concept</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024-2025 (Surrah), All Rights Reserved.</p>
+        <div class="belowtotop">
+        <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+      <div class="backtopage">
+        <a href="#back" class="back-to-page"><i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const sections = document.querySelectorAll('.hidden');
+
+        const showSection = () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 50) {
+                    section.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', showSection);
+        showSection(); // Run on page load
+
+
+
+        // the page loads at the top or with no specific section in the URL
+    window.addEventListener('load', function() {
+            if (window.location.hash === "") {
+                // If no section is specified in the URL (no hash), scroll to the Home section
+                document.querySelector('#top').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');  
+        const targetElement = document.querySelector(targetId);
+
+        // Check if the target exists and is not just '#'
+        if (targetElement && targetId !== "#") {  
+            e.preventDefault();  // Prevent default only for valid internal links
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="WEB_PORTPOLIO/Project-01-01.png">
+    <title>SARACHY - Luxury Perfume</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f9f3f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #660366;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #660366;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 80px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 0 5%;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            color: #660366;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            max-width: 500px;
+        }
+
+        .hero-description {
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: #660366;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-button:hover {
+            background-color: #6d4722;
+            transform: scale(1.05);
+        }
+
+        .perfume-bottle {
+            flex: 1;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottle {
+            width: 300px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+            border-radius: 30px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .bottle::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+        }
+
+        .bottle-cap {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(to bottom, #8f098f, #a649c2);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .liquid {
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 80%;
+            background: linear-gradient(to top, #660366, #7f4b8b);
+            border-radius: 0 0 20px 20px;
+            transition: height 0.5s;
+        }
+
+        .bottle-reflection {
+            position: absolute;
+            top: 20%;
+            right: 15%;
+            width: 30%;
+            height: 30%;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 100px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #660366;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #660366;
+        }
+
+        .feature-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        /* Categories Section */
+        .categories {
+            background-color: #fff;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 350px;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: scale(1.03);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-image {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .category-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: #f9f3f0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(139, 90, 43, 0.8);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #660366;
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin-bottom: 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .perfume-bottle {
+                height: auto;
+                margin-top: 50px;
+            }
+
+            .bottle {
+                width: 200px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SARACHY</div>
+            <div class="nav-links">
+               
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">SARACHY</h1>
+            <h2 class="hero-subtitle">Elegance in Every Drop</h2>
+            <p class="hero-description">
+                Experience the essence of luxury with SARACHY's signature fragrance. 
+                A harmonious blend of rare woods, delicate florals, and exotic spices 
+                that captivates the senses and leaves a lasting impression.
+            </p>
+
+        </div>
+        <div class="perfume-bottle">
+            <div class="bottle" id="perfumeBottle">
+                <div class="bottle-cap"></div>
+                <div class="liquid" id="perfumeLiquid"></div>
+                <div class="bottle-reflection"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section categories" id="categories">
+        <h2 class="section-title">Proposed Perfume </h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="WEB_PORTPOLIO/Proposed_Design (2).png" alt="Floral Perfume" class="category-image">
+                <div class="category-overlay">
+                    <h3 class="category-name">Floral</h3>
+                    <p>Delicate blossom fragrances</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="WEB_PORTPOLIO/Proposed_Design (1).png" alt="Woody Perfume" class="category-image">
+                <div class="category-overlay">
+                    <h3 class="category-name">Woody</h3>
+                    <p>Earthy and warm aromas</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="WEB_PORTPOLIO/Proposed_Design (4).png" alt="Citrus Perfume" class="category-image">
+                <div class="category-overlay">
+                    <h3 class="category-name">Citrus</h3>
+                    <p>Fresh and zesty scents</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="WEB_PORTPOLIO/Proposed_Design (3).png" alt="Oriental Perfume" class="category-image">
+                <div class="category-overlay">
+                    <h3 class="category-name">Oriental</h3>
+                    <p>Exotic and spicy blends</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+        <h2 class="section-title">Perfume Catalogue</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="WEB_PORTPOLIO/perfume_Catalogue (3).png" alt="SARACHY Classic" class="gallery-image">
+                <div class="gallery-caption">SARACHY Classic</div>
+            </div>
+            <div class="gallery-item">
+                <img src="WEB_PORTPOLIO/perfume_Catalogue (2).png" alt="SARACHY Limited Edition" class="gallery-image">
+                <div class="gallery-caption">Gift Combo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="WEB_PORTPOLIO/perfume_Catalogue (4).png" alt="SARACHY Gift Set" class="gallery-image">
+                <div class="gallery-caption">Sarachy Luxury</div>
+            </div>
+            <div class="gallery-item">
+                <img src="WEB_PORTPOLIO/perfume_Catalogue (1).png" alt="SARACHY Ingredients" class="gallery-image">
+                <div class="gallery-caption">Flower Ingredients</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features" id="features">
+        <h2 class="section-title">What we have plan for SARACHY</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3 class="feature-title">Natural Ingredients</h3>
+                <p>Make with the finest natural essences sourced from around the world.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">Long Lasting</h3>
+                <p>Our unique formula ensures the fragrance lasts throughout your day.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">Luxury Design</h3>
+                <p>Each bottle is a work of art, crafted with precision and elegance.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">Affordable Cost</h3>
+                <p>Make it budget-friendly and accessible to almost every customer.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-logo">SARACHY</div>
+        <div class="footer-links">
+        </div>
+        <p>&copy; 2024-2025 (Surrah) Sarachy, All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Bottle tilt effect
+        const bottle = document.getElementById('perfumeBottle');
+        const liquid = document.getElementById('perfumeLiquid');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            const tiltX = (y - 0.5) * 20;
+            const tiltY = (0.5 - x) * 20;
+            
+            bottle.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            
+            const liquidHeight = 80 - Math.abs(tiltX) * 0.5;
+            liquid.style.height = `${Math.max(30, liquidHeight)}%`;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            bottle.style.transform = 'rotateX(0) rotateY(0)';
+            liquid.style.height = '80%';
+        });
+
+        // Button hover effect
+        const ctaButton = document.querySelector('.cta-button');
+        
+        ctaButton.addEventListener('mouseenter', () => {
+            ctaButton.style.transform = 'scale(1.05)';
+        });
+        
+        ctaButton.addEventListener('mouseleave', () => {
+            ctaButton.style.transform = 'scale(1)';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = (elements, className) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(className);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Animate category cards
+        const categoryCards = document.querySelectorAll('.category-card');
+        categoryCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.5s ${index * 0.1}s, transform 0.5s ${index * 0.1}s`;
+        });
+        animateOnScroll(categoryCards, 'show');
+
+        // Animate gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = `opacity 0.5s ${index * 0.1}s, transform 0.5s ${index * 0.1}s`;
+        });
+        animateOnScroll(galleryItems, 'show');
+
+        // Add show class to elements when they become visible
+        const showElements = document.querySelectorAll('.feature-card, .category-card, .gallery-item');
+        showElements.forEach(el => {
+            el.classList.add('show-element');
+        });
+
+        // Define show class in CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            .show-element {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

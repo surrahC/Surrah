@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Training Section</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 200vh;
+            background: linear-gradient(120deg, #6c00aade, #9b129b);
+            background-attachment: scroll;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Floating Background Animation */
+        .circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .circle:nth-child(1) { top: 10%; left: 80%; width: 80px; height: 80px; animation-duration: 7s; }
+        .circle:nth-child(2) { bottom: 15%; right: 20%; width: 100px; height: 100px; animation-duration: 9s; }
+        .circle:nth-child(3) { left: 50%; bottom: 40%; width: 90px; height: 90px; animation-duration: 11s; }
+        .circle:nth-child(4) { top: 50%; left: 20%; width: 90px; height: 90px; animation-duration: 7s; }
+        .circle:nth-child(5) { right: 50%; bottom: 20%; width: 50px; height: 50px; animation-duration: 11s; }
+        .circle:nth-child(6) { bottom: 70%; left: 50%; width: 100px; height: 100px; animation-duration: 9s; }
+        .circle:nth-child(7) { bottom: 50%; left: 20%; width: 100px; height: 100px; animation-duration: 9s; }
+        .circle:nth-child(8) { bottom: 40%; left: 70%; width: 100px; height: 100px; animation-duration: 9s; }
+        .circle:nth-child(9) { bottom: 5%; left: 30%; width: 100px; height: 100px; animation-duration: 9s; }
+        .circle:nth-child(10) { top: 2%; right: 80%; width: 80px; height: 80px; animation-duration: 7s; }
+        .circle:nth-child(11) { top: 3%; right: 10%; width: 80px; height: 80px; animation-duration: 7s; }
+        .circle:nth-child(12) { top: 5%; left: 50%; width: 80px; height: 80px; animation-duration: 7s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(20px); }
+            100% { transform: translateY(0px) translateX(0px); }
+        }
+
+        /* Headline Section */
+        #boldtext {
+            padding: 80px;
+            width: 100%;
+        }
+
+        #boldtext h1 {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* News Headline */
+        .news-headline {
+            width: 80%;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border: 2px solid white;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Two Box Section */
+        .two-boxes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .one-boxes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin-bottom: 50px;
+        }
+
+        .box {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .box p {
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 10px;
+            color: white;
+            text-align: left;
+        }
+
+        /* Fixed Footer */
+        footer {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+            bottom: 0;
+            left: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <!-- Training Headline -->
+    <div id="boldtext">
+        <h1>All Trained Programs</h1>
+    </div>
+
+    <!-- First Training Section -->
+    <div class="news-headline">
+        Be a Supply Chain Leader
+    </div>
+    <div class="two-boxes">
+        <div class="box">
+            <img src="WEB_PORTPOLIO/My_Picture_SCM.jpg" alt="">
+
+            <img src="WEB_PORTPOLIO/My_Picture_SCM_Two.jpg" alt="">
+
+            
+
+        </div>
+        <div class="box">
+            <p> <strong>Introduction:</strong> <br>
+                The Supply Chain Management (SCM) Workshop was organized on December 3rd to provide a comprehensive understanding of supply chain operations, strategies, and optimization techniques. This workshop aimed to equip participants with knowledge of modern supply chain dynamics, logistics, procurement, and technology-driven solutions. <br>
+                
+                <strong>Workshop Details</strong> <br>
+                Date: December 3rd, 2016 <br>
+                <strong>Topics Covered:</strong> <br>
+                Fundamentals of Supply Chain Management
+                Logistics and Transportation Management
+                Procurement and Inventory Control
+                Digitalization in Supply Chains
+                Risk Management and Sustainability
+                Case Studies and Industry Trends. <br>
+                <strong>Format:</strong> <br>
+                Interactive sessions, expert lectures, case studies, and Question and Answer discussions
+                Target Audience: Students, professionals, and entrepreneurs interested in SCM. <br>
+
+                <strong>Importance of Supply Chain Management:</strong> <br>
+
+                Supply chain management plays a crucial role in business efficiency, cost reduction, and customer satisfaction. Effective SCM ensures smooth operations, timely delivery, and adaptability to market changes. With globalization and technological advancements, businesses must adopt strategic SCM approaches to stay competitive. <br>
+                
+                <strong>Career Opportunities in SCM:</strong> <br>
+                A career in supply chain management offers diverse roles across industries, such as: <br>
+                
+                 1. Supply Chain Analyst <br>
+                 2. Logistics Manager <br>
+                 3. Procurement Specialist <br>
+                 4. Operations Manager <br>
+                 5. Inventory Planner <br> 
+                 6. Supply Chain Consultant <br>  
+
+               <strong> Workshop Objectives:</strong> <br>
+                1. To provide an in-depth understanding of supply chain processes. <br>
+                2. To enhance analytical and problem-solving skills in SCM. <br>
+                3. To introduce modern technologies and trends in the industry. <br>
+                4. To prepare participants for career opportunities in supply chain and logistics. <br>
+                5. To foster networking among industry professionals and aspiring SCM experts. </p>
+        </div>
+    </div>
+
+    <!-- Second Training Section -->
+    <div class="news-headline">
+        Practical Training Program in Basic Operation of Accounting and Inventory Software named Tally.ERP 9
+    </div>
+    <div class="two-boxes">
+        <div class="box">
+            <img src="WEB_PORTPOLIO/My_Picture_TALLYERP_NINE.jpg" alt="Training Image">
+        </div>
+        <div class="box">
+            <p>  
+
+                <strong>Introduction:</strong> <br>
+                A <b>Practical Training Program on Tally.ERP 9</b> was conducted from <b>July 18th to July 20th in 2019</b>, aimed at equipping participants with hands-on expertise in one of the most widely used accounting software. This workshop provided in-depth knowledge on financial accounting, inventory management, taxation, and business reporting using <b>Tally.ERP 9</b>, helping participants enhance their professional skills in accounting and financial management. <br>  
+                 
+                
+                <strong> Objectives:  </strong> <br>
+                1. To introduce participants to the fundamentals of <b>Tally.ERP 9 .</b>  
+                2. To provide hands-on experience in <b>ledger creation, voucher entry, and financial statements.</b> 
+                3. To familiarize participants with <b>GST compliance, tax calculations, and payroll management.</b> 
+                4. To enhance practical accounting skills for better job opportunities in finance and accounting. <br>
+            
+                <strong>Key Highlights:</strong><br>
+                1. <b>Live demonstrations</b> and <b>case studies</b> to understand real-world applications.  <br>
+                2. <b>Interactive sessions</b> with industry experts for guidance and insights.  <br>
+                3. <b>Hands-on practice </b>to ensure practical proficiency in Tally.ERP 9.  <br>
+                4. <b>Certification</b> provided upon successful completion of the training.  <br>
+                
+                This workshop proved to be an essential learning opportunity for students, professionals, and entrepreneurs looking to strengthen their accounting and financial management skills.</p>
+        </div>
+    </div>
+
+
+    <!-- Third Training Section -->
+    <div class="news-headline">
+        Training Workshop on Statistical Package for the Social Sciences
+    </div>
+    <div class="two-boxes">
+        <div class="box">
+            <img src="WEB_PORTPOLIO/My_Picture_SPSS.jpg" alt="Training Image">
+            <img src="WEB_PORTPOLIO/My_Picture_SPSS_Two.jpg" alt="Training Image">
+        </div>
+        <div class="box">
+            <p> <strong>Introduction:</strong> <br>
+                The Training Workshop on SPSS was organized to provide participants with a comprehensive understanding of Statistical Package for the Social Sciences (SPSS), a powerful software widely used for statistical analysis in research and data-driven decision-making. The workshop aimed to equip attendees with hands-on skills in data management, statistical techniques, and interpretation of results for academic, business, and social research purposes.
+                
+                <strong>Workshop Details:</strong> <br>
+                <strong>Date: </strong> <br>
+                <strong>Mode:</strong> <br>
+                <strong>Topics Covered:</strong> <br>
+
+
+                1. Introduction to SPSS and its interface. <br>
+                2. Data entry, cleaning, and management. <br>
+                3. Descriptive and inferential statistical analysis. <br>
+                4. Hypothesis testing and regression analysis. <br>
+                5. Data visualization and interpretation of results. <br>
+                6. Practical case studies and hands-on exercises. <br>
+                 <strong>Importance of SPSS:</strong> <br>
+                SPSS is a widely used statistical software that helps in analyzing large datasets efficiently. It is particularly beneficial in: <br>
+                
+                <b>Academic research:</b> Conducting quantitative studies and validating hypotheses. <br>
+                <b>Business and marketing:</b> Analyzing customer behavior and market trends. <br>
+                <b>Healthcare and social sciences:</b> Identifying patterns in medical and social research. <br>
+                <b>Government and policy-making:</b> Evaluating economic and demographic data for better decision-making. <br>
+                <strong>Objectives of the Workshop:</strong> <br>
+                 1. To introduce participants to the basics of SPSS and its functionalities. <br>
+                2. To develop skills in data entry, cleaning, and statistical analysis. <br>
+                3. To enhance understanding of descriptive and inferential statistical techniques. <br>
+                4. To improve research capabilities by applying SPSS in real-world case studies. <br>
+                 5. To enable participants to interpret statistical results effectively for decision-making. <br>
+                <strong>Key Functions of SPSS:</strong> <br>
+                SPSS provides a range of functions essential for statistical data analysis, including: <br>
+                
+                <b>Data Management:</b> Importing, organizing, and transforming data. <br>
+                <b>Descriptive Statistics:</b> Mean, median, mode, standard deviation, and frequency distributions. <br>
+                <b>Inferential Statistics:</b> T-tests, ANOVA, chi-square tests, correlation, and regression analysis. <br>
+                <b>Data Visualization:</b> Graphs, charts, and histograms for better interpretation. <br> 
+                <b>Advanced Analysis:</b> Factor analysis, time series forecasting, and multivariate analysis. <br>
+        </div>
+    </div>
+
+    <!-- Third Training Section -->
+    <div class="news-headline">
+        2D Animation, Video Editing/ Videography, Photography & 3D Animation
+    </div>
+    <div class="two-boxes">
+        <div class="box">
+            <img src="WEB_PORTPOLIO/My_Picture_Animation.jpg" alt="Training Image">
+        </div>
+        <div class="box">
+            <p>
+         <strong>Total Hours:</strong> 216   <br>
+         <strong>Duration:</strong>  <br>
+         This intensive training program covered essential skills in 2D animation, video editing, videography, photography, and 3D animation. The course was designed to equip participants with hands-on experience in industry-standard software, content creation, and freelancing strategies, preparing them for careers in digital media, content production, and online branding. <br>
+         <strong>2D Animation & Motion Graphics:</strong> <br>
+          <b>Topics Covered:</b> <br>
+          <b>Adobe Animation & Motion Graphics: </b>Learning 2D animation principles, frame-by-frame animation, and digital character animation. <br>
+         <b>Motion Advertisement & Infographics: </b>Creating engaging animated ads, social media content, and promotional videos. <br>
+          <b>Storyboarding & Concept Development: </b> Understanding visual storytelling, character design, and animation workflow. <br>
+
+          <strong>3D Animation & Modeling</strong> <br>
+        <b> Topics Covered:</b> <br>
+         <b>Blender & Maya 3D Concepts:</b> <br>
+         Modeling, texturing, rigging, and animation using Blender.
+         Introduction to Maya 3D for professional animation techniques. <br>
+         <b>Lighting & Rendering:</b> Understanding realistic lighting, shading, and rendering techniques for 3D animation. <br>
+        <b>Visual Effects (VFX): </b>Introduction to special effects, particle simulations, and CGI integration. <br>
+          
+        <strong>Videography & Video Editing</strong>
+        <b>Topics Covered:</b>
+        <b>Cinematography & Camera Techniques:</b> Understanding camera angles, composition, lighting, and professional shooting techniques.
+        <b>Adobe Premiere Pro & After Effects:</b> Learning video editing, transitions, color grading, and post-production effects.
+        <b> Motion Graphics & Titles: </b>Creating animated text, lower thirds, and visual overlays for videos.
+       <b> Content Build-up for YouTube & LinkedIn: </b>Strategies for content creation, audience engagement, and personal branding.
+
+    </p>
+
+        </div>
+    </div>
+
+    <!-- Fourth Training Section -->
+    <div class="news-headline">
+        Japanese Language Learning Course [Minna No Nihongo]
+    </div>
+    <div class="two-boxes">
+        <div class="box">
+            <img src="WEB_PORTPOLIO/My_picture_Japanese.jpg" alt="Training Image"> <br>
+            <img src="WEB_PORTPOLIO/My_picture_Japanese_Two.jpg" alt="Training Image">
+
+        </div>
+        <div class="box">
+            <p> <strong>Date & Host</strong> <br>
+                <strong>Duration:</strong> May to October 2022 <br>
+                <Strong>Host:</Strong> Sunanda Rubi Mam <br>
+                <strong>Introduction:</strong>  <br>
+                The Japanese Language Learning Course Minna No Nihongo was designed to provide a structured and immersive learning experience in the Japanese language. The course covered fundamental aspects such as grammar, vocabulary, sentence formation, writing, speaking, listening, and reading, ensuring a well-rounded approach to language acquisition. It was tailored for beginners and intermediate learners aiming to build proficiency in Japanese communication. <br>
+                
+                <strong>Grammar & Vocabulary</strong> <br>
+                 1. Learning essential Japanese grammar rules, including verb conjugations and sentence structures. <br>
+                 2. Expanding vocabulary with commonly used words and phrases. <br>
+                  3. Understanding particles and their role in sentence formation. <br>
+                <strong>Sentence Making & Writing</strong> <br>
+                 1. Constructing sentences from basic to advanced levels using proper grammar. <br>
+                 2. Practicing <b>Hiragana</b>, <b>Katakana</b>, and basic <b> Kanji </b> for writing and comprehension. <br>
+                 3. Writing short essays, diary entries, and structured responses in Japanese. <br>
+                <strong>Speaking & Listening</strong> <br>
+                 1. Engaging in conversation practice to enhance fluency. <br>
+                 2. Improving pronunciation and intonation for natural speech. <br>
+                 3. Listening exercises with native speaker dialogues and audio materials to boost comprehension skills. <br>
+                <strong>Reading & Comprehension</strong> <br>
+                 1. Reading short stories, dialogues, and articles in Japanese. <br>
+                 2. Developing strategies to understand context, infer meanings, and expand vocabulary. <br>
+                 3. Practicing reading comprehension exercises and discussions. <br>
+                <strong>Examination & Certification</strong> <br>
+                 1. A final examination was conducted to assess in grammar, writing, speaking, listening, and reading. <br>
+                 2. I attended once the <b>NAT Exam</b>, an internationally recognized Japanese language proficiency test.</p> <br>
+        </div>
+    </div>
+
+    <!-- Fourth Training Section -->
+    <div class="news-headline">
+       Graphics And Web Design/Freelance
+    </div>
+    <div class="two-boxes">
+        <div class="box">
+            <p>
+                <strong>Duration:</strong> August 2021 to November 2021 <br>
+                This training program was designed to provide participants with hands-on expertise in <b>Graphics Design</b>, and <b>Freelancing</b>. <br>
+                <strong>Topics Covered</strong> <br>
+               <b> Adobe Software Maneuver:</b> Hands-on training in Adobe Photoshop, Illustrator, and InDesign for professional design work. <br>
+                <b>Color Selection & Theory:</b> Understanding color psychology, contrast, and theme consistency for effective design. <br>
+                <b>Design Principles:</b> Exploring layout composition, typography, and visual hierarchy to create compelling graphics. <br>
+                <b>Design Principles:</b> Creating social media graphics, posters, banners, and branding materials. <br> 
+                <b>Freelancing on Fiverr & Upwork:</b> Setting up profiles, creating gigs, pricing services, and handling clients efficiently. <br>
+                <b>Print & Digital Media Design:</b> Learning the difference between print and web design, preparing high-resolution designs for publishing. <br>
+             
+            
+            </p>
+
+        </div>
+        <div class="box">
+
+           <p>
+            <strong>Duration:</strong>  <br>
+            The course was designed to equip participants with creative design skills, technical web development knowledge, and freelancing strategies to build a successful online career. <br>
+
+
+           <strong> Topics Covered:</strong> <br>
+          <b> HTML, CSS, JavaScript:</b> Core technologies for building responsive and interactive websites. <br>
+          <b> Bootstrap Framework:</b> Using Bootstrap for fast and mobile-friendly web design. <br> 
+           <b>Visual Studio Code (VS Code):</b> Learning how to use a code editor for efficient web development. <br>
+          <b>Server Run & Local Development:</b> Setting up a local server environment for testing websites. <br> 
+          <b>Website Hosting & Domain Management:</b> Learning how to deploy a website, purchase domains, and manage hosting. <br> 
+          <b>UI/UX Fundamentals:</b> Basics of user interface and experience design for better website functionality and aesthetics. <br>
+          <b>SEO & Performance Optimization:</b> Understanding search engine optimization and site speed improvements. <br>
+           <b> Freelancing & Career Growth: </b>Learning how to market web development skills, find clients, and manage projects effectively. <br>
+
+
+           </p>
+
+
+           
+            
+
+
+        </div>
+    </div>
+
+
+    <!-- Fourth Training Section -->
+    <div class="news-headline">
+        Intelligent Management of Working Capital to Protect Business Continuity
+    </div>
+    <div class="one-boxes">
+        
+        <div class="box">
+            <p>
+                <strong>Duration:</strong> <br>
+
+The <b>Intelligent Management of Working Capital to Protect Business Continuity</b> training program was designed to help businesses effectively manage their financial resources, optimize cash flow, and ensure long-term sustainability. The program focused on key aspects of working capital, including cash flow management, accounts receivable and payable optimization, inventory control, and financial risk management. By applying intelligent strategies, businesses can maintain liquidity, reduce financial stress, and navigate economic uncertainties.  
+
+A significant part of the training covered <b>cash flow forecasting and budgeting techniques</b>, enabling participants to anticipate financial challenges and make data-driven decisions. The course emphasized the importance of <b>efficient accounts receivable and payable management</b>, helping businesses maintain strong supplier and customer relationships while ensuring steady cash inflows. Additionally, participants learned about <b>inventory management strategies</b> that reduce excess stock while maintaining optimal supply levels, preventing unnecessary capital lock-ups.  
+
+Risk management was another critical area, focusing on identifying financial risks, mitigating potential disruptions, and implementing contingency plans to safeguard business continuity. The role of <b>technology and automation</b> in modern working capital management was also highlighted, demonstrating how digital tools can improve efficiency and decision-making. Through real-world case studies and best practices, participants gained valuable insights into how successful companies optimize their working capital to stay competitive.  
+
+By the end of the training, attendees were equipped with practical skills and financial strategies to enhance <b>liquidity, reduce financial risks, and improve overall business resilience</b>. This program provided a comprehensive approach to <b>intelligent working capital management</b>, ensuring businesses can thrive even in challenging economic conditions.
+
+
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Training Section | All Rights Reserved
+    </footer>
+
+</body>
+</html>

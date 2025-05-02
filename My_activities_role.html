@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+
+
+  <title>My Activities</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+      color: #fff;
+      background: linear-gradient(135deg, #660366, #9b129b);
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Unique Flowing Waves Background */
+    .background-waves {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .background-waves svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      /* Changed animation: now horizontal movement */
+      animation: waveMove 10s infinite linear alternate;
+    }
+
+    @keyframes waveMove {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(30px);
+      }
+    }
+
+    /* Hero Section - Centered "My Best Time" with Slogan */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .hero-section h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 20px;
+      animation: pop 3s infinite alternate;
+    }
+
+    .hero-section p {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.8);
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+      margin-top: 50px; /* Space below hero section */
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .image-box img {
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      animation: floatImage 3s infinite ease-in-out alternate;
+    }
+
+    @keyframes floatImage {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .text-box {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Footer Animation */
+    .footer {
+      margin-top: 80px;
+      justify-content: center;
+      text-align: center;
+      font-size: 1rem;
+      opacity: 0.8;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .footer a {
+      position: absolute;
+      bottom: 100px;
+      right: 120px;
+      color: white;
+
+
+    }
+    .footer a i {
+      position: absolute;
+      top: 50px;
+      font-size: 2em;
+    }
+
+    .footer a i:hover {
+      color: yellow;
+    }
+
+
+
+    .back-to-web  a {
+      position: absolute;
+      bottom: 30px;
+      left: 120px;
+      color: white;
+
+    }
+
+    .back-to-web a i {
+
+      font-size: 2em;
+    }
+
+    
+
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+   <div id="top"></div>
+  <div class="background-waves">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path
+        fill="rgba(155, 18, 155, 0.3)"
+        fill-opacity="1"
+        d="M0,160L48,154.7C96,149,192,139,288,138.7C384,139,480,149,576,154.7C672,160,768,160,864,149.3C960,139,1056,117,1152,122.7C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      ></path>
+    </svg>
+  </div>
+
+  <!-- Hero Section with Slogan -->
+  <section class="hero-section">
+    <h1>My Best Time</h1>
+    <p>Where memories and moments come alive</p>
+  </section>
+
+  <div class="container-wrapper">
+    <div class="container">
+      <h2 style="border-bottom: 2px solid white;">Model United Nation Mock Up Workshop</h2>
+      <p class="subtext">"Strategies for Sustainable Development for Urban Society"</p>
+      <div class="image-box">
+        <img src="WEB_PORTPOLIO/My_Activities_MUN_MU_Two.jpg"   alt="Activity Image" />
+        <img src="WEB_PORTPOLIO/My_Activities_MUN_MU.jpg"   alt="Activity Image" />
+      </div>
+      <div class="text-box">
+        <p style="text-align:justify">
+            <strong>Date:</strong> January 23 to 25, 2019. <br>
+            <strong>Venue:</strong> Metropolitan University. <br>
+            
+           <strong> Overview </strong> <br> 
+            The Model United Nations (MUN) workshop, held from January 23 to January 25, 2019, brought together delegates from 26 countries to discuss strategies for sustainable development in urban societies. Participants engaged in diplomatic debates, negotiations, and committee sessions, simulating real UN proceedings to address urban challenges and sustainable policies.  
+            
+            Various committees were formed to tackle specific aspects of sustainability, allowing delegates to engage in policy making, resolution drafting, and strategic discussions. <br> <br>
+            
+            <strong>Participating Countries:</strong> <br> <br>
+            <b>Europe:</b> Albania, Belgium, Sweden, Germany, Italy, France, Russia. <br>
+            <b>Americas:</b> USA, Canada, Brazil, Cuba. <br>
+            <b>Asia:</b> Bangladesh, Bhutan, China, India, Iran, Japan, South Korea, Malaysia, Nepal, Qatar, Indonesia. <br>
+            <b>Africa:</b> Ethiopia, Uganda, South Africa. <br>
+            <b>Oceania:</b> Australia. <br> <br>
+            <strong>Committees & Discussions:</strong> <br><br>
+           <b> UNEP (United Nations Environment Programme)</b> <br>
+            Focus: Green infrastructure, renewable energy, and climate policies. <br>
+           <b> UN-Habitat (United Nations Human Settlements Programme) </b><br> 
+            Focus: Smart cities, affordable housing, and sustainable urbanization. <br>
+            <b>WHO (World Health Organization) </b><br>
+            Focus: Public health and environmental impact in urban societies. <br>
+            <b>ECOSOC (Economic and Social Council)</b> <br>
+            Focus: Economic strategies for sustainable development. <br> <br>
+           <strong> Workshop Schedule (Mock-Up)</strong> <br> <br>
+            <strong>Day 1: January 23, 2019</strong> <br> 
+            09:00 AM to 10:00 AM: Registration & Welcome Ceremony. <br>
+            10:00 AM to 11:30 AM: Keynote Address on Sustainable Development. <br>
+            11:30 AM to 12:30 PM: Country Introductions & Opening Speeches. <br>
+            12:30 PM to 02:00 PM: Lunch Break <br>
+            02:00 PM to 04:00 PM: First Committee Session:  Agenda Setting & Debates. <br>
+            04:00 PM to 05:30 PM: Icebreaking & Networking Session. <br> <br>
+            <strong>Day 2: January 24, 2019</strong> <br>
+            09:00 AM to 11:00 AM: Second Committee Session:  Policy Proposals <br>
+            11:00 AM to 12:30 PM: Drafting of Resolutions. <br>
+            12:30 PM to  02:00 PM: Lunch Break <br>
+            02:00 PM to 04:30 PM: Third Committee Session:  Debating Resolutions. <br>
+            04:30 PM to 06:00 PM: Diplomatic Negotiations & Voting. <br> <br>
+            <strong>Day 3: January 25, 2019</strong> <br>
+            09:00 AM to 11:00 AM: Final Committee Session:  Resolution Refinement. <br>
+            11:00 AM to 12:30 PM: General Assembly:  Presenting Resolutions. <br>
+            12:30 PM to 02:00 PM: Lunch Break. <br>
+            02:00 PM to 04:00 PM: Closing Statements & Diplomatic Awards. <br>
+            04:00 PM to 05:00 PM: Closing Ceremony & Certificate Distribution. <br> <br>
+            <strong> Conclusion:</strong> <br>
+            The workshop successfully simulated the UN environment, enhancing diplomatic skills, negotiation abilities, and understanding of global urban sustainability challenges. Representing Sweden, I advocated for sustainable city models, eco-friendly urban transport, and carbon neutrality, engaging in constructive debates with fellow delegates. The MUN provided a dynamic platform for learning, collaboration, and real world problem solving in the sphere of international diploma. <br> <br>
+            <strong>My participation:</strong> <br> 
+            As the representative of <b>Sweden</b>, I actively engaged in committee discussions, focusing on sustainable urban development strategies. Although, I felt nervous about my presentation. But, I emphasized Sweden commitment to green energy, smart city planning, and carbon-neutral policies.  <br><strong>Throughout the sessions, I contributed by: </strong><br>
+
+            <b>Debating in Committee Sessions:</b> Advocated for renewable energy solutions and sustainable urban policies in line with Sweden environmental leadership. <br>
+            <b>Collaborating on Resolutions:</b> Worked with other delegates to draft and refine policies addressing urban sustainability challenges. <br>
+            <b>Diplomatic Negotiations:</b> Engaged in strategic discussions to build alliances and ensure the adoption of effective resolutions. <br>
+            <b>General Assembly Speech:</b> Presented Sweden stance on sustainable development, emphasizing innovation-driven urban policies. <br>
+            <b>Overall</b>, my participation strengthened my diplomatic, negotiation, and public speaking skills while contributing meaningful insights to global urban sustainability solutions. <br>
+
+
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 style="border-bottom: 2px solid white;"> Active Citizen Youth Leadership Workshop</h2>
+      <p class="subtext">"Clean City & Green Environment"</p>
+      <div class="image-box">
+        <img src="WEB_PORTPOLIO/My_Activities_MU_Active_Cityzen_Three.jpg" alt="Design Image" />
+        <img src="WEB_PORTPOLIO/My_Activities_MU_Active_Cityzen_Two.jpg" alt="Design Image" />
+      </div>
+      <div class="text-box">
+        <p style="text-align:justify" > <strong>Date:</strong> January 9 to January 12 <br> 
+           <strong>Venue:</strong>  Conferenace Hall, Metropolitan University <br><br>
+          
+          <strong>Overview</strong> <br>
+          The Active Citizen Youth Leadership Workshop was a four-day event focused on empowering young leaders to promote <b>clean cities </b>, <b>green environments</b>, and <b>road safety development</b>. The workshop aimed to raise awareness about environmental sustainability, encourage community engagement, and develop practical solutions for cleaner and safer urban spaces.
+          
+          Participants engaged in interactive sessions, group discussions, and practical activities designed to foster leadership skills, environmental responsibility, and urban safety awareness. <br> <br>
+          
+          <strong>Key Themes & Objectives:</strong> <br>
+          <b>Clean City Initiatives:</b> Addressing waste management, recycling, and urban cleanliness. <br>
+          <b>Green Environment: </b>Promoting sustainable practices, tree planting, and reducing pollution. <br>
+          <b>Road Safety Development:</b> Educating participants on traffic rules, pedestrian safety, and accident prevention. <br>
+          <b>Youth Leadership & Community Engagement:</b> Encouraging active participation in environmental and social causes. <br> <br>
+
+          </p>
+      </div>
+          
+      <div class="image-box">
+        <img src="WEB_PORTPOLIO/My_Activities_MU_Active_Cityzen.jpg" alt="Design Image" />
+      </div>
+
+      <div class="text-box">
+        <p style="text-align:justify"> <strong>Workshop Schedule (Mock-Up)</strong> <br><br>
+          <strong>Day 1: January 9: Introduction & Environmental Awareness</strong><br>
+          09:00 AM to 10:00 AM: Registration & Welcome Session. <br>
+          10:00 AM to 11:30 AM: Keynote Speech "The Role of Youth in a Sustainable Future". <br>
+          11:30 AM to 12:30 PM: Panel Discussion Challenges of Urban Pollution & Waste Management. <br>
+          12:30 PM to 02:00 PM: Lunch Break <br>  
+          02:00 PM to 04:00 PM: Group Activity: Community Clean-Up Drive. <br>
+          04:00 PM to 05:30 PM: Reflection & Discussion. <br><br>
+
+          <strong>
+          Day 2: January 10: Green Solutions & Urban Sustainability
+
+          </strong> <br>
+          09:00 AM to 10:30 AM: Workshop "Sustainable Living: Small Actions, Big Impact" <br>
+          10:30 AM to 12:30 PM: Tree Planting & Eco-Gardening Activity <br>
+          12:30 PM to 02:00 PM: Lunch Break <br>
+          02:00 PM to 04:00 PM: Case Study Analysis: Successful Green City Projects <br>
+          04:00 PM to 05:30 PM: Debate: "Individual Responsibility vs. Government Policy in Environmental Sustainability" <br><br>
+          <strong>Day 3: January 11:  Road Safety & Leadership Training</strong> <br>
+          09:00 AM to 10:30 AM: Presentation  "Smart Traffic Management & Pedestrian Safety". <br>
+          10:30 AM to 12:30 PM: Interactive Session: Road Safety Awareness & Traffic Rules Simulation. <br>
+          12:30 PM to 02:00 PM: Lunch Break <br>
+          02:00 PM to 04:00 PM: Leadership Training "Becoming a Community Change-Maker". <br> 
+          04:00 PM to 05:30 PM: Group Discussion: Implementing Sustainable Changes in Our Communities. <br> <br>
+          <strong>Day 4: January 12: Final Presentations & Closing Ceremony</strong> <br>
+          09:00 AM to 11:00 AM: Team Presentations "Our Action Plan for a Cleaner, Greener, and Safer City". <br>
+          11:00 AM to 12:30 PM: Certificate Distribution & Closing Remarks. <br>
+          12:30 PM to 01:30 PM: Networking Session & Feedback Collection. <br> <br>
+          <strong>Impact & Conclusion:</strong>
+          The workshop successfully empowered young participants with knowledge and skills to lead environmental and road safety initiatives. Through interactive sessions, hands-on activities, and leadership training, attendees developed action plans for their communities. <br> <br>
+         <strong>My Participation:</strong> <br> 
+         <p style="text-align:justify">During <b>the Active Citizen Youth Leadership</b> Workshop, I actively participated in <b>team work activities</b>, <b>contributing to discussions</b>, <b>brainstorming solutions</b>, and <b>collaborating on group projects</b>. I was involved in creating presentation slides to showcase our ideas on environmental sustainability and road safety. Additionally, I helped design an advertisement campaign to promote <b>clean city initiatives</b>, ensuring our message was visually impactful and engaging. My involvement in these tasks strengthened my teamwork, creativity, and leadership skills, allowing me to play a key role in delivering effective solutions for a greener and safer urban environment.</p>
+        </p>
+      </div>
+
+
+      
+    </div>
+
+
+
+
+
+    <div class="container">
+      <h2 style="border-bottom: 2px solid white;" > Celebrating International Accounting Day and Participation on Seminar</h2>
+      <p class="subtext">"Accounting for a Better Future with Transparency, Growth, and Success"</p>
+
+      <p class="subtext"></p>
+      <div class="image-box">
+        <img src="WEB_PORTPOLIO/My_Activities_Accounting_two.jpg" alt="Technology Image" />
+        <img src="WEB_PORTPOLIO/My_Activities_Accounting_three.jpg" alt="Technology Image" />
+      </div>
+      <div class="text-box">
+        <p style="text-align:justify" ><strong>Date: </strong>November 10, 2019 <br>
+           <strong>Venue: </strong> Library Hall, Metropolitan University. <br> <br>
+          
+          <strong>Overview</strong> <br>
+          <b>The International Accounting Day Workshop</b>, held on November 10, 2019, celebrated the significance of accounting in the business world and its role in financial transparency and economic development. The event featured expert-led seminars, interactive discussions, career guidance sessions, and a public rally to raise awareness about the importance of accounting in modern society.
+          
+          The workshop provided a platform for students, professionals, and aspiring accountants to explore career opportunities, industry trends, and the evolving landscape of accounting and finance. <br> <br>
+          
+          <strong>Key Themes & Objectives:</strong> <br>
+          <b>Importance of Accounting:</b> Understanding the role of accounting in financial transparency, business success, and economic stability. <br>
+          <b>Career Opportunities:</b> Exploring diverse career paths in accounting, auditing, taxation, and financial consulting. <br>
+          <b>Technology & Accounting:</b> Discussing the impact of AI, automation, and digital accounting tools. <br>
+          <b>Ethics & Professionalism:</b> Emphasizing ethical accounting practices and corporate responsibility. <br> <br>
+          <strong>Workshop Schedule (Mock-Up)</strong> <br> <br>
+          <b>Morning Session: Importance of Accounting</b> <br>
+          09:00 AM to 09:30 AM: Registration & Welcome Address. <br>
+          09:30 AM to 10:30 AM: Keynote Speech "The Power of Accounting in Business Growth". <br>
+          10:30 AM to 11:30 AM: Seminar "Financial Reporting & Transparency: A Global Perspective". <br> 
+          11:30 AM to 12:30 PM: Panel Discussion "Accounting Trends & Challenges in the Digital Era". <br> <br>
+          <b>Afternoon Session: Career Development & Rally</b> <br>
+          01:30 PM to 02:30 PM: Workshop "Exploring Career Paths in Accounting & Finance". <br> 
+          02:30 PM to 03:30 PM: Interactive Session "Technology in Accounting: AI & Cloud-Based Solutions". <br>
+          03:30 PM to 04:30 PM: Rally "Accounting for a Better Future" (Public Awareness Campaign). <br>
+          04:30 PM to 05:00 PM: Seminar "Ethics & Professional Standards in Accounting". <br>
+          05:00 PM to 05:30 PM: Q&A & Closing Remarks. <br> <br>
+          <strong>My Participation </strong> <br>
+          I actively participated in the seminar sessions, panel discussions, and career workshops, gaining valuable insights into the evolving field of accounting. I was also involved in organizing and leading a public rally, where we raised awareness about the importance of accounting in financial management and corporate responsibility. Additionally, I engaged in team activities, discussions on financial transparency, and explored emerging trends such as AI-driven accounting. This experience strengthened my leadership, teamwork, and communication skills while deepening my understanding of the field.</p>
+      </div>
+    </div>
+
+
+
+
+    <div class="container">
+      <h2 style="border-bottom: 2px solid white;" > Honorship and Rewarding of Participation on Creative Society Quiz Competition</h2>
+      <p class="subtext"></p>
+      <div class="image-box">
+        <img src="WEB_PORTPOLIO/My_Picture_Reward_From_Surjoudoy.jpg" alt="Technology Image" />
+      </div>
+      <div class="text-box">
+        <p style="text-align:justify" > <strong>Date: </strong> 28 February 2017 <br>
+            <strong>Venue: </strong> Kazi Nazrul Auditorium <br> <br>
+          
+          <strong> Overview</strong> <br>
+          The Honorship and Rewarding Ceremony for the Creative Society Quiz Competition was a prestigious event that recognized the knowledge, creativity, and intellectual contributions of participants. A total of 40 individuals, including myself, were honored for their outstanding performance in the competition.
+          
+          The event was graced by prominent figures, including academicians, industry experts, and special guests, who emphasized the importance of creativity, innovation, and critical thinking in shaping a progressive society. <br> <br>
+          
+          <strong>Event Highlights & Functional Programs</strong> <br>
+          The ceremony included several functional programs, making it a memorable occasion: <br> <br>
+          
+          <b>Welcome Speech:</b> Opening remarks by the organizing committee. <br>
+          <b>Keynote Address:</b> A speech by a distinguished guest on the significance of creativity and knowledge in society. <br>
+          <b>Panel Discussion:</b> Experts discussing the role of education and intellectual competitions in personal and professional growth. <br>
+          <b>Award Distribution:</b> Presentation of certificates, medals, and trophies to the 40 honored participants. <br>
+          <b>Special Recognition:</b> Acknowledgment of top performers and their contributions. <br>
+          <b>Closing Ceremony & Networking:</b> Participants and guests engaged in discussions and shared insights on future opportunities. <br> <br>
+          <strong>My Participation </strong> <br>
+          As one of the 40 honored participants, I was recognized for my efforts and achievements in the Creative Society Quiz Competition. Receiving this award not only reinforced my intellectual capabilities and critical thinking skills but also motivated me to continue engaging in academic and creative challenges. The presence of prominent figures made the event even more inspiring, as their insights encouraged us to strive for excellence and contribute to a more innovative society.</p> 
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 style="border-bottom: 2px solid white;">Application on Stop Killing Mass in Mayanmar</h2>
+      <p class="subtext">"Stop the Rohingya Genocide, Humanity Knows No Borders"</p>
+      <div class="image-box">
+        <img src="WEB_PORTPOLIO/My_Activites_Humanchain_Mayanmar_Genocide.jpg" alt="Travel Image" />
+      </div>
+      <div class="text-box">
+        <p style="text-align:justify" > <strong>Date:</strong>  September 20, 2017 <br>
+           <strong>Organized by:</strong> Youth Ending Hunger Bangladesh <br> <br>
+          
+          <strong>Background:</strong> <br> <b>The Rohingya Genocide in Myanmar</b> <br>
+          The Rohingya crisis is one of the most tragic humanitarian issues of recent times. The Rohingya, a Muslim ethnic minority in Myanmar Rakhine State, have faced systematic oppression, violence, and displacement for decades. The situation escalated in August 2017 when the Myanmar military launched a brutal crackdown on the Rohingya population, leading to mass killings, forced displacement, and destruction of villages. Reports from human rights organizations highlighted widespread atrocities, including murder, women oppression, and arson. As a result, nearly one million Rohingya refugees were forced to flee to neighboring Bangladesh, seeking safety and humanitarian aid.
+          
+          <strong>Human Chain Protest:</strong> <b>Our Engagement</b> <br>
+          To protest against this inhumane genocide and demand justice for the Rohingya community, Youth Ending Hunger Bangladesh organized a human chain demonstration on September 20, 2017. The protest aimed to raise global awareness, call for action against Myanmar government, and push for stronger international intervention to stop the killings.
+          
+          <strong>Key Activities of the Protest</strong>
+          Formation of the Human Chain:
+          Hundreds of participants, including students, activists, and concerned citizens, joined hands to form a long human chain, symbolizing unity and solidarity with the Rohingya people.
+          Strong Speech & Protest Slogans:
+          Protesters delivered powerful speeches condemning the genocide, urging world leaders and the United Nations to take immediate action. Slogans such as: <br>
+          <b>"Stop Rohingya Genocide"</b> <br>
+          <b>"Justice for Rohingya Victims"</b> <br>
+          <b>"End Ethnic Cleansing in Myanmar"</b> <br>
+          <b>"Human Rights for Rohingya No More Violence"</b> <br>
+          Throughout the demonstration, amplifying the message. <br> <br>
+          <strong>Public Signature Campaign:</strong>
+          A public sign campaign was organized where protesters and passersby signed petitions demanding accountability and justice. The petition was later submitted to relevant authorities, including human rights organizations. <br>
+          <strong>Media & Awareness:</strong>
+          The demonstration received significant attention from media outlets, spreading the message beyond Bangladesh and encouraging international discussions on the Rohingya crisis. <br>
+          <strong>Impact & Conclusion:</strong> 
+          The human chain protest was a strong statement of solidarity with the oppressed Rohingya community. Through our participation, we demanded global accountability, protection of human rights, and urgent humanitarian aid. The movement reinforced the responsibility of youth and civil society in speaking out against injustice and advocating for peace and human dignity.  <br>  <br>
+          <strong> My Role in the Human Chain Protest</strong> <br>
+          During the human chain protest organized by Youth Ending Hunger Bangladesh on September 20, 2017, I actively participated in raising awareness and demonstrating my support for the Rohingya crisis. I expressed my deep condolence for the innocent lives lost and the suffering faced by the Rohingya community due to the mass killings and forced displacement in Myanmar. <br> <br>
+
+          <b>To contribute meaningfully to the movement:</b> <br>
+
+          <b>I signed the petition</b>, adding my voice to the demand for justice and international intervention. My participation in this initiative reinforced the collective effort to push for action against the genocide. <br>
+          <b>I drew posters</b> carrying strong messages and visuals that depicted the horrors of the Rohingya crisis. These posters played a crucial role in grabbing public attention and spreading awareness about the cause.  <br>
+          <b>I stood in solidarity</b> with fellow protesters in the human chain, chanting slogans and advocating for peace, human rights, and an end to ethnic cleansing. <br>
+          <b>Through my engagement in this protest</b>, I made a meaningful contribution to amplifying the voices of the oppressed and strengthening the movement for justice. It was a moment of responsibility and activism, reaffirming the power of youth in standing against violence and human rights violations. <br>
+            
+      </div>
+    </div>
+
+    <div class="container" >
+      <h2 style="border-bottom: 2px solid white;">Attending on Connecting Classrooms [A Workshop of Tutor] </h2>
+      <p class="subtext">"Empowering Educators, Inspiring Minds, Teaching for a Brighter Future"</p>
+      <div class="image-box" style="width: 40%;">
+        <img src="WEB_PORTPOLIO/My_Activites_Connecting_Two_.png" alt="Writing Image" style="width: 40%;"/>
+
+       
+
+
+      </div>
+      <div class="text-box">
+        <p style="text-align: justify;">
+          <strong>Date: </strong> September 18, 2017 <br>
+          <strong>Organized by:</strong> British Council / UKaid. <br> <br>
+          
+          <strong>Overview</strong> <br>
+          The <b>Connecting Classrooms</b> Workshop was a specialized training session designed to enhance the core skills of professional development for teachers. The program focused on modern teaching methodologies, interactive learning strategies, and global educational standards, helping educators improve their skills in classroom engagement and student development. The workshop provided a valuable platform for tutors, educators, and aspiring teachers to exchange ideas and learn about innovative teaching approaches. <br> <br>
+          
+         <strong> Key Themes & Objectives:</strong> <br>
+          <b>Professional Development for Teachers:</b> Enhancing skills in classroom management, curriculum design, and student motivation. <br>
+          <b>21st-Century Teaching Skills:</b> Integrating critical thinking, creativity, and communication into lesson planning. <br>
+          <b>Global Education Practices:</b> Understanding diverse teaching methods and how they impact student learning worldwide. <br>
+          <b>Interactive Learning & Technology: </b>Exploring how digital tools can be used to make education more engaging. <br>
+          <b>Student-Centered Teaching:</b> Focusing on the importance of personalized learning approaches. <br> <br>
+          <strong>Workshop Schedule (Mock-Up)</strong> <br> <br>
+          <b>Morning Session: Core Skills & Interactive Learning</b> <br>
+          09:00 AM To 09:30 AM: Registration & Introduction <br>
+          09:30 AM To 10:30 AM: Keynote Speech "The Role of Teachers in 21st-Century Education" <br>
+          10:30 AM To 11:30 AM: Workshop "Innovative Teaching Methods & Student Engagement" <br>
+          11:30 AM To 12:30 PM: Group Activity "Applying Critical Thinking & Problem-Solving in Classrooms" <br> <br>
+          <b>Afternoon Session: Professional Development & Practical Applications.</b> <br>
+          01:30 PM To 02:30 PM: Seminar "Integrating Technology into Teaching". <br>
+          02:30 PM To 03:30 PM: Panel Discussion "Global Best Practices in Education". <br>
+          03:30 PM To 04:30 PM: Practical Session "Developing Engaging Lesson Plans".  <br>
+          04:30 PM To 05:00 PM: Q&A & Closing Remarks. <br> <br>
+          <b> My Participation in the Workshop</b> <br>
+          As a participant in the <b>Connecting Classrooms</b> Workshop, I gained valuable insights into professional development for teachers and effective teaching strategies. <strong> I actively engaged in: </strong> <br>
+          
+          Collaborative activities that encouraged teamwork and idea sharing among tutors. <br>
+          Discussions on innovative teaching techniques, including integrating critical thinking, problem-solving, and interactive learning. <br>
+          Hands-on sessions where I practiced developing engaging lesson plans for students <br>
+          
+        </p>
+      </div>
+     
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 My Activities | Designed with Passion
+
+    <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+
+  </div>
+
+  <div class="back-to-web">
+   <a href="#back" class="back-to-page"><i class="fa-solid fa-arrow-left"></i></a>
+
+  </div>
+  <script>
+    // the page loads at the top or with no specific section in the URL
+    window.addEventListener('load', function() {
+            if (window.location.hash === "") {
+                // If no section is specified in the URL (no hash), scroll to the Home section
+                document.querySelector('#top').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');  
+        const targetElement = document.querySelector(targetId);
+
+        // Check if the target exists and is not just '#'
+        if (targetElement && targetId !== "#") {  
+            e.preventDefault();  // Prevent default only for valid internal links
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+  </script>
+</body>
+</html>

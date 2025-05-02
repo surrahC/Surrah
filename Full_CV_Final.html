@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Samadur Rahman Chowdhury - CV</title>
+  <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Section */
+    header {
+      background: linear-gradient(135deg, #660366, #9b129b);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-out, slideUp 1.5s ease-out;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 3.5em;
+      transition: transform 0.8s ease-out;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
+    }
+
+    #container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px;
+      animation: slideUp 2s ease-out;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      width: 45%;
+      transition: transform 0.3s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card a {
+        margin-left: 80%;
+        font-size: 3em;
+        color:#660366 ;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-out;
+    }
+    .card a:hover {
+        color: #ffd700;
+    }
+
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #660366;
+      font-weight: 600;
+      animation: bounceIn 1.5s ease-out;
+    }
+
+    .card h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #660366;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card ul li {
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .card ul li i {
+      margin-right: 10px;
+      color: #660366;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    /* Hover effect for social links */
+    .social-links i {
+      margin: 0 15px;
+      font-size: 2em;
+      color: #660366;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-out;
+    }
+
+    .social-links i:hover {
+      color: #ffd700;
+      transform: scale(1.1);
+    }
+
+    .social-links a svg {
+      font-size: 2em;
+      margin-left: 14px;
+      color: #660366;
+    }
+    
+    .social-links a svg:hover {
+      color: #ffd700;
+      transform: scale(1.1);
+    }
+
+    /* Footer Styling */
+    .footer {
+      background-color: #660366;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .footer a {
+      float: right;
+      position: relative;
+      bottom: 90px;
+      right: 140px;
+      color: white;
+    }
+    
+    .footer a i {
+      position: absolute;
+      top: 50px;
+      font-size: 2em;
+    }
+
+    .containerLast{
+      margin-bottom: 50px;
+      margin-right: 30px;
+    }
+
+    .Softcopy_CV {
+      font-size: 20px;
+      float: right;
+    }
+
+    .Softcopy_CV a {
+      text-decoration: none;
+      padding: 8px 20px;
+      background: #660366;
+      color: white;
+      border:none;
+      border-radius: 25px;
+    }
+    
+    .Softcopy_CV a:hover{
+      background-color: #ffd700;
+      color: black;
+    }
+
+    .toggle-button {
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .dark-mode .card {
+      background-color: #333;
+      color: white;
+    }
+
+    .dark-mode .section-title {
+        color: #499af0;
+    }
+
+    .dark-mode .card a {
+        color: #499af0;
+    }
+
+    .dark-mode .card a:hover{
+       color:#ffd700;
+    }
+
+    .dark-mode .social-links a svg{
+      color: #499af0;
+    }
+
+    .dark-mode .social-links a svg:hover{
+      color:#ffd700;
+    }
+
+    .dark-mode .card ul li i {
+        color: #499af0;
+    }
+
+    .dark-mode .social-links i {
+        color: #499af0;
+    }
+    
+    .dark-mode .social-links i:hover {
+        color: #ffd700;
+    }
+    
+    .dark-mode .Softcopy_CV a {
+      background-color: #499af0;
+    }
+    
+    .dark-mode .Softcopy_CV a:hover {
+      background-color: #ffd700;
+    }
+
+    .dark-mode .toggle-button {
+      background-color: #6c00aade;
+      color: rgb(255, 255, 255);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .card {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      
+      .footer a {
+        right: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      
+      header p {
+        font-size: 1em;
+      }
+      
+      #container {
+        padding: 20px;
+      }
+      
+      .card {
+        width: 100%;
+        margin-bottom: 25px;
+      }
+      
+      .section-title {
+        font-size: 1.8em;
+      }
+      
+      .card a {
+        margin-left: 70%;
+        font-size: 2.5em;
+      }
+      
+      .footer a {
+        position: static;
+        float: none;
+        display: block;
+        margin-top: 20px;
+      }
+      
+      .footer a i {
+        position: static;
+      }
+      
+      .toggle-button {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: block;
+        margin: 20px auto;
+      }
+      
+      .social-links {
+        text-align: center;
+        padding: 20px 0;
+      }
+      
+      .social-links a {
+        margin: 0 10px;
+      }
+      
+      .social-links a svg {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 30px 15px;
+      }
+      
+      header h1 {
+        font-size: 2em;
+      }
+      
+      .section-title {
+        font-size: 1.5em;
+      }
+      
+      .card ul li {
+        font-size: 0.9em;
+      }
+      
+      .card a {
+        margin-left: 60%;
+        font-size: 2em;
+      }
+      
+      .Softcopy_CV {
+        float: none;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .containerLast {
+        margin-right: 0;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Samadur Rahman Chowdhury</h1>
+    <p>Web Design Freelancer | Corporate learner</p>
+  </header>
+
+  <!--scroll top-->
+  <div id="top"></div>
+
+  <!-- CV Content -->
+  <div id="container">
+    <!-- Personal Info Section -->
+    <div class="card">
+      <div class="section-title">Personal Information</div>
+      <ul>
+        <li><i class="fa-solid fa-user-tie"></i><strong>Samadur Rahman Chowdhury</strong></li>
+        <li><i class="fa-solid fa-mars"></i><strong>Gender&nbsp:</strong> &nbsp  Male</li>
+        <li><i class="fa-solid fa-heart"></i><strong>Merital Status &nbsp :</strong>  &nbsp Single</li>
+        <li><i class="fa-solid fa-book-quran"></i><strong>Religion &nbsp :</strong> &nbsp  Islam</li>
+        <li><i class="fa-solid fa-earth-americas"></i><strong>Nationality &nbsp :</strong> &nbsp  Bangladeshi</li>
+      </ul>
+      <a href="About_My_Story.html"><i class="fa-solid fa-diamond-turn-right"></i></a>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="card">
+      <div class="section-title">Skills</div>
+      <ul>
+        <li><i class="fas fa-code"></i> HTML, CSS, JavaScript,  Node.js, Git.</li>
+        <li><i class="fa-solid fa-laptop"></i> Tally ERP9, MS Office </li>
+        <li><i class="fa-solid fa-bullhorn"></i> Strong Professional Bonds, Presentation, Marketing</li>
+        <li><i class="fa-solid fa-clock"></i> Time management </li>
+        <li><i class="fas fa-palette"></i>Photo & Video editing, UX/UI Design</li>
+      </ul>
+      <a href="My_Expertise.html"><i class="fa-solid fa-diamond-turn-right"></i></a>
+    </div>
+  </div>
+
+  <div id="container">
+    <!-- Experience Section -->
+    <div class="card">
+      <div class="section-title">Experience</div>
+      <ul>
+        <li><i class="fa-solid fa-briefcase"></i><strong>Front Desk Executive</strong> - &nbsp Womens Medical Canteen (2021 Feb - 2021 Nov)</li>
+        <li><i class="fa-solid fa-briefcase"></i><strong>Accounts Assistant </strong> - &nbsp Kadamhata J.C Academy (2022 Feb - 2024 Jan)</li>
+        <li> <i class="fa-solid fa-briefcase"></i><strong>Spoken Teacher &nbsp</strong> - &nbspSam Spoken (2021 Nov - Present)</li>
+        <li> <i class="fa-solid fa-briefcase"></i><strong>Part time freelancer &nbsp</strong> - &nbsp Fiverr, Upwork (2021 - Present)</li>
+      </ul>
+    </div>
+
+    <!-- Education Section -->
+    <div class="card">
+      <div class="section-title">Education</div>
+      <ul>
+        <li><i class="fa-solid fa-graduation-cap"></i><strong>Bachelor's in Business Administration</strong> - Metropolitan University (2016 - 2021)</li>
+        <li><i class="fa-solid fa-school"></i><strong>Higher Secondary &nbsp</strong> - &nbsp Moulvibazar Govt. College (2015)</li>
+      </ul>
+      <a href="Education_Journey_Full.html"><i class="fa-solid fa-diamond-turn-right"></i></a>
+    </div>
+  </div>
+
+  <div id="container">
+    <!-- Training Section -->
+    <div class="card">
+      <div class="section-title">Training</div>
+      <ul>
+        <li><i class="fa-solid fa-screwdriver-wrench"></i><strong>Intelligent Management of Working Capital to Protect Business Continuity</strong> - Bdjobs E-learning Institute (2023)</li>
+        <li><i class="fa-solid fa-screwdriver-wrench"></i><strong>2d Animation, Video editing / Videography</strong> - Bangladesh Hi-tech Park (2021 - 2022)</li>
+        <li><i class="fa-solid fa-screwdriver-wrench"></i><strong>Web Design (Frontend)</strong> - Moulvibazar Municipality (2021)</li>
+        <li><i class="fa-solid fa-screwdriver-wrench"></i><strong>Graphics Design and Digital Marketing</strong> - Moulvibazar Municipality (2021)</li>
+        <li><i class="fa-solid fa-screwdriver-wrench"></i><strong>Practical Training in Basic Operation of Accounting and Inventory Software Tally.ERP 9</strong> - Academic (2019)</li>
+        <li><i class="fa-solid fa-screwdriver-wrench"></i><strong>Be a Supply Chain Leader</strong> - Academic (2016)</li>
+      </ul>
+      <a href="Training_Details_Sam.html"><i class="fa-solid fa-diamond-turn-right"></i></a>
+    </div>
+
+    <!-- Interest Section -->
+    <div class="card">
+      <div class="section-title">Interest</div>
+      <ul>
+        <li><i class="fa-solid fa-camera"></i><strong>Photography</strong> </li>
+        <p>I have a strong interest in event management, including photography. Photography allows me to tell a story and preserve memories, which adds a personal and artistic touch to event planning.</p>
+        <li><i class="fa-solid fa-palette"></i><strong>Decorating</strong> </li>
+        <p>I find great joy in transforming spaces to create the perfect ambiance for any occasion. The ability to transform a blank
+            space into something visually stunning and memorable excites my enthusiasm, and I greatly participate in it. </p>
+        <li><i class="fa-solid fa-video"></i><strong>Videography</strong> </li>
+          <p>I have a deep passion for videography, I love how video has the power to evoke emotions and connect with viewers on a deeper level. </p>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="container">
+    <div class="card">
+      <div class="section-title">Contact</div>
+      <ul>
+        <li><i class="fas fa-envelope"></i><strong>Email &nbsp:</strong> &nbspsamadchowdhury65@gmail.com</li>
+        <li><i class="fas fa-phone-alt"></i><strong>Phone &nbsp:</strong>&nbsp +8801632552969</li>
+        <li><i class="fas fa-map-marker-alt"></i><strong>Location &nbsp:</strong> &nbsp Moulvibazar-3200, Sylhet,
+          Bangladesh</li>
+        <li><i class="fa-brands fa-skype"></i><strong>Skype &nbsp:</strong>&nbsp live:.cid.357c2279615e52a4 </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Social Links Section -->
+  <div id="container">
+    <div class="social-links">
+      <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" margin="0" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+      </svg></a>
+    </div>
+  </div>
+
+
+  <!----
+  <div class="containerLast">
+    <div class="Softcopy_CV">
+      <span>Need to keep my Bio-data nearby?</span>
+      <a href="WEB_PORTPOLIO/Full_CV_EUR_P.pdf">Download Resume</a>
+    </div>
+  </div>-->
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 Surrah. All rights reserved.</p>
+    <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+    <button class="toggle-button" id="toggleButton" onclick="toggleDarkMode()">Dark Mode</button>
+  </div>
+
+  <script>
+    // Function to toggle dark/light mode
+    function toggleDarkMode() {
+      const body = document.body;
+      const button = document.getElementById('toggleButton');
+      
+      // Toggle the dark-mode class on the body
+      body.classList.toggle('dark-mode');
+
+      // Change button text depending on current mode
+      if (body.classList.contains('dark-mode')) {
+        button.textContent = 'Light Mode';
+      } else {
+        button.textContent = 'Dark Mode';
+      }
+    }
+
+    // the page loads at the top or with no specific section in the URL
+    window.addEventListener('load', function() {
+      if (window.location.hash === "") {
+        // If no section is specified in the URL (no hash), scroll to the Home section
+        document.querySelector('#top').scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');  
+        const targetElement = document.querySelector(targetId);
+
+        // Check if the target exists and is not just '#'
+        if (targetElement && targetId !== "#") {  
+          e.preventDefault();  // Prevent default only for valid internal links
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

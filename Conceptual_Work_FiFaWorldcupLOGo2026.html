@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptual Work by SamadTerra</title>
+  <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Uniont26';
+            src: url('Font/Uniont26.ttf') format('truetype');
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Uniont26', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        section {
+            width: 100%;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3) ;
+            z-index: 1;
+        }
+        
+        #one {
+            background-image: url('Image/2026\ EMBLEM-WC-36-2-01.jpg');
+            background-blend-mode: normal;
+        }
+        
+        #one::before {
+            background: none;
+        }
+        
+        #two {
+            background-image: url('Image/2-01-01.jpg');
+        }
+        
+        #three {
+            background-image: url('Image/1-01.jpg');
+        }
+        
+        #four {
+            background-image: url('Image/2-01-01.jpg');
+        }
+        
+        #five {
+            background-image: url('Image/1-01.jpg');
+        }
+        
+        #six {
+            background-image: url('Image/2-01-01.jpg');
+        }
+        
+        #seven {
+            background-image: url('Image/1-01.jpg');
+        }
+        
+        #eight {
+            background-image: url('Image/2-01-01.jpg');
+        }
+        
+        #nine {
+            background-image: url('Image/1-01.jpg');
+        }
+        
+        #ten {
+            background-image: url('Image/2-01-01.jpg');
+        }
+        
+        #eleven {
+            background-image: url('Image/1-01.jpg');
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+            gap: 2rem;
+        }
+        
+        .image-container, .text-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .text-container p {
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .text-container p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .devtext {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+        
+        .devtext p {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .devtext h6 {
+            color: white;
+            font-size: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 2rem;
+        }
+        
+        /* Navigation */
+        #nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .image-container, .text-container {
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .text-container p {
+                font-size: 1.2rem;
+            }
+            
+            .devtext p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .text-container p {
+                font-size: 1rem;
+            }
+            
+            .devtext p {
+                font-size: 1rem;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <div class="nav-links">
+            <a href="#one">Home</a>
+            <a href="#two">Concept 1</a>
+            <a href="#three">Concept 2</a>
+            <a href="#four">Concept 3</a>
+            <a href="#five">Concept 4</a>
+            <a href="#six">Concept 5</a>
+            <a href="#seven">Concept 6</a>
+            <a href="#eight">Concept 7</a>
+            <a href="#nine">Concept 8</a>
+            <a href="#ten">Concept 9</a>
+            <a href="#eleven">About</a>
+        </div>
+    </nav>
+
+    <section id="one"></section>
+
+    <section id="two">
+        <div class="content-wrapper">
+            <div class="image-container fade-in">
+                <img src="image/1-01.png" alt="Conceptual Design 1">
+            </div>
+            <div class="text-container">
+                <p class="visible">
+                    The structure was inspired by a baby girl sitting on the floor and playing. 
+                    The star represents the host cities of the tournament, while the maple leaf 
+                    symbolizes Canadian nationality. The trophy is incorporated as a central element.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="three">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/2026-01.png" alt="Conceptual Design 2">
+            </div>
+            <div class="text-container">
+                <p>
+                    The head of the structure divides into three parts to showcase 
+                    the vintage ball used in the first World Cup tournament.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="four">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/2-01-01-01.png" alt="Conceptual Design 3">
+            </div>
+            <div class="text-container">
+                <p>
+                    The body design combines three elements representing the landscapes 
+                    of the three beautiful host countries. It features a symbolic lake 
+                    and forms the foundation for the trophy's elegant model.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="five">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/2-01-01-01-01.png" alt="Conceptual Design 4">
+            </div>
+            <div class="text-container">
+                <p>
+                    This element captures the Atlantic Ocean waves meeting the North American 
+                    coastline, symbolizing the connection between continents through football.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="six">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/2026-01-01.png" alt="Conceptual Design 5">
+            </div>
+            <div class="text-container">
+                <p>
+                    A celebration of the joint World Cup hosted by three North American countries, 
+                    honoring football history while capturing special moments from past tournaments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="seven">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/2026-01-01-01.png" alt="Conceptual Design 6">
+            </div>
+            <div class="text-container">
+                <p>
+                    Inspired by Jarabe Tapatío, the Mexican national dance, this element represents 
+                    the perfect expression of joy and celebration that football brings to the world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="eight">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/2026-01-01-01-01.png" alt="Conceptual Design 7">
+            </div>
+            <div class="text-container">
+                <p>
+                    Featuring the Questra pattern from the 1994 World Cup ball, this pays homage 
+                    to the first World Cup organized by the United States of America.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="nine">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/2-01-01-01-01-01-01.png" alt="Conceptual Design 8">
+            </div>
+            <div class="text-container">
+                <p>
+                    Representing the six football confederations united in tournament spirit, 
+                    this element shows their connection through the beautiful game, leading 
+                    to spectacular final moments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ten">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="image/Untitled-2-01-92-01-21-01.png" alt="Conceptual Design 9">
+            </div>
+            <div class="text-container">
+                <p>
+                    This element captures the global excitement for the world's greatest tournament, 
+                    while also nodding to NASA's upcoming moon mission, symbolizing humanity's 
+                    boundless aspirations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="eleven">
+        <div class="devtext">
+            <p>
+                This is a conceptual design proposal for the upcoming FIFA World Cup 2026 tournament. 
+                Created between November 2022 and May 2023, this artwork represents a special journey. 
+                The primary vision is to remind FIFA that this event belongs not just to a select few, 
+                but to the entire world - uniting nations through the beautiful game. <br> <br> <br>
+
+                DESIGN BY  <br> Surrah Art Venture <br>
+                <img src="Image/signature-01.png" alt="" style="color: white;
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) hue-rotate(180deg);
+                  ">
+                <br> <br> <br>
+                 Typeface is Uniont26
+            </p>
+            <h6>&copy;  2023 Surrah Art Venture</h6>
+        </div>
+    </section>
+
+    <a href="#one" class="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        // Intersection Observer for text animations
+        const textElements = document.querySelectorAll('.text-container p');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        textElements.forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Back to top button visibility
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Lazy loading for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        } else {
+            // Fallback for browsers that don't support native lazy loading
+            const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                lazyLoadObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>

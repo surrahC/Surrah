@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>My Portfolio</title>
+  
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #f4f4f4;
+
+    }
+
+    header nav a {
+      margin: 0 15px;
+    }
+
+    header .cta-button {
+      background: #660366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #660366, #9b129b);
+      color: #fff;
+    }
+
+    #hero div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hero div h1 {
+      font-size: 3em;
+      font-family:'Times New Roman', Times, serif;
+      white-space: nowrap; /* Keeps text on a single line */
+      overflow: hidden; /* Hides overflow text */
+      border-right: 0.10em solid white; /* Creates the typing cursor effect */
+      width: 0; /* Starts hidden */
+      animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite; /* Typing and blinking cursor */
+    }
+
+    @media (max-width: 768px) {
+      #hero div h1 {
+        font-size: 25px;
+      }
+      #hero div h1 a {
+        font-size: 10px ;
+      }
+
+
+    }
+
+
+
+    /* Typing animation keyframe */
+    @keyframes typing {
+      to {
+        width: 63%; /* Expands to full width */
+      }
+    }
+
+    /* Blinking cursor effect */
+    @keyframes blink {
+      50% {
+        border-color: transparent; /* Makes the cursor disappear */
+      }
+    }
+
+    #hero .cta-button {
+      background: #fff;
+      color: #007BFF;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    /* About Section */
+    #about {
+      padding: 50px 10%;
+      text-align: center;
+    }
+
+    #about img {
+      width: 200px;
+      border: 2px solid rgb(143, 122, 182);
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    #about .cta-button {
+       padding: 10px 20px;
+       border: 2px solid rgb(143, 122, 182);
+       border-radius: 5px;
+       font-size: 14px;
+    }
+
+    /* Skills Section */
+    #skills {
+      padding: 50px 10%;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    #skills .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    #skills .skills-grid .contain p {
+
+      text-align: center;
+    }
+
+  
+
+
+
+    /* Projects Section */
+    #projects {
+      padding: 50px 10%;
+      text-align: center;
+    }
+
+    #projects .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    #projects .projects-grid button {
+
+      padding: 10px 20px;
+      background: rgb(47, 63, 207);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+
+
+    }
+
+    #projects .projects-grid button a {
+      color: white;
+    }
+
+
+    #projects .projects-grid p {
+      text-align: justify;
+    }
+
+    #projects .project-card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    
+
+    /* Contact Section */
+    #contact {
+      padding: 50px 10%;
+      background: linear-gradient(135deg, #660366, #9b129b);
+      color: #fff;
+      text-align: center;
+    }
+
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #contact input, #contact textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    #contact .cta-button {
+      background: #fff;
+      color: #660366;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #660366;
+      color: #fff;
+    }
+
+    footer .social-links a {
+      margin: 0 10px;
+      color: #fff;
+    }
+
+    #feedback {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  #feedback.success {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  #feedback.error {
+    background-color: #F44336;
+    color: white;
+  }
+
+  .toggle-button {
+      position: fixed;
+      top: 20px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .dark-mode #skills {
+      background-color: #333;
+    }
+
+    .dark-mode #about .cta-button {
+      color: #ddd;
+
+    }
+
+    .dark-mode .toggle-button {
+      background-color: #6c00aade;
+      color: rgb(255, 255, 255);
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px; /* Start just above the viewport */
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      pointer-events: none; /* Make sure snowflakes don't interfere with page interaction */
+      animation: fall linear infinite;
+    }
+
+    @media (max-width: 768px) {
+      .snowflake h1 {
+        font-size: 10px;
+      }
+    }
+
+    /* Snowflake fall animation */
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh); /* Fall to the bottom of the screen */
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo_">
+      <img src="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-01.png" alt="" width="100px">
+    </div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="Full_CV_Final.html">About</a>
+      <a href="Explanation_of_my_Vision.html">Vision</a>
+      <a href="Gallery_present.html">Gallery</a>
+      <a href="My_Blog_Final_Edit.html">Blog</a>
+      <a href="My_Blog_My_Views.html">Share the thought</a>
+
+    </nav>
+    <a href="#" class="cta-button">Find Me</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+
+    <div class="snowflake"></div>
+     <div><h1>Hi, I am Samadur Rahman Chowdhury </h1></div>
+    <p>A passionate Business Innovator and specialize in Idea development. 
+      <br> From Business plan to a Successful entrepreneurship, creating a road map is very unique demand for freshers <br>
+       Make them a constructive strategy is the fundamental concept of it.
+
+    </p>
+    
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="WEB_PORTPOLIO/SURRAH.png" alt="samadur_Rahman_Chowdhury">
+    <p> <br>
+      My proactive attitude helps me effectively learn and adapt. The fact that my work focused on creativity using AI and <br>
+      skill-building shows my dedication to self-improvement and keeping up with technology. <br>
+      Keep up the great work, as my ability to combine inquiry with action will continue to lead to growth and success in all my endeavors!
+
+    </p>
+    <a href="Full_CV_Final.html" class="cta-button">Explore More</a>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    
+    <div class="skills-grid">
+
+      <div class="contain"> 
+        <b>HTML/CSS/JavaScript</b>
+        <p>I am an intermediate-level developer in HTML, CSS, and JavaScript and can create responsive and beautiful web pages. I can structure the content effectively with HTML, style layouts using CSS (including Flexbox and Grid), and make them interactive using JavaScript. Though I have a pretty good understanding of the concepts of front-end development, my learning process continues by exploring different frameworks, best practices, and modern web technologies.</p>
+      </div>
+
+
+      <div class="contain">
+        <b>Presentation</b>
+
+        <p>I am a fast, and advance creator of presentation mockups, putting together a keen eye for design and effective communication. My skills will enable me to take conceptual ideas and set them into visually attractive slides that assure flow and the content resonates with the audience. Proficient in the usage of design tools and methodologies for the creation of mockups, clear blueprints of successful presentations-continuously improving my approach through practical experience and feedback.</p>
+      </div>
+
+
+      <div class="contain"> 
+        <b>Research</b> 
+
+        <p>I conduct business and market research, applying analytical skills to collect, analyze, and present useful information. I am good at the identification of industry trends, studying competitors, and understanding market opportunities to support strategic decisions. </p>
+      </div>
+
+
+
+      <div class="contain"> 
+        
+        <b>Decoration</b> 
+
+        <p>I specialize in creative event planning and management, including corporate events, by mixing creativity with strategic execution. From developing the concept right through to flawless coordination, I ensure that every event is different, interesting, and exactly aligned with the client's objectives. My work ranges from venue selection and vendor management to logistics and on-site execution to ensure a smooth and memorable experience. Whether it is a corporate conference, product launch, or bespoke themed event, I excel at delivering well-organized and impactful experiences.</p>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="WEB_PORTPOLIO/Project-01-01.png" alt="projectone" width="150px"/>
+        <p>Sarachy is a starting-up business of fragrances, currently in the middle of its production and manufacturing process, while clearly aiming at expanding its business. It is to be a line of unique, high-quality luxury fragrances that will tempt one's senses and reach the highest level of market ranking. We keep scaling and, in turn, refining our products and developing the brand further. This makes us a more formidable player in the perfume industry. Innovative at heart, Sarachy to lead the market with unique experiences, new benchmarking in fragrances..</p>
+        <button> <a href="Sarachy.html">Views</a></button>
+      </div>
+      <div class="project-card">
+        <img src="WEB_PORTPOLIO/project-02-01.png" alt="projectone" width="130px"/>
+        <p>Fi is a freshly emerging snack brand that's looking to shake up the chip market with some bold flavor profiles and extremely high-quality ingredients. Focused on health-conscious consumers, Fi makes deliciousness available for a demanding market of tastier and wholesomer snacks. Committed to innovation and taste, Fi is striving to become a household name among snackers worldwide, offering an exciting new choice in the world of crunchy, flavorful treats.</p>
+        <button> <a href="Fi_brand.html">Views</a></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="https://formsubmit.co/samadchowdhury37@gmail.com" method="POST">
+        <!-- Honeypot field to prevent spam -->
+        <input type="text" name="_honey" style="display:none">
+        
+        <!-- Disable captcha -->
+        <input type="hidden" name="_captcha" value="false">
+        
+        <!-- Success redirect (optional) -->
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+        
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+    
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+    
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+    
+        <button type="submit" class="cta-button">Send Message</button>
+    </form>
+</section>
+
+
+    
+    <!-- Feedback messages -->
+    <div id="feedback"></div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Twitter</a>
+    </div>
+    <!-- Button to toggle dark/light mode -->
+  <button class="toggle-button" id="toggleButton" onclick="toggleDarkMode()">Dark Mode</button>
+
+    <p>&copy; 2024-2025 (Surrah), All Rights Reserved.</p>
+  </footer>
+</body>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+
+    // Get form values
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
+    // Basic client-side validation
+    if (!name || !email || !message) {
+      displayFeedback('Please fill out all fields.', 'error');
+      return;
+    }
+
+    // Prepare form data for AJAX request
+    var formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('message', message);
+
+    // AJAX request to submit the form data to the server
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'submit_form.php', true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        displayFeedback('Your message has been sent successfully!', 'success');
+        document.getElementById('contactForm').reset(); // Clear form fields
+      } else {
+        displayFeedback('There was an error sending your message. Please try again later.', 'error');
+      }
+    };
+    xhr.send(formData);
+  });
+
+  // Function to display feedback messages
+  function displayFeedback(message, type) {
+    var feedback = document.getElementById('feedback');
+    feedback.textContent = message;
+    feedback.className = type; // Set feedback type (success or error)
+  }
+
+  // Function to toggle dark/light mode
+  function toggleDarkMode() {
+      const body = document.body;
+      const button = document.getElementById('toggleButton');
+      
+      // Toggle the dark-mode class on the body
+      body.classList.toggle('dark-mode');
+
+      // Change button text depending on current mode
+      if (body.classList.contains('dark-mode')) {
+        button.textContent = 'Light Mode';
+      } else {
+        button.textContent = 'Dark Mode';
+      }
+    }
+
+
+     // Function to create snowflakes
+     function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+
+      // Random size for snowflakes (between 5px and 15px)
+      const size = Math.random() * 10 + 5;
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+
+      // Randomize position on the X-axis (across the screen)
+      const xPosition = Math.random() * window.innerWidth;
+      snowflake.style.left = `${xPosition}px`;
+
+      // Randomize fall duration (between 5s and 10s)
+      const duration = Math.random() * 5 + 5; // Snowflake fall speed
+      snowflake.style.animationDuration = `${duration}s`;
+
+      // Randomize animation delay for staggering the fall
+      const delay = Math.random() * 5; // Delay for initial appearance
+      snowflake.style.animationDelay = `${delay}s`;
+
+      // Append snowflake to the body
+      document.body.appendChild(snowflake);
+
+      // Remove snowflake when it falls out of the screen to avoid DOM buildup
+      snowflake.addEventListener('animationiteration', () => {
+        snowflake.remove();
+      });
+    }
+
+    // Create snowflakes at regular intervals
+    setInterval(createSnowflake, 100); // New snowflake every 100ms
+
+
+    <!-- Optional: Add JavaScript for better user feedback -->
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // You can add form validation here if needed
+        const submitButton = this.querySelector('button[type="submit"]');
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+        
+        // Form will still submit to Formsubmit.co
+        // The _next parameter will handle the redirect
+    });
+
+</script>
+</html>
+
