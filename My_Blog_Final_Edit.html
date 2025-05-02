@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Social Media Posts</title>
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
     <style>
         * {
             margin: 0;
@@ -337,34 +335,8 @@
     </footer>
     
     <script>
-       // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBM8aygKHSYYf3pydtKdbZJD4RtSlY0KiM",
-  authDomain: "surrah-c.firebaseapp.com",
-  projectId: "surrah-c",
-  storageBucket: "surrah-c.firebasestorage.app",
-  messagingSenderId: "1046437840679",
-  appId: "1:1046437840679:web:23881bc69ee796f1934b02",
-  measurementId: "G-PPFEMWTHEX"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
-        // Reference to the posts collection
-        const postsRef = db.collection("posts");
+        // Initialize posts from localStorage or create new Map
+        let posts = new Map(JSON.parse(localStorage.getItem('posts')) || []);
 
         // Load posts when page loads
         document.addEventListener('DOMContentLoaded', () => {
@@ -373,7 +345,7 @@ const analytics = getAnalytics(app);
         });
 
         // Main post creation function
-        async function createPost() {
+        function createPost() {
             const postInput = document.querySelector('.post-input');
             const authorInput = document.querySelector('.author-input');
             const postContent = postInput.value.trim();
@@ -382,63 +354,25 @@ const analytics = getAnalytics(app);
             if (!postContent) return;
 
             const post = {
+                id: `post-${Date.now()}`,
                 author: authorName,
                 content: postContent,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                timestamp: Date.now(),
                 likes: 0,
                 dislikes: 0,
                 comments: [],
-                userReactions: {} // Track user reactions by userId
+                userReaction: null // Track user's reaction
             };
 
-            try {
-                // Add post to Firestore
-                const docRef = await postsRef.add(post);
-                console.log("Post created with ID: ", docRef.id);
-                
-                // Clear input fields
-                postInput.value = '';
-                authorInput.value = '';
-            } catch (error) {
-                console.error("Error adding post: ", error);
-            }
-        }
-
-        // Load posts from Firestore
-        function loadPosts() {
-            postsRef.orderBy("timestamp", "desc").onSnapshot((snapshot) => {
-                const postFeed = document.getElementById('postFeed');
-                postFeed.innerHTML = '';
-                
-                snapshot.forEach((doc) => {
-                    const post = doc.data();
-                    post.id = doc.id;
-                    const postElement = buildPostElement(post);
-                    postFeed.appendChild(postElement);
-                    
-                    // Load comments
-                    if (post.comments) {
-                        post.comments.forEach(comment => {
-                            const commentElement = buildResponseElement(comment, 'comment');
-                            postElement.querySelector('.comment-section').appendChild(commentElement);
-                            
-                            // Load replies for this comment
-                            if (comment.replies) {
-                                comment.replies.forEach(reply => {
-                                    const replyElement = buildResponseElement(reply, 'reply');
-                                    commentElement.querySelector('.nested-comments').appendChild(replyElement);
-                                });
-                            }
-                        });
-                    }
-                });
-            }, (error) => {
-                console.error("Error loading posts: ", error);
-            });
+            const postElement = buildPostElement(post);
+            document.getElementById('postFeed').prepend(postElement);
+            posts.set(post.id, post);
+            savePosts();
+            postInput.value = '';
         }
 
         // Comment/Reply handler
-        async function handleResponse(type, parentId, button) {
+        function handleResponse(type, parentId, button) {
             const input = button.parentElement;
             const authorName = input.querySelector('.author-input').value.trim() || 'Anonymous';
             const text = input.querySelector('textarea').value.trim();
@@ -446,187 +380,135 @@ const analytics = getAnalytics(app);
             if (!text) return;
 
             const response = {
+                id: `${type}-${Date.now()}`,
+                parentId,
                 author: authorName,
                 content: text,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                timestamp: Date.now(),
                 likes: 0,
                 dislikes: 0,
-                userReactions: {},
-                replies: type === 'comment' ? [] : undefined
+                replies: [],
+                userReaction: null
             };
 
-            try {
-                if (type === 'comment') {
-                    // Add comment to the post
-                    await postsRef.doc(parentId).update({
-                        comments: firebase.firestore.FieldValue.arrayUnion(response)
-                    });
-                } else {
-                    // Find the parent comment and add reply
-                    const postDoc = await postsRef.doc(parentId).get();
-                    const post = postDoc.data();
-                    const comments = post.comments || [];
-                    
-                    // Find the comment to reply to
-                    const commentIndex = comments.findIndex(c => c.id === parentId);
-                    if (commentIndex !== -1) {
-                        if (!comments[commentIndex].replies) {
-                            comments[commentIndex].replies = [];
-                        }
-                        comments[commentIndex].replies.push(response);
-                        
-                        // Update the post with the new reply
-                        await postsRef.doc(parentId).update({
-                            comments: comments
-                        });
-                    }
+            const parentElement = document.querySelector(`[data-id="${parentId}"]`);
+            const responseElement = buildResponseElement(response, type);
+            
+            if (type === 'comment') {
+                parentElement.querySelector('.comment-section').appendChild(responseElement);
+                posts.get(parentId).comments.push(response);
+            } else {
+                parentElement.querySelector('.nested-comments').appendChild(responseElement);
+                const parentResponse = findResponse(parentId);
+                if (parentResponse) {
+                    parentResponse.replies.push(response);
                 }
-
-                // Clear input fields
-                input.classList.remove('active');
-                input.querySelector('textarea').value = '';
-                input.querySelector('.author-input').value = '';
-            } catch (error) {
-                console.error("Error adding response: ", error);
             }
+
+            savePosts();
+            input.classList.remove('active');
+            input.querySelector('textarea').value = '';
+            input.querySelector('.author-input').value = '';
         }
 
         // Interaction Handler (using event delegation)
-        async function handleInteraction(event) {
+        function handleInteraction(event) {
             const button = event.target.closest('[data-action]');
             if (!button) return;
 
             const container = button.closest('[data-id]');
             const targetId = container.dataset.id;
             const action = button.dataset.action;
-            const parentId = container.closest('.post')?.dataset.id;
+            const target = findResponse(targetId);
 
-            if (!parentId) return;
+            if (!target) return;
 
-            try {
-                if (action === 'like' || action === 'dislike') {
-                    await handleReaction(parentId, targetId, button, action);
-                } else if (action === 'delete') {
-                    if (confirm('Are you sure you want to delete this post?')) {
-                        await deletePost(parentId, targetId);
-                    }
-                } else if (action === 'share') {
-                    sharePost(targetId);
+            if (action === 'like' || action === 'dislike') {
+                handleReaction(target, button, action);
+            } else if (action === 'delete') {
+                if (confirm('Are you sure you want to delete this post?')) {
+                    deletePost(targetId);
+                    container.remove();
                 }
-            } catch (error) {
-                console.error("Error handling interaction: ", error);
+            } else if (action === 'share') {
+                sharePost(target);
             }
+
+            savePosts();
         }
 
-        async function handleReaction(parentId, targetId, button, action) {
-            // For simplicity, we'll use a dummy user ID
-            // In a real app, you'd use Firebase Auth to get the actual user ID
-            const userId = "user_" + Math.random().toString(36).substr(2, 9);
-            
-            const postRef = postsRef.doc(parentId);
-            const postDoc = await postRef.get();
-            const post = postDoc.data();
-            
-            // Determine if we're reacting to the post, a comment, or a reply
-            let target, targetPath;
-            if (targetId === parentId) {
-                // Reacting to the post itself
-                target = post;
-                targetPath = "";
-            } else {
-                // Find the comment or reply
-                const commentIndex = post.comments.findIndex(c => c.id === targetId);
-                if (commentIndex !== -1) {
-                    // Reacting to a comment
-                    target = post.comments[commentIndex];
-                    targetPath = `comments.${commentIndex}`;
+        function handleReaction(target, button, action) {
+            const container = button.closest('[data-id]');
+            const likeBtn = container.querySelector('[data-action="like"]');
+            const dislikeBtn = container.querySelector('[data-action="dislike"]');
+            const likeCount = likeBtn.querySelector('.like-count');
+            const dislikeCount = dislikeBtn.querySelector('.dislike-count');
+
+            // Reset previous reaction if different
+            if (target.userReaction && target.userReaction !== action) {
+                target[target.userReaction + 's']--;
+                if (target.userReaction === 'like') {
+                    likeBtn.classList.remove('active');
                 } else {
+                    dislikeBtn.classList.remove('active');
+                }
+            }
+
+            // Toggle current reaction
+            if (target.userReaction === action) {
+                // Remove reaction
+                target[action + 's']--;
+                button.classList.remove('active');
+                target.userReaction = null;
+            } else {
+                // Add reaction
+                target[action + 's']++;
+                button.classList.add('active');
+                if (action === 'like') {
+                    dislikeBtn.classList.remove('active');
+                } else {
+                    likeBtn.classList.remove('active');
+                }
+                target.userReaction = action;
+            }
+
+            // Update counts
+            likeCount.textContent = target.likes;
+            dislikeCount.textContent = target.dislikes;
+        }
+
+        // Function to delete a post
+        function deletePost(id) {
+            // First check if it's a top-level post
+            if (posts.has(id)) {
+                posts.delete(id);
+            } else {
+                // If not, search through comments and replies
+                for (const post of posts.values()) {
+                    // Check comments
+                    const commentIndex = post.comments.findIndex(c => c.id === id);
+                    if (commentIndex !== -1) {
+                        post.comments.splice(commentIndex, 1);
+                        break;
+                    }
+                    
                     // Check replies in comments
-                    for (let i = 0; i < post.comments.length; i++) {
-                        const replyIndex = post.comments[i].replies?.findIndex(r => r.id === targetId);
+                    for (const comment of post.comments) {
+                        const replyIndex = comment.replies.findIndex(r => r.id === id);
                         if (replyIndex !== -1) {
-                            // Reacting to a reply
-                            target = post.comments[i].replies[replyIndex];
-                            targetPath = `comments.${i}.replies.${replyIndex}`;
+                            comment.replies.splice(replyIndex, 1);
                             break;
                         }
                     }
                 }
             }
-            
-            if (!target) return;
-            
-            // Initialize userReactions if it doesn't exist
-            if (!target.userReactions) {
-                target.userReactions = {};
-            }
-            
-            // Get the current reaction of this user
-            const currentReaction = target.userReactions[userId];
-            
-            // Prepare update object
-            const updates = {};
-            
-            // Remove previous reaction if different
-            if (currentReaction && currentReaction !== action) {
-                updates[`${targetPath}.${currentReaction}s`] = firebase.firestore.FieldValue.increment(-1);
-                updates[`${targetPath}.userReactions.${userId}`] = firebase.firestore.FieldValue.delete();
-            }
-            
-            // Toggle current reaction
-            if (currentReaction === action) {
-                // Remove reaction
-                updates[`${targetPath}.${action}s`] = firebase.firestore.FieldValue.increment(-1);
-                updates[`${targetPath}.userReactions.${userId}`] = firebase.firestore.FieldValue.delete();
-            } else {
-                // Add reaction
-                updates[`${targetPath}.${action}s`] = firebase.firestore.FieldValue.increment(1);
-                updates[`${targetPath}.userReactions.${userId}`] = action;
-            }
-            
-            // Update the document
-            await postRef.update(updates);
-        }
-
-        // Function to delete a post
-        async function deletePost(parentId, targetId) {
-            if (targetId === parentId) {
-                // Delete the entire post
-                await postsRef.doc(parentId).delete();
-            } else {
-                // Find and delete the comment or reply
-                const postRef = postsRef.doc(parentId);
-                const postDoc = await postRef.get();
-                const post = postDoc.data();
-                
-                // Check comments
-                const commentIndex = post.comments.findIndex(c => c.id === targetId);
-                if (commentIndex !== -1) {
-                    // Delete comment
-                    const updatedComments = [...post.comments];
-                    updatedComments.splice(commentIndex, 1);
-                    await postRef.update({ comments: updatedComments });
-                    return;
-                }
-                
-                // Check replies in comments
-                for (let i = 0; i < post.comments.length; i++) {
-                    const replyIndex = post.comments[i].replies?.findIndex(r => r.id === targetId);
-                    if (replyIndex !== -1) {
-                        // Delete reply
-                        const updatedComments = [...post.comments];
-                        updatedComments[i].replies.splice(replyIndex, 1);
-                        await postRef.update({ comments: updatedComments });
-                        return;
-                    }
-                }
-            }
+            savePosts();
         }
 
         // Function to share a post
-        function sharePost(postId) {
-            const shareUrl = `${window.location.origin}/post/${postId}`;
-            const shareText = `Check out this post on our platform!`;
+        function sharePost(post) {
+            const shareUrl = `${window.location.origin}/post/${post.id}`;
+            const shareText = `Check out this post by ${post.author}: ${post.content}`;
             const shareData = {
                 title: 'Shared Post',
                 text: shareText,
@@ -640,6 +522,37 @@ const analytics = getAnalytics(app);
             } else {
                 prompt('Copy this link to share the post:', shareUrl);
             }
+        }
+
+        // Load all posts from the Map
+        function loadPosts() {
+            const postFeed = document.getElementById('postFeed');
+            postFeed.innerHTML = '';
+            
+            // Convert Map to array, sort by timestamp (newest first), and display
+            Array.from(posts.values())
+                .sort((a, b) => b.timestamp - a.timestamp)
+                .forEach(post => {
+                    const postElement = buildPostElement(post);
+                    postFeed.appendChild(postElement);
+                    
+                    // Load comments
+                    post.comments.forEach(comment => {
+                        const commentElement = buildResponseElement(comment, 'comment');
+                        postElement.querySelector('.comment-section').appendChild(commentElement);
+                        
+                        // Load replies for this comment
+                        comment.replies.forEach(reply => {
+                            const replyElement = buildResponseElement(reply, 'reply');
+                            commentElement.querySelector('.nested-comments').appendChild(replyElement);
+                        });
+                    });
+                });
+        }
+
+        // Save posts to localStorage
+        function savePosts() {
+            localStorage.setItem('posts', JSON.stringify(Array.from(posts.entries())));
         }
 
         // UI Builders
@@ -661,11 +574,11 @@ const analytics = getAnalytics(app);
                 </div>
                 <div class="post-content">${post.content}</div>
                 <div class="interaction-bar">
-                    <button class="interaction-btn ${post.userReactions?.['current_user'] === 'like' ? 'active' : ''}" data-action="like" data-id="${post.id}">
-                        <span class="like-count">${post.likes || 0}</span> <i class="fa-solid fa-hands-clapping"></i>
+                    <button class="interaction-btn ${post.userReaction === 'like' ? 'active' : ''}" data-action="like">
+                        <span class="like-count">${post.likes}</span> <i class="fa-solid fa-hands-clapping"></i>
                     </button>
-                    <button class="interaction-btn ${post.userReactions?.['current_user'] === 'dislike' ? 'active' : ''}" data-action="dislike" data-id="${post.id}">
-                        <span class="dislike-count">${post.dislikes || 0}</span> <i class="fa-solid fa-heart-crack"></i>
+                    <button class="interaction-btn ${post.userReaction === 'dislike' ? 'active' : ''}" data-action="dislike">
+                        <span class="dislike-count">${post.dislikes}</span> <i class="fa-solid fa-heart-crack"></i>
                     </button>
                     <button class="interaction-btn" onclick="toggleResponseInput(this, 0)">
                         <i class="fa-solid fa-comments"></i>
@@ -679,7 +592,7 @@ const analytics = getAnalytics(app);
         function buildResponseElement(response, type) {
             const element = document.createElement('div');
             element.className = type === 'comment' ? 'comment' : 'reply';
-            element.dataset.id = response.id || Date.now();
+            element.dataset.id = response.id;
             element.innerHTML = `
                 <div class="${type === 'comment' ? 'comment-header' : 'reply-header'}">
                     <div class="user-avatar">${getInitials(response.author)}</div>
@@ -691,11 +604,11 @@ const analytics = getAnalytics(app);
                 </div>
                 <p>${response.content}</p>
                 <div class="interaction-bar">
-                    <button class="interaction-btn ${response.userReactions?.['current_user'] === 'like' ? 'active' : ''}" data-action="like" data-id="${element.dataset.id}">
-                        <span class="like-count">${response.likes || 0}</span> <i class="fa-solid fa-hands-clapping"></i>
+                    <button class="interaction-btn ${response.userReaction === 'like' ? 'active' : ''}" data-action="like">
+                        <span class="like-count">${response.likes}</span> <i class="fa-solid fa-hands-clapping"></i>
                     </button>
-                    <button class="interaction-btn ${response.userReactions?.['current_user'] === 'dislike' ? 'active' : ''}" data-action="dislike" data-id="${element.dataset.id}">
-                        <span class="dislike-count">${response.dislikes || 0}</span> <i class="fa-solid fa-heart-crack"></i>
+                    <button class="interaction-btn ${response.userReaction === 'dislike' ? 'active' : ''}" data-action="dislike">
+                        <span class="dislike-count">${response.dislikes}</span> <i class="fa-solid fa-heart-crack"></i>
                     </button>
                     <button class="interaction-btn" onclick="toggleResponseInput(this, ${type === 'comment' ? 1 : 2})">
                         ↩ ${type === 'comment' ? 'Reply' : 'Answer'}
@@ -707,10 +620,29 @@ const analytics = getAnalytics(app);
         }
 
         // Utilities
-        function formatTime(timestamp) {
-            if (!timestamp) return 'Just now';
+        function findResponse(id) {
+            // Check top-level posts
+            if (posts.has(id)) return posts.get(id);
             
-            const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+            // Check comments and replies
+            for (const post of posts.values()) {
+                if (post.id === id) return post;
+                
+                // Check comments
+                const comment = post.comments.find(c => c.id === id);
+                if (comment) return comment;
+                
+                // Check replies in comments
+                for (const c of post.comments) {
+                    const reply = c.replies.find(r => r.id === id);
+                    if (reply) return reply;
+                }
+            }
+            return null;
+        }
+
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
             return date.toLocaleTimeString('en-US', {
                 hour: '2-digit',
                 minute: '2-digit'
@@ -722,7 +654,6 @@ const analytics = getAnalytics(app);
         }
 
         function getInitials(name) {
-            if (!name) return '??';
             return name.split(' ').map(part => part[0]).join('').toUpperCase().substring(0, 2);
         }
 
