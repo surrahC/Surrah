@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRC- Photo Gallery</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         * {
@@ -18,20 +18,21 @@
             background: #660366;
             color: #fbe4d8;
             text-align: center;
-            background-image: url('WEB_PORTPOLIO/Web_patternFour.png'); /* White Mandala Pattern */
+            background-image: url('WEB_PORTPOLIO/Web_patternFour.png');
         }
 
         /* Hero Section */
         .hero {
-            height: 60vh;
+            height: 40vh;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            padding: 20px;
         }
         .hero h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             background: rgba(255, 255, 255, 0.2);
             padding: 10px 20px;
             border-radius: 10px;
@@ -42,8 +43,8 @@
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 200px;
+            gap: 20px;
+            padding: 20px;
             max-width: 1200px;
             margin: auto;
         }
@@ -61,6 +62,7 @@
         }
         .photo-card img {
             width: 100%;
+            height: auto;
             border-radius: 10px;
             border: 2px solid #8b2fa3;
         }
@@ -70,23 +72,19 @@
             font-weight: 400;
             color: #660366;
         }
+        
         .button {
             max-width: 800px;
-            margin-left: 280px;
-
+            margin: 20px auto;
         }
         
-
         .button-card {
-            
-            justify-content: center;
             background: #f3d9ec;
             padding: 10px 20px;
             border-radius: 15px;
             box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
             border: 3px solid #a03bb7;
-            
-
+            display: inline-block;
         }
         .button-card a {
             text-decoration: none;
@@ -110,6 +108,44 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        /* Responsive Media Queries */
+        @media (min-width: 768px) {
+            .hero {
+                height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .gallery {
+                padding: 40px;
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero {
+                height: 60vh;
+            }
+            .gallery {
+                padding: 50px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                height: 30vh;
+            }
+            .hero h1 {
+                font-size: 1.5em;
+            }
+            .photo-card {
+                padding: 10px;
+            }
+            .caption {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -122,11 +158,10 @@
     <!-- Gallery Section -->
     <div class="gallery">
         
-
         <div class="photo-card">
-            <div class="caption">  <strong>University life</strong> 
+            <div class="caption">  
+                <strong>University life</strong> 
                 <p>I delivered my first university presentation, and what an experience it was! From the anxious waiting to finally becoming confident as I spoke, it was an experience of learning and development. Speaking before my peers and instructors, I realized that every obstacle is an opportunity to learn and improve.</p>
-                
             </div>
         </div>
 
@@ -134,31 +169,21 @@
             <img src="WEB_PORTPOLIO/My_first_presentation.jpg" alt="Portrait">
         </div>
 
-        <!----First edition-->
-
-        <!----2nd edition-->
-
-
-
         <div class="photo-card">
             <img src="WEB_PORTPOLIO/My_Picture_On_F&F.jpg" alt="Portrait">
         </div>
 
         <div class="photo-card">
-            <div class="caption">  <strong>University life</strong> 
-                <p>Second year celebration, <b>First & Fiesta</b>, was just incredible! It was a day and night of jubilation, fervor, and memories to cherish as we came together to mark this long journey with joy. 
-
-                    From the thrilling performances to the thrilling activities, every moment resonated with our growth, togetherness, and the amazing bonding we have built over the years.</p>
-                
+            <div class="caption">  
+                <strong>University life</strong> 
+                <p>Second year celebration, <b>First & Fiesta</b>, was just incredible! It was a day and night of jubilation, fervor, and memories to cherish as we came together to mark this long journey with joy. From the thrilling performances to the thrilling activities, every moment resonated with our growth, togetherness, and the amazing bonding we have built over the years.</p>
             </div>
         </div>
 
-        <!----First edition-->
-
         <div class="photo-card">
-            <div class="caption">  <strong>University life</strong> 
+            <div class="caption">  
+                <strong>University life</strong> 
                 <p>My <b>First & Fiesta</b> ramp show performance was a most hilarious and memorable experience. Walking confidently along the catwalk, with lots of energy and enthusiasm, I had the time of my life doing it. The cheers, the lights, and the amazing atmosphere made it all the more special. It wasn't about fashion or style, but it was about being myself, living for the moment, and creating great memories with friends. The experience truly boosted my self-confidence and helped me realize how thrilling it is to venture out of my comfort zone. First & Fiesta gave me a platform to shine, and I will forever cherish this lovely moment. Hope to have lots more of such thrilling experiences in the years to come!</p>
-                
             </div>
         </div>
 
@@ -166,35 +191,21 @@
             <img src="WEB_PORTPOLIO/My_performance_In_ramp_show.jpg" alt="Portrait">
         </div>
 
-        <!----2nd edition-->
-
-
-        
-        
-
         <div class="photo-card">
             <img src="WEB_PORTPOLIO/My_picture_in_Uni_Last_two.jpg" alt="Portrait">
         </div>
 
         <div class="photo-card">
-            <div class="caption">  <strong>University life</strong> 
-                <p>Our Madovpur Lake study tour was a wonderful experience filled with learning, adventure, and beautiful moments. Surrounded by the serene beauty of nature, we set out to explore the serene waters, lush greenery, and refreshing climate that made the trip even more memorable. Walking along the lake, we observed its diverse ecosystem, discovered its significance, and engaged in meaningful interactions with our teachers and friends. </p>
-                
+            <div class="caption">  
+                <strong>University life</strong> 
+                <p>Our Madovpur Lake study tour was a wonderful experience filled with learning, adventure, and beautiful moments. Surrounded by the serene beauty of nature, we set out to explore the serene waters, lush greenery, and refreshing climate that made the trip even more memorable. Walking along the lake, we observed its diverse ecosystem, discovered its significance, and engaged in meaningful interactions with our teachers and friends.</p>
             </div>
         </div>
 
-
-
-
-
-
-
-
-       
         <div class="photo-card">
-            <div class="caption">  <strong>University life</strong> 
+            <div class="caption">  
+                <strong>University life</strong> 
                 <p>Our last year's party, <b>Adios of BBA 39</b>, was filled with signature moments that will remain in our memories forever. It was more than a farewell, it was a celebration of friendship, success, and the wonderful journey we shared together. One of the most memorable moments of <b>Adios of BBA 39</b> was our T-shirt exchange, where we kept some meaningful quotes on them as a symbol of our togetherness and shared experience. Each quote reflected our experiences, friendships, and emotions attached to our wonderful time together.</p>
-                
             </div>
         </div>
 
@@ -202,28 +213,21 @@
             <img src="WEB_PORTPOLIO/My_picture_on_Uni_FourYearCele_Two.jpg" alt="Portrait">
         </div>
 
-
-        <!----First edition-->
-
-       
-
         <div class="photo-card">
             <img src="WEB_PORTPOLIO/My_picture_on_Uni_FourYearCele.jpg" alt="Portrait">
         </div>
 
         <div class="photo-card">
-            <div class="caption">  <strong>University life</strong> 
-          <p><b>Color Fest </b>was one of the most colorful and joyful celebrations we've ever had! It was a day of high energy, laughter, and friendship as we celebrated with a giant color throw, covering the air with colors and limitless happiness. The moment we threw colors at each other, all differences disappeared, and nothing remained but smiles, friendship, and pure joy. Music, dance, and engaging games made the activity all the more enjoyable, turning it into a festivity of togetherness, love, and unforgettable memories.</p>                
+            <div class="caption">  
+                <strong>University life</strong> 
+                <p><b>Color Fest </b>was one of the most colorful and joyful celebrations we've ever had! It was a day of high energy, laughter, and friendship as we celebrated with a giant color throw, covering the air with colors and limitless happiness. The moment we threw colors at each other, all differences disappeared, and nothing remained but smiles, friendship, and pure joy. Music, dance, and engaging games made the activity all the more enjoyable, turning it into a festivity of togetherness, love, and unforgettable memories.</p>                
             </div>
         </div>
 
-       
-
         <div class="photo-card">
-            <div class="caption">  <strong>University life</strong> 
-                <p>As the sun set on our last year celebration, all of our friends gathered for one final capture which is a moment frozen in time, filled with emotions, laughter, and the bittersweet reality of parting ways. That last group photo was not just an image, it was a reflection of the incredible journey we shared, the memories we created, and the unbreakable bond we built over the years.
-
-                    As the celebration came to an end, the joy of the day slowly turned into tears and heartfelt goodbyes. <b>Adios of BBA 39</b> was not just an event, it was a farewell to a chapter of our lives that shaped us in ways we never imagined. We held onto each other, shared our final words, and promised to keep the friendship alive no matter where life takes us.</p>
+            <div class="caption">  
+                <strong>University life</strong> 
+                <p>As the sun set on our last year celebration, all of our friends gathered for one final capture which is a moment frozen in time, filled with emotions, laughter, and the bittersweet reality of parting ways. That last group photo was not just an image, it was a reflection of the incredible journey we shared, the memories we created, and the unbreakable bond we built over the years. As the celebration came to an end, the joy of the day slowly turned into tears and heartfelt goodbyes. <b>Adios of BBA 39</b> was not just an event, it was a farewell to a chapter of our lives that shaped us in ways we never imagined. We held onto each other, shared our final words, and promised to keep the friendship alive no matter where life takes us.</p>
             </div>
         </div>
 
@@ -231,26 +235,7 @@
             <img src="WEB_PORTPOLIO/My_picture_in_Uni_Last_four.jpg" alt="Portrait">
             <p style="color: #660366;">Though we walked away with heavy hearts, we also carried the warmth of these moments, knowing that friendships like ours never truly fade. This was not just a goodbye, <b style="font-weight: bold;"> it was a promise to cherish, remember, and reunite again in the future.....</b></p>
         </div>
-
-
-
-        
-
-        
-        
-        
     </div>
-
-    <!---buttonn card-->
-
-    <!---
-    <div class="button">
-        <div class="button-card">
-            <a href="#">To be continue</a>
-        </div>
-    </div>
-    -->
-
 
     <!-- Footer Section -->
     <div class="footer">
