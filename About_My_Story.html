@@ -5,28 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Life Story</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Basic Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'poppins', sans-serif;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        html {
             scroll-behavior: smooth;
         }
+        
         body {
             background: #f7f7f7;
             color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        html {
-           scroll-behavior: smooth;
-        }     
         
         /* Hero Section */
         #hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -36,29 +38,36 @@
             text-align: center;
             padding: 20px;
         }
+        
         #hero h1 {
-            font-size: 3em;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 15px;
             animation: fadeIn 2s ease-in-out;
         }
+        
         #hero p {
-            font-size: 1.2em;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             margin-top: 10px;
             opacity: 0.8;
+            max-width: 800px;
+            padding: 0 20px;
         }
-        #scroll-down {
-            margin-top: 20px;
+        
+        .scroll-down {
+            margin-top: 30px;
             font-size: 1.5em;
             animation: bounce 2s infinite;
+            cursor: pointer;
         }
-
         
         /* Timeline Section */
         #timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
         }
+        
         #timeline::before {
             content: '';
             position: absolute;
@@ -68,9 +77,10 @@
             background: #333;
             transform: translateX(-50%);
         }
+        
         .event {
             position: relative;
-            width: 45%;
+            width: calc(50% - 40px);
             padding: 20px;
             background: white;
             margin: 20px 0;
@@ -79,328 +89,369 @@
             opacity: 0;
             transition: transform 0.6s ease, opacity 0.6s ease;
         }
+        
         .event:nth-child(odd) {
             left: 0;
             transform: translateX(-50px);
         }
+        
         .event:nth-child(even) {
-            left: 55%;
+            left: calc(50% + 40px);
             transform: translateX(50px);
         }
+        
         .event.visible {
             opacity: 1;
             transform: translateX(0);
         }
+        
         .event h2 {
             margin: 0 0 10px;
             color: #333;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
         }
+        
         .event p {
             margin: 0;
             color: #555;
-        }
-        .event a {
-            text-decoration: none;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
         }
         
-
-        /*  detail section */
-        #childhood {
-            height: 100vh;
+        .event a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .event i {
+            margin-right: 10px;
+        }
+        
+        /* Detail sections */
+        .detail-section {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        #childhood, #Adulthood {
             background: linear-gradient(135deg, #660366, #9b129b);
             color: white;
-            text-align: center;
-            padding: 20px;
-
         }
-
+        
         #Teenager {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: transparent;
-            text-align: center;
-            padding: 20px;
-
+            background: #f7f7f7;
+            color: #333;
         }
-
-        #Adulthood {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: linear-gradient(135deg, #660366, #9b129b);
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .textbox {
+            text-align: left;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        #Teenager .textbox {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .textbox p {
+            margin-bottom: 20px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+        
+        /* Footer Styling */
+        .footer {
+            min-height: 100px;
+            background-color: #660366;
             color: white;
             text-align: center;
-            padding: 20px;
-
+            padding: 20px 0;
+            position: relative;
         }
-
-
-
-
-        .container{
-            width: 80%;
-
+        
+        .footer p {
+            margin: 0;
+            padding: 10px 0;
         }
-
+        
+        .back-to-top {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            color: white;
+            font-size: 1.5em;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        /* Dark mode toggle */
+        .toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .toggle-button:hover {
+            background-color: #0069d9;
+        }
+        
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+        
+        .dark-mode #Teenager {
+            background-color: #1e1e1e;
+        }
+        
+        .dark-mode .event {
+            background-color: #333;
+        }
+        
+        .dark-mode .event h2 {
+            color: #499af0;
+        }
+        
+        .dark-mode .event p {
+            color: #ccc;
+        }
+        
+        .dark-mode #Teenager .textbox {
+            background: rgba(51, 51, 51, 0.8);
+        }
+        
+        .dark-mode .toggle-button {
+            background-color: #6c00aa;
+        }
+        
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
         }
+        
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(10px); }
         }
-
-        /* Footer Styling */
-    .footer {
-            height: 100px ;
-            background-color: #660366;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-    }
-
-    .footer a {
-      float: right;
-      position: relative;
-      bottom: 90px;
-      right: 140px;
-      color: white;
-
-
-    }
-    .footer a i {
-      position: absolute;
-      top: 80px;
-      font-size: 2em;
-    }
-    .footer p {
-        position: relative;
-        top: 20px;
-    }
-
-
-    .toggle-button {
-      position: absolute;
-      top: 20px;
-      right: 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-
-    /* Dark mode styles */
-    .dark-mode {
-      background-color: #121212;
-      color: white;
-    }
-    .dark-mode .event {
-        background-color:#333;
-    }
-    .dark-mode .event h2 {
-        color: #499af0;
-    }
-    .dark-mode .event p {
-        color: #499af0;
-    }
-
-
-    .dark-mode .toggle-button {
-      background-color: #6c00aade;
-      color: rgb(255, 255, 255);
-    }
-
-   
-
-
-
-
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #timeline::before {
+                left: 30px;
+            }
+            
+            .event {
+                width: calc(100% - 80px);
+                left: 60px !important;
+                transform: none !important;
+            }
+            
+            .event:nth-child(even) {
+                left: 60px !important;
+            }
+            
+            .event.visible {
+                transform: none !important;
+            }
+            
+            .footer {
+                padding-bottom: 80px;
+            }
+            
+            .back-to-top {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .event {
+                width: calc(100% - 60px);
+                left: 40px !important;
+                padding: 15px;
+            }
+            
+            #timeline::before {
+                left: 20px;
+            }
+            
+            .textbox {
+                padding: 15px;
+            }
+            
+            .toggle-button {
+                padding: 8px 15px;
+                font-size: 14px;
+                top: 15px;
+                right: 15px;
+            }
+        }
     </style>
 </head>
 <body>
-
     <!-- Hero Section -->
     <div id="hero">
         <h1>My Life Story</h1>
         <p>A journey through time, from childhood to adulthood</p>
-        <div class="scroll-down"> Scroll Down </div>
+        <div class="scroll-down" onclick="document.querySelector('#timeline').scrollIntoView({ behavior: 'smooth' })">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </div>
 
     <!-- Timeline Section -->
     <section>
         <div id="timeline">
             <div class="event">
-                <a href="#childhood"><h2><i class="fa-solid fa-baby"></i>Childhood</h2>
-                <p>Growing up with curiosity, joy, and endless adventures.</p></a>
+                <a href="#childhood">
+                    <h2><i class="fa-solid fa-baby"></i> Childhood</h2>
+                    <p>Growing up with curiosity, joy, and endless adventures.</p>
+                </a>
             </div>
             <div class="event">
                 <a href="#Teenager">
-                    <h2><i class="fa-brands fa-black-tie"></i> Adolescence</h2>
-                <p>Discovering passions, friendships, and shaping my identity.</p>
+                    <h2><i class="fa-solid fa-user-graduate"></i> Adolescence</h2>
+                    <p>Discovering passions, friendships, and shaping my identity.</p>
                 </a>
             </div>
             <div class="event">
                 <a href="#Adulthood">
-                    <h2><i class="fa-solid fa-rocket"></i>Adulthood</h2>
-                <p>Confronting challenges, achieving milestone, and evolving every day.</p>
+                    <h2><i class="fa-solid fa-briefcase"></i> Adulthood</h2>
+                    <p>Confronting challenges, achieving milestones, and evolving every day.</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!--- Details section--->
-    
-    <section>
-        <div id="childhood">
-
-            <div class="container">
-                
-                <div class="textbox">
-                    <p>I was born in January 1997 in a quiet rural area surrounded by the simplicity and beauty of nature. Raised in a middle-income family, I learned early on the value of hard work, resourcefulness, and gratitude. We didn't have extravagant luxuries, but there was always enough to meet our needs, and my parents worked tirelessly to provide opportunities for me and my siblings. The countryside gave me fresh air, open fields, and a close community of people looking after one another. These experiences have shaped my perspective, instilling in me a strong sense of resilience and deep appreciation for both my roots and the possibilities that lay beyond them.</p> <br>
-
-                <p>My childhood was very colorful from 2002 to 2010, and I was involved in several outdoor games with peers in the neighborhood. We used to fly kites of different colors for hours, play cricket with our souls, and laugh adversely while playing Blind Man's Buff. Not only that, but we also played some traditional Bangladeshi rural games, namely *Ha-du-du* (a version of kabaddi), *Dariabandha* (a chasing game), and *Gollachut* (marbles). It was a simple life then, full of delight running through open fields, cheering up with friends, and making eternal bonds. Indeed, those were vivacious years, and the memory of pure joy and freedom is still alive in my heart.</p> <br>
-                <p>I have two siblings, an elder sister and a younger brother. My sister has always been very supportive, being deeply caring with regard to my attitude. Our mother, <b>Ferdous Ara Chowdhury</b> , used to be a head teacher at a primary school, and therefore, she could hardly give us sufficient time due to her busy schedule. My elder sister, however, fit in effortlessly and turned out to be a companion of fun and a guide in our free time. She played with us, kept us company, and soothed us, thereby making our childhood warm and unforgettable. Her nurturing nature and selflessness have always made me feel loved and protected.</p>
-
-
-                </div>
-            </div>
-
-            
-        
-        </div>
-
-    </section>
-
-    <section>
-        <div id="Teenager">
-            <div class="container">
-                <div class="textbox">
-
-                    <p>From 2011 to 2015, I became a much more responsible, punctual, and honest man in all aspects of my life. This was the time for the growth of my personality when I started exploring my town and city and hence developing my horizons of thinking. As I grew up, I started taking up more responsibilities and rose to support my family in several aspects. Be it household chores, helping my siblings, or putting in one's views in family decisions, I did it all with a lot of duty and commitment. These years made me more responsible and dependable-a better person to take on greater challenges and make the most of emerging opportunities.</p> <br>
-
-                    <p>I made many friends during this time and created quite a few acquaintance networks, adding much variety in my circle. Be it at school, some community gathering, or any random meeting, I never let an opportunity slip by to make more friends. It is these friendships that colored my life and taught me the ways of empathy, team spirit, and harmony. The expansion of my communication chain enabled me to learn from others, share experiences, and build a supportive circle that inspires and motivates me even to this day.</p> <br>
-                     <p>During this phase, I involved myself in all kinds of passionate activities that included painting and sketching, which allowed me to express my creativity in ways that I had never imagined. While exploring these artistic outlets, I started finding hidden talents and a deeper understanding of myself. This journey of exploration introduced me to my own longings and aspirations, helping me connect with my true passions and interests. Through these activities, I not only found joy and fulfillment but also gained a clearer sense of identity and purpose, shaping the person I am today.</p>
-                </div>
+    <!-- Details sections -->
+    <section id="childhood" class="detail-section">
+        <div class="container">
+            <div class="textbox">
+                <p>I was born in January 1997 in a quiet rural area surrounded by the simplicity and beauty of nature. Raised in a middle-income family, I learned early on the value of hard work, resourcefulness, and gratitude. We didn't have extravagant luxuries, but there was always enough to meet our needs, and my parents worked tirelessly to provide opportunities for me and my siblings. The countryside gave me fresh air, open fields, and a close community of people looking after one another. These experiences have shaped my perspective, instilling in me a strong sense of resilience and deep appreciation for both my roots and the possibilities that lay beyond them.</p>
+                <p>My childhood was very colorful from 2002 to 2010, and I was involved in several outdoor games with peers in the neighborhood. We used to fly kites of different colors for hours, play cricket with our souls, and laugh adversely while playing Blind Man's Buff. Not only that, but we also played some traditional Bangladeshi rural games, namely *Ha-du-du* (a version of kabaddi), *Dariabandha* (a chasing game), and *Gollachut* (marbles). It was a simple life then, full of delight running through open fields, cheering up with friends, and making eternal bonds. Indeed, those were vivacious years, and the memory of pure joy and freedom is still alive in my heart.</p>
+                <p>I have two siblings, an elder sister and a younger brother. My sister has always been very supportive, being deeply caring with regard to my attitude. Our mother, <b>Ferdous Ara Chowdhury</b>, used to be a head teacher at a primary school, and therefore, she could hardly give us sufficient time due to her busy schedule. My elder sister, however, fit in effortlessly and turned out to be a companion of fun and a guide in our free time. She played with us, kept us company, and soothed us, thereby making our childhood warm and unforgettable. Her nurturing nature and selflessness have always made me feel loved and protected.</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <div id="Adulthood">
-            <div class="container">
-                <div class="textbox">
-
-                    <p>This is to say that from 2016 to 2019 was a very eventful and one of the most life-changing moments, with full of experiences and achievements. The period was also very challenging, such as changing residence to a new place in hostel, which taught me adaptability, among other abilities. I got the privilege to be part of some esteemed institution where I embraced new opportunities for growth and learning. I took some diagnostic tests and started eating a very balanced diet. Since physical health is very important, I made sure to include more healthy foods in my diet, drink more water, and eat at the right time. This not only helped me to be more energetic and healthy but also enhanced my mental clarity and productivity. </p> <br>
-
-                    <p>During the COVID-19 pandemic in 2020 and 2021, my life came to a standstill, and I was confined to my home, feeling abandoned and isolated most of the time. It was the worst period in my life when I fought against myself, as sometimes my motivation was fading, and I suffered from emotional exhaustion. I never allowed myself to lose hope, so I joined the fight by adapting to this new normal by turning all my daily routines into virtual ones. I kept my friends and colleagues in my circle through online that had become a lifesaver to keep social bonds intact. In spite of the isolation, I was able to fulfill my responsibilities with strength from resilience and the will to move on.</p> <br>
-
-                    <p>During my post-pandemic life, I really worked a lot on giving a facelift to myself, personally and professionally. Active engagement with training programs allowed me to reinforce my skills with sharp focus pointed toward the future. In fact, I improved my innovative ideas, which means that instead of mere conceptualization, the ideas progressed to something useful to achieve what is desired. My professional journey immensely enlightened me with a great deal of knowledge in operational and organizational management, while my academic intuition made me stand tall in financial accounting. Even now, I continue to commit myself to the betterment of my skills, enhancing my knowledge and fining my perspective to achieve higher altitude in career as well as in personal development.</p>
-
-
-                    
-                </div>
+    <section id="Teenager" class="detail-section">
+        <div class="container">
+            <div class="textbox">
+                <p>From 2011 to 2015, I became a much more responsible, punctual, and honest man in all aspects of my life. This was the time for the growth of my personality when I started exploring my town and city and hence developing my horizons of thinking. As I grew up, I started taking up more responsibilities and rose to support my family in several aspects. Be it household chores, helping my siblings, or putting in one's views in family decisions, I did it all with a lot of duty and commitment. These years made me more responsible and dependable-a better person to take on greater challenges and make the most of emerging opportunities.</p>
+                <p>I made many friends during this time and created quite a few acquaintance networks, adding much variety in my circle. Be it at school, some community gathering, or any random meeting, I never let an opportunity slip by to make more friends. It is these friendships that colored my life and taught me the ways of empathy, team spirit, and harmony. The expansion of my communication chain enabled me to learn from others, share experiences, and build a supportive circle that inspires and motivates me even to this day.</p>
+                <p>During this phase, I involved myself in all kinds of passionate activities that included painting and sketching, which allowed me to express my creativity in ways that I had never imagined. While exploring these artistic outlets, I started finding hidden talents and a deeper understanding of myself. This journey of exploration introduced me to my own longings and aspirations, helping me connect with my true passions and interests. Through these activities, I not only found joy and fulfillment but also gained a clearer sense of identity and purpose, shaping the person I am today.</p>
             </div>
         </div>
     </section>
 
+    <section id="Adulthood" class="detail-section">
+        <div class="container">
+            <div class="textbox">
+                <p>This is to say that from 2016 to 2019 was a very eventful and one of the most life-changing moments, with full of experiences and achievements. The period was also very challenging, such as changing residence to a new place in hostel, which taught me adaptability, among other abilities. I got the privilege to be part of some esteemed institution where I embraced new opportunities for growth and learning. I took some diagnostic tests and started eating a very balanced diet. Since physical health is very important, I made sure to include more healthy foods in my diet, drink more water, and eat at the right time. This not only helped me to be more energetic and healthy but also enhanced my mental clarity and productivity.</p>
+                <p>During the COVID-19 pandemic in 2020 and 2021, my life came to a standstill, and I was confined to my home, feeling abandoned and isolated most of the time. It was the worst period in my life when I fought against myself, as sometimes my motivation was fading, and I suffered from emotional exhaustion. I never allowed myself to lose hope, so I joined the fight by adapting to this new normal by turning all my daily routines into virtual ones. I kept my friends and colleagues in my circle through online that had become a lifesaver to keep social bonds intact. In spite of the isolation, I was able to fulfill my responsibilities with strength from resilience and the will to move on.</p>
+                <p>During my post-pandemic life, I really worked a lot on giving a facelift to myself, personally and professionally. Active engagement with training programs allowed me to reinforce my skills with sharp focus pointed toward the future. In fact, I improved my innovative ideas, which means that instead of mere conceptualization, the ideas progressed to something useful to achieve what is desired. My professional journey immensely enlightened me with a great deal of knowledge in operational and organizational management, while my academic intuition made me stand tall in financial accounting. Even now, I continue to commit myself to the betterment of my skills, enhancing my knowledge and fining my perspective to achieve higher altitude in career as well as in personal development.</p>
+            </div>
+        </div>
+    </section>
 
-
-
-
-      <!-- Footer -->
-  <div class="footer">
-    <p>&copy; 2024 Surrah. All rights reserved.</p>
-    <a href="#hero" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
-
-    <!-- Button to toggle dark/light mode -->
-  <button class="toggle-button" id="toggleButton" onclick="toggleDarkMode()">Dark Mode</button>
-  </div>
-
-
-
-
-
-
-
-
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Surrah. All rights reserved.</p>
+        <a href="#hero" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+        <button class="toggle-button" id="toggleButton">Dark Mode</button>
+    </div>
 
     <script>
-
-        //scroll function
-
+        // Scroll function for timeline animation
         document.addEventListener("scroll", function() {
             let events = document.querySelectorAll(".event");
             events.forEach(event => {
                 let position = event.getBoundingClientRect().top;
                 let windowHeight = window.innerHeight;
-                if (position < windowHeight - 50) {
+                if (position < windowHeight - 100) {
                     event.classList.add("visible");
                 }
             });
         });
 
-
-        // the page loads at the top or with no specific section in the URL
-        window.addEventListener('load', function() {
-            if (window.location.hash === "") {
-                // If no section is specified in the URL (no hash), scroll to the Home section
-                document.querySelector('#hero').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-
-        //  Smooth scroll for anchor links 
-        document.querySelectorAll('a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-
         // Function to toggle dark/light mode
-     function toggleDarkMode() {
-      const body = document.body;
-      const button = document.getElementById('toggleButton');
-      
-      // Toggle the dark-mode class on the body
-      body.classList.toggle('dark-mode');
+        const toggleButton = document.getElementById('toggleButton');
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            // Change button text based on current mode
+            if (document.body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Light Mode';
+                // Save preference to localStorage
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                toggleButton.textContent = 'Dark Mode';
+                // Save preference to localStorage
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
 
-      // Change button text depending on current mode
-      if (body.classList.contains('dark-mode')) {
-        button.textContent = 'Light Mode';
-      } else {
-        button.textContent = 'Dark Mode';
-      }
-    }
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            toggleButton.textContent = 'Light Mode';
+        }
 
-           // Smooth scroll to the top
-    backToTopBtn.addEventListener('click', () => {
-     window.scrollTo({
-     top: 0,
-     behavior: 'smooth'
-    });
-   });
- 
+        // Load at top if no hash in URL
+        window.addEventListener('load', function() {
+            if (!window.location.hash) {
+                window.scrollTo(0, 0);
+            }
+        });
+
+        // Mobile menu toggle would go here if needed
     </script>
-
 </body>
 </html>
