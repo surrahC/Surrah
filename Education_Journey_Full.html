@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Educational Journey</title>
     <style>
         /* Global Styles */
@@ -16,7 +16,7 @@
         }
 
         body {
-            height: 100vh;
+            min-height: 100vh;
             overflow-x: hidden;
             color: #fff;
             background: linear-gradient(135deg, #660366, #e63de6);
@@ -24,36 +24,42 @@
             animation: gradientBackground 15s ease infinite;
             display: flex;
             flex-direction: column;
+            font-family: "Poppins", sans-serif;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             font-family: "Poppins", serif;
             font-weight: 700;
         }
         p {
             font-family: "Poppins", serif;
+            line-height: 1.6;
         }
 
         /* Header Styles */
         header {
             text-align: center;
-            padding: 60px;
+            padding: 40px 20px;
             font-size: 36px;
             animation: fadeIn 2s ease-out;
         }
 
         /* Section Styles */
         section {
-            font-family: "Poppins", serif;
-            padding: 80px 20px;
+            padding: 40px 15px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 800vh;
+            min-height: 100vh;
             text-align: center;
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        section > div {
+            width: 100%;
+            max-width: 1200px;
         }
 
         section.visible {
@@ -63,43 +69,44 @@
 
         /* Section Titles */
         section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 15px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1s, transform 1s;
         }
 
         section h3 {
-            font-size: 18px;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
         }
 
         section p {
-            justify-content:space-between;
-            font-size: 16px;
-            max-width: 1000px;
-            margin: 0 auto;
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 0 auto 20px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+            text-align: left;
+            padding: 0 10px;
         }
 
         section.visible h2 {
-            opacity: 5;
+            opacity: 1;
             transform: translateY(0);
         }
 
         section.visible p {           
-            opacity: 2;
+            opacity: 1;
             transform: translateY(0);
         }
 
         /* Table Styles */
         table {
-            width: 80%;
+            width: 100%;
             margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 20px;
             border-collapse: collapse;
             background-color: rgba(0, 0, 0, 0.4);
             border-radius: 8px;
@@ -149,47 +156,98 @@
             }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            section h2 {
-                font-size: 28px;
-            }
-
-            section p {
-                font-size: 16px;
-            }
-
-            table {
-                width: 90%;
-            }
-
-            th, td {
-                font-size: 14px;
-            }
-        }
-
-
-        
-
         .footer {
             background-color: #660366;
             color: white;
             text-align: center;
             padding: 20px 0;
-            margin-top: 10%;
-            padding-top: 40px;
+            margin-top: auto;
             border-radius: 8px;
+            position: relative;
         }
         
         .footer a {
-         float: right;
-         position: relative;
-         font-size: 2em;
-         top: 00px;
-         right: 100px;
-         color: white;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 1.5em;
+            color: white;
+            text-decoration: none;
+        }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 15px;
+                font-size: 28px;
+            }
+            
+            header p {
+                font-size: 16px;
+            }
 
+            section {
+                padding: 30px 10px;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            section h3 {
+                font-size: 1.2rem;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 25px 10px;
+                font-size: 24px;
+            }
+            
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            section h3 {
+                font-size: 1.1rem;
+            }
+
+            section p {
+                font-size: 0.9rem;
+            }
+
+            .footer {
+                padding: 15px 0;
+            }
+            
+            .footer a {
+                right: 15px;
+                bottom: 15px;
+                font-size: 1.2em;
+            }
+        }
+
+        /* For tablets and medium devices */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            section {
+                padding: 50px 20px;
+            }
+            
+            section p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -310,8 +368,6 @@
             At the beginning of 2019, I was given the opportunity to choose my major from a range of options, including accounting, management, finance, marketing, and tourism. After careful consideration, I decided to pursue <b>Accounting and Information Systems</b>, as it aligned with my interests and career aspirations. Following the selection process, our batch was divided into various departments based on our chosen majors. My classmates and I, who had selected <b>Accounting and Information System</b>, were separated from the rest and began our studies in the <b>Accounting Department</b>. For nearly nine months, we focused on our specialized courses, spending most of our time away from the others. While it was a period of intense academic focus, it also allowed me to build strong connections with my fellow Accounting majors and deepen my knowledge in the field. At the end of 2019, during our last semester, we organized a grand celebration named <b>Adios of BBA 39</b>, marking the farewell of our batch. For the <b>Adios of BBA 39</b> celebration, we put in great effort to decorate the university, transforming it into a vibrant and festive space that reflected the spirit of our farewell. The venue <b>Food Palace</b> was adorned with colorful decorations, lights, and creative displays, creating a warm and celebratory atmosphere. We extended heartfelt invitations to all our faculty members, who had been an integral part of our academic journey. Their presence added a special touch to the event, making it even more meaningful. It was a joyous occasion where we celebrated not only our achievements but also the bonds we had formed with our teachers and peers, marking the end of an unforgettable chapter in our lives. It was an outstanding event and one of the most memorable experiences I had ever been part of. This celebration held immense significance as it was our final gathering with all our batchmates. The event was filled with playful activities like color throwing, a signature show, dance performances, and a ramp show. We shared jokes, presented short films, and enjoyed every moment together. The color-throwing session was particularly fun, leaving us looking like ghosts wandering across the road. The event ended on a high note, with everyone dancing energetically, full of stamina and joy, creating unforgettable memories as we bid farewell to our cherished college days.
             In early 2020, the COVID-19 pandemic unexpectedly knocked on the door, bringing the world to a standstill. The sudden lockdowns and restrictions disrupted daily life, including my education, as classes shifted online and uncertainty loomed over academic timelines. Despite the challenges, I adapted to the new normal and continued my studies with determination. Finally, at the beginning of 2021, I accomplished a significant milestone by completing my bachelor's degree, marking the end of a 16-year educational journey. It was a moment of pride and relief, as I reflected on the perseverance and resilience it took to overcome the unprecedented obstacles posed by the pandemic. This achievement not only symbolized the culmination of years of hard work but also highlighted my ability to adapt and thrive in the face of adversity.</p>
             
-             
-            
             <table>
                 <tr>
                     <th>University Name</th>
@@ -331,10 +387,6 @@
         </div>
     </section>
 
-  
-
-    
-
     <!-- Footer -->
     <div class="footer">
         <p>© 2023 Surrah. All Rights Reserved.</p>
@@ -345,50 +397,47 @@
         // JavaScript for Section Visibility on Scroll
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
-            const scrollPosition = window.scrollY + window.innerHeight;
+            const scrollPosition = window.scrollY + (window.innerHeight * 0.8);
 
             sections.forEach(function(section) {
-                if (section.offsetTop < scrollPosition) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition > sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
                     section.classList.add('visible');
                 }
             });
         });
 
         // Initial check to show visible sections on page load
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('section');
-            sections.forEach(function(section) {
-                const scrollPosition = window.scrollY + window.innerHeight;
-                if (section.offsetTop < scrollPosition) {
-                    section.classList.add('visible');
-                }
-            });
-        };
-
-
-        // the page loads at the top or with no specific section in the URL
-         window.addEventListener('load', function() {
-            if (window.location.hash === "") {
-                // If no section is specified in the URL (no hash), scroll to the Home section
-                document.querySelector('#hero').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+            const firstSection = sections[0];
+            
+            // Make first section visible immediately
+            firstSection.classList.add('visible');
+            
+            // Check other sections that might be in view
+            window.dispatchEvent(new Event('scroll'));
         });
 
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');  
-        const targetElement = document.querySelector(targetId);
-
-        // Check if the target exists and is not just '#'
-        if (targetElement && targetId !== "#") {  
-            e.preventDefault();  // Prevent default only for valid internal links
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 
 </body>
