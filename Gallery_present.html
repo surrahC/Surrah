@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album-Style Photo Gallery</title>
-  <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+    <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -17,34 +17,36 @@
             background: #660366;
             color: #fbe4d8;
             text-align: center;
-            background-image: url('WEB_PORTPOLIO/Web_patternFour.png'); /* White Mandala Pattern */
+            background-image: url('WEB_PORTPOLIO/Web_patternFour.png');
         }
 
         /* Hero Section */
         .hero {
-            height: 60vh;
+            height: 40vh;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            padding: 20px;
         }
         .hero h1 {
-            font-size: 2.5em;
+            font-size: 1.8em;
             background: rgba(255, 255, 255, 0.2);
             padding: 10px 20px;
             border-radius: 10px;
             font-weight: 600;
+            margin: 0 15px;
         }
 
         /* Album Grid Section */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 200px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
         }
         .photo-card {
             background: #f3d9ec;
@@ -60,37 +62,41 @@
         }
         .photo-card img {
             width: 100%;
+            height: auto;
             border-radius: 10px;
             border: 2px solid #8b2fa3;
         }
         .caption {
             margin-top: 10px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 400;
             color: #660366;
         }
+        
         .button {
             max-width: 800px;
-            margin-left: 280px;
-
+            margin: 30px auto;
+            padding: 0 20px;
         }
         
-
         .button-card {
-            
-            justify-content: center;
+            display: inline-block;
             background: #f3d9ec;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 15px;
             box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
             border: 3px solid #a03bb7;
-            
-
+            transition: all 0.3s ease;
+        }
+        .button-card:hover {
+            transform: scale(1.05);
+            box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
         }
         .button-card a {
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 500;
             color: #660366;
+            font-size: 16px;
         }
 
         /* Footer */
@@ -109,79 +115,105 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        /* Responsive Media Queries */
+        @media (min-width: 600px) {
+            .hero {
+                height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .gallery {
+                padding: 30px;
+                gap: 25px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                height: 55vh;
+            }
+            .gallery {
+                padding: 40px;
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero {
+                height: 60vh;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .gallery {
+                padding: 50px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .gallery {
+                padding: 70px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Hero Section -->
     <div class="hero">
-        <h1> All moments by Frame</h1>
+        <h1>All moments by Frame</h1>
     </div>
 
     <!-- Gallery Section -->
     <div class="gallery">
         <div class="photo-card">
-            <img src="WEB_PORTPOLIO/School_Day_Picture_of_Mine.jpg" alt="Portrait">
+            <img src="WEB_PORTPOLIO/School_Day_Picture_of_Mine.jpg" alt="School portrait">
         </div>
 
         <div class="photo-card">
-            <div class="caption">  <strong>School friends</strong> 
-                <p> "School life would not have been the same without them. From the constant laughter in class to the un-forgotten adventures we shared, every moment spent has been priceless. Through all the exams, study sessions, and silly jokes, you have been a true friend—always present, always motivating."</p>
-                
+            <div class="caption">
+                <strong>School friends</strong> 
+                <p>"School life would not have been the same without them. From the constant laughter in class to the un-forgotten adventures we shared, every moment spent has been priceless. Through all the exams, study sessions, and silly jokes, you have been a true friend—always present, always motivating."</p>
             </div>
         </div>
 
-        <!-----part one -->
-
         <div class="photo-card">
-            <div class="caption">  <strong>School friends</strong> 
+            <div class="caption">
+                <strong>School friends</strong> 
                 <p>"From then to now, our bond has only grown stronger. Through every phase of life, we have stood by each other, proving that true friendship only gets better with time. Grateful for the memories we have made and the unbreakable connection we share!</p>
-                
             </div>
         </div>
 
         <div class="photo-card">
-            <img src="WEB_PORTPOLIO/My_picture_School.jpg" alt="Portrait">
+            <img src="WEB_PORTPOLIO/My_picture_School.jpg" alt="School portrait">
         </div>
 
         <div class="photo-card">
-            <img src="WEB_PORTPOLIO/School_Friend_Riajul.jpg" alt="Portrait">
+            <img src="WEB_PORTPOLIO/School_Friend_Riajul.jpg" alt="School friend">
         </div>
 
         <div class="photo-card">
-            <div class="caption">  <strong>School friends</strong> 
-                <p>Birthdays are always special, but they become even more memorable when celebrated with amazing friends! I feel incredibly blessed to have my school friend by my side, making my day extra joyful and full of laughter. From sharing countless memories in school to celebrating milestones together, our bond keeps growing stronger. </p>
-                
+            <div class="caption">
+                <strong>School friends</strong> 
+                <p>Birthdays are always special, but they become even more memorable when celebrated with amazing friends! I feel incredibly blessed to have my school friend by my side, making my day extra joyful and full of laughter. From sharing countless memories in school to celebrating milestones together, our bond keeps growing stronger.</p>
             </div>
-
-
-
-
-
-
         </div>
 
-        
-
         <div class="photo-card">
-            <div class="caption">  <strong>School friends</strong> 
+            <div class="caption">
+                <strong>School friends</strong> 
                 <p>Distance may separate us, but true friendship knows no boundaries! Even though my dear friend has moved abroad, their constant effort to stay in touch truly warms my heart</p>
-                
             </div>
         </div>
+        
         <div class="photo-card">
-            <img src="WEB_PORTPOLIO/My_Picture_on_my_friend.jpg" alt="Portrait">
+            <img src="WEB_PORTPOLIO/My_Picture_on_my_friend.jpg" alt="Friend portrait">
         </div>
-
-        
-
-        
-        
-        
     </div>
 
-    <!---buttonn card-->
-
+    <!-- Button Card -->
     <div class="button">
         <div class="button-card">
             <a href="Gallery_presentation_uni.html">To be continue</a>
@@ -190,7 +222,7 @@
 
     <!-- Footer Section -->
     <div class="footer">
-        <p>&copy; 2024-2025 (Surrah) Album Gallery </p>
+        <p>&copy; 2024-2025 (Surrah) Album Gallery</p>
     </div>
 
 </body>
