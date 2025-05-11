@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-     <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="WEB_PORTPOLIO/WEBPAGE_LOGO_SURRAH-02.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>My Vision to </title>
     <style>
         /* General Styles */
@@ -23,7 +21,7 @@
         /* Hero Section */
         .hero {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(to right, #660366, #841dad);
             display: flex;
             justify-content: center;
@@ -32,6 +30,7 @@
             text-align: center;
             padding: 20px;
             animation: fadeIn 1s ease-in-out;
+            box-sizing: border-box;
         }
 
         .hero h1 {
@@ -42,13 +41,15 @@
         .hero p {
             font-size: 1.5em;
             max-width: 600px;
+            padding: 0 20px;
         }
 
         /* Section Styling */
         .container {
-            max-width: 100%;
-            margin: auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 40px 20px;
+            box-sizing: border-box;
         }
 
         .section {
@@ -60,6 +61,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
+            box-sizing: border-box;
         }
 
         .section.visible {
@@ -67,141 +69,63 @@
             transform: translateY(0);
         }
 
-        /* Responsive Layouts for Different Devices */
-@media (max-width: 1024px) {
-    .hero h1 {
-        font-size: 2.5em;
-    }
+        .section h2 {
+            margin-top: 0;
+        }
 
-    .hero p {
-        font-size: 1.2em;
-        padding: 0 10px;
-    }
-
-    .section {
-        padding: 30px 20px;
-    }
-
-    .belowtotop a {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 70px;
-    }
-
-    .backtopage a {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2em;
-    }
-
-    .hero p {
-        font-size: 1em;
-    }
-
-    .section h2 {
-        font-size: 1.5em;
-    }
-
-    .section p {
-        font-size: 1em;
-    }
-
-    footer {
-        font-size: 0.9em;
-        text-align: center;
-    }
-
-    .belowtotop a i,
-    .backtopage a i {
-        font-size: 1.5em;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 30px 10px;
-    }
-
-    .hero h1 {
-        font-size: 1.8em;
-    }
-
-    .hero p {
-        font-size: 0.95em;
-    }
-
-    .section {
-        margin: 10px 0;
-        padding: 20px 15px;
-    }
-
-    .section h2 {
-        font-size: 1.3em;
-    }
-
-    .section p {
-        font-size: 0.95em;
-    }
-
-    .belowtotop a,
-    .backtopage a {
-        position: static;
-        display: inline-block;
-        margin: 10px;
-    }
-
-    .belowtotop,
-    .backtopage {
-        display: flex;
-        justify-content: center;
-    }
-}
-
+        .section p {
+            line-height: 1.6;
+        }
 
         /* Footer */
         footer {
             width: 100%;
             padding: 20px;
-            background: #5e045e;          
+            background: #5e045e;
             font-size: 1em;
-           
-        }
-        
-
-        .belowtotop a {
-        position: relative;
-        bottom: 90px;
-        left: 600px;
-        color: white;
-
-
-        }
-       .belowtotop a i {
-        position: absolute;
-        top: 50px;
-        font-size: 2em;
+            position: relative;
+            box-sizing: border-box;
         }
 
-        .backtopage  a {
-        position: relative;
-        bottom: 30px;
-        right: 600px;
-        color: white;
-
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
         }
 
-      .backtopage a i {
+        .back-to-top, .back-to-page {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
 
-      font-size: 2em;
-      }
- 
+        .back-to-top:hover, .back-to-page:hover {
+            transform: scale(1.1);
+        }
+
+        /* Concept Link */
+        .concept-link {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            margin-top: 20px;
+            padding: 8px 16px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .concept-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
         /* Keyframes for Hero Animation */
         @keyframes fadeIn {
@@ -223,17 +147,98 @@
             }
         }
 
+        /* Responsive Layouts for Different Devices */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .section {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .concept-link {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 20px 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero p {
+                font-size: 0.95em;
+            }
+
+            .section {
+                padding: 20px 15px;
+                margin: 15px 0;
+            }
+
+            .section h2 {
+                font-size: 1.3em;
+            }
+
+            .nav-buttons {
+                padding: 15px;
+            }
+
+            .back-to-top, .back-to-page {
+                font-size: 1.2em;
+            }
+
+            .concept-link {
+                font-size: 0.9em;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.6em;
+            }
+
+            .hero p {
+                font-size: 0.9em;
+            }
+
+            .section {
+                padding: 15px 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="top">
-
-    </div>
+    <div id="top"></div>
 
     <section class="hero">
-
-        
-        
         <h1>My foresight</h1>
         <p>From aspiring corporate professional to future entrepreneur_ _ </p>
     </section>
@@ -241,7 +246,6 @@
     <div class="container">
         <div class="section hidden">
             <h2>Vision to Achieve Success in the Corporate World</h2>
-
             <p style="text-align: justify;">
                 My ambition is to establish a strong and effective corporate career through continuous skill improvement, gaining relevant industry exposure, and developing a good professional network. I am keen to excel in my career, contribute towards organizational growth, and position myself as a future leader. <br> <br>
                 <strong>Building a strong fundation</strong> <br> 
@@ -274,9 +278,7 @@
 
                   <strong>Conclusion</strong> <br>
                   My ultimate dream is to be a world-class and highly successful corporate executive. Through education, strategic management, and leadership, I hope to make meaningful contributions to my profession and organization. By gaining experience, honing my skills, and building strong professional networks, I hope to excel in roles that promote innovation and business excellence. Through diligence and determination, I am set to grow as a corporate professional, make a mark, and succeed in my career. <br>
-
-
-                </p>
+            </p>
         </div>
 
         <div class="section hidden">
@@ -322,10 +324,6 @@
 
                  <strong>Conclusion</strong> <br>
                  My future at the higher learning is to provide myself with the knowledge, skills, and experience needed to excel in business life. Focusing on academic excellence, hands-on experience, and continuous self-improvement, I intend to position myself as a brilliant professional. Education has the potential to open doors to new horizons, and I am committed to maximizing it to achieve my long term career goals.
-
-
- 
-
             </p>
         </div>
 
@@ -370,9 +368,6 @@
              <b>4. Online Learning Platforms & Webinars:</b>Learning from thought leaders and industry influencers. <br>
              Through networking and contacting them, I expect to have mentors who will provide useful tips and career direction. <br> <br>
              
-             
-
-
              <strong>Using Mentorship for Professional Achievement</strong> <br>
               Mentorship is not just following advice, it's about acting on that to resolve actual professional challenges. <b>I aim to:</b> <br>
                 1. Enhance leadership and decision-making skills. <br>
@@ -383,15 +378,12 @@
 
              <strong>Conclusion</strong> <br>
              Finding a mentor will be a significant aspect of my professional life. By networking with successful individuals, building close relationships, and following their guidance, I aim to develop my professional growth and achieve my corporate aspirations. Mentorship will provide me with the skills, knowledge, and self-confidence to excel in my desired profession and become a successful leader in the future. <br> <br>
-
-
             </p>
         </div>
 
         <div class="section hidden">
             <h2>My Entrepreneurship Vision</h2>
             <p style="text-align: justify;">Entrepreneurship is not just starting a business but innovation, leadership, and value creation. My dream is to establish a successful business that not only fulfills market needs but also creates a long-lasting legacy. With my corporate experience, knowledge, and industry insight, I see myself transforming from a corporate expert into a successful entrepreneur. Through strategic planning, continuous learning, and perseverance, I am committed to long-term business success. <br> <br>
-                
                 
                 <strong>Building strong basement</strong> <br>
                 Before I take the leap into entrepreneurship, <b>I wish to lay a solid groundwork by:</b> <br> 
@@ -441,24 +433,17 @@
                   <b>2. Diversify Offerings: </b>Diversifying product or service lines through innovation. <br>
                  <b>3. Create a Social Impact: </b>Creating a business that not only generates profit but also positively impacts society. <br>
                  A long-term vision will help me to sustain and grow my entrepreneurial journey. <br> <br>
-
-
-             
             </p>
-
-            <a href="Project_Views.html" style="float: right; text-decoration: none; font-size: 20px ; cursor: pointer; color: white;">Concept</a>
+            <a href="Project_Views.html" class="concept-link">Concept</a>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024-2025 (Surrah), All Rights Reserved.</p>
-        <div class="belowtotop">
-        <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+        <div class="nav-buttons">
+            <a href="#back" class="back-to-page"><i class="fa-solid fa-arrow-left"></i></a>
+            <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
         </div>
-      <div class="backtopage">
-        <a href="#back" class="back-to-page"><i class="fa-solid fa-arrow-left"></i></a>
-      </div>
-
     </footer>
 
     <script>
@@ -477,10 +462,8 @@
         window.addEventListener('scroll', showSection);
         showSection(); // Run on page load
 
-
-
         // the page loads at the top or with no specific section in the URL
-    window.addEventListener('load', function() {
+        window.addEventListener('load', function() {
             if (window.location.hash === "") {
                 // If no section is specified in the URL (no hash), scroll to the Home section
                 document.querySelector('#top').scrollIntoView({
@@ -490,18 +473,17 @@
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');  
-        const targetElement = document.querySelector(targetId);
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');  
+                const targetElement = document.querySelector(targetId);
 
-        // Check if the target exists and is not just '#'
-        if (targetElement && targetId !== "#") {  
-            e.preventDefault();  // Prevent default only for valid internal links
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
+                // Check if the target exists and is not just '#'
+                if (targetElement && targetId !== "#") {  
+                    e.preventDefault();  // Prevent default only for valid internal links
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
-
 </body>
 </html>
