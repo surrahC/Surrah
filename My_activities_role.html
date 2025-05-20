@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Icons -->
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <title>My Activities</title>
   <style>
@@ -46,7 +45,6 @@
       height: 100%;
       top: 0;
       left: 0;
-      /* Changed animation: now horizontal movement */
       animation: waveMove 10s infinite linear alternate;
     }
 
@@ -67,10 +65,11 @@
       align-items: center;
       height: 100vh;
       width: 100%;
+      padding: 20px;
     }
 
     .hero-section h1 {
-      font-size: 4rem;
+      font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: bold;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.9);
@@ -79,7 +78,7 @@
     }
 
     .hero-section p {
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 3vw, 1.5rem);
       font-style: italic;
       color: rgba(255, 255, 255, 0.8);
       animation: fadeIn 3s ease-in-out;
@@ -114,12 +113,12 @@
       gap: 20px;
       max-width: 1200px;
       width: 100%;
-      margin-top: 50px; /* Space below hero section */
+      margin-top: 50px;
     }
 
     .container {
       background: rgba(255, 255, 255, 0.15);
-      padding: 30px;
+      padding: 20px;
       border-radius: 15px;
       backdrop-filter: blur(12px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -128,18 +127,28 @@
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
       margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid white;
     }
 
     .subtext {
-      font-size: 1.1rem;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
       opacity: 0.8;
       margin-bottom: 20px;
     }
 
+    .image-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
     .image-box img {
-      width: 80%;
+      width: 100%;
       max-width: 500px;
       border-radius: 10px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -157,8 +166,9 @@
 
     .text-box {
       margin-top: 20px;
-      font-size: 1.1rem;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
       opacity: 0.9;
+      text-align: justify;
     }
 
     /* Footer Animation */
@@ -169,43 +179,60 @@
       font-size: 1rem;
       opacity: 0.8;
       animation: fadeInUp 2s ease-in-out;
+      padding: 20px 0;
     }
 
     .footer a {
-      position: absolute;
-      bottom: 100px;
-      right: 120px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       color: white;
-
-
+      background: rgba(255, 255, 255, 0.2);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      z-index: 100;
     }
+
     .footer a i {
-      position: absolute;
-      top: 50px;
-      font-size: 2em;
+      font-size: 1.5em;
+    }
+
+    .footer a:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
 
     .footer a i:hover {
       color: yellow;
     }
 
-
-
-    .back-to-web  a {
-      position: absolute;
-      bottom: 30px;
-      left: 120px;
+    .back-to-web a {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
       color: white;
-
+      background: rgba(255, 255, 255, 0.2);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      z-index: 100;
     }
 
     .back-to-web a i {
-
-      font-size: 2em;
+      font-size: 1.5em;
     }
 
-    
-
+    .back-to-web a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
 
     @keyframes fadeInUp {
       from {
@@ -215,6 +242,54 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        height: auto;
+        padding: 60px 20px;
+      }
+      
+      .container {
+        padding: 15px;
+      }
+      
+      .image-box {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .footer a, .back-to-web a {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .footer a i, .back-to-web a i {
+        font-size: 1.2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-section p {
+        font-size: 1rem;
+      }
+      
+      .container {
+        padding: 10px;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      .text-box {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -239,14 +314,14 @@
 
   <div class="container-wrapper">
     <div class="container">
-      <h2 style="border-bottom: 2px solid white;">Model United Nation Mock Up Workshop</h2>
+      <h2>Model United Nation Mock Up Workshop</h2>
       <p class="subtext">"Strategies for Sustainable Development for Urban Society"</p>
       <div class="image-box">
         <img src="WEB_PORTPOLIO/My_Activities_MUN_MU_Two.jpg"   alt="Activity Image" />
         <img src="WEB_PORTPOLIO/My_Activities_MUN_MU.jpg"   alt="Activity Image" />
       </div>
       <div class="text-box">
-        <p style="text-align:justify">
+        <p>
             <strong>Date:</strong> January 23 to 25, 2019. <br>
             <strong>Venue:</strong> Metropolitan University. <br>
             
@@ -307,14 +382,14 @@
     </div>
 
     <div class="container">
-      <h2 style="border-bottom: 2px solid white;"> Active Citizen Youth Leadership Workshop</h2>
+      <h2>Active Citizen Youth Leadership Workshop</h2>
       <p class="subtext">"Clean City & Green Environment"</p>
       <div class="image-box">
         <img src="WEB_PORTPOLIO/My_Activities_MU_Active_Cityzen_Three.jpg" alt="Design Image" />
         <img src="WEB_PORTPOLIO/My_Activities_MU_Active_Cityzen_Two.jpg" alt="Design Image" />
       </div>
       <div class="text-box">
-        <p style="text-align:justify" > <strong>Date:</strong> January 9 to January 12 <br> 
+        <p> <strong>Date:</strong> January 9 to January 12 <br> 
            <strong>Venue:</strong>  Conferenace Hall, Metropolitan University <br><br>
           
           <strong>Overview</strong> <br>
@@ -336,7 +411,7 @@
       </div>
 
       <div class="text-box">
-        <p style="text-align:justify"> <strong>Workshop Schedule (Mock-Up)</strong> <br><br>
+        <p> <strong>Workshop Schedule (Mock-Up)</strong> <br><br>
           <strong>Day 1: January 9: Introduction & Environmental Awareness</strong><br>
           09:00 AM to 10:00 AM: Registration & Welcome Session. <br>
           10:00 AM to 11:30 AM: Keynote Speech "The Role of Youth in a Sustainable Future". <br>
@@ -367,7 +442,7 @@
           <strong>Impact & Conclusion:</strong>
           The workshop successfully empowered young participants with knowledge and skills to lead environmental and road safety initiatives. Through interactive sessions, hands-on activities, and leadership training, attendees developed action plans for their communities. <br> <br>
          <strong>My Participation:</strong> <br> 
-         <p style="text-align:justify">During <b>the Active Citizen Youth Leadership</b> Workshop, I actively participated in <b>team work activities</b>, <b>contributing to discussions</b>, <b>brainstorming solutions</b>, and <b>collaborating on group projects</b>. I was involved in creating presentation slides to showcase our ideas on environmental sustainability and road safety. Additionally, I helped design an advertisement campaign to promote <b>clean city initiatives</b>, ensuring our message was visually impactful and engaging. My involvement in these tasks strengthened my teamwork, creativity, and leadership skills, allowing me to play a key role in delivering effective solutions for a greener and safer urban environment.</p>
+         <p>During <b>the Active Citizen Youth Leadership</b> Workshop, I actively participated in <b>team work activities</b>, <b>contributing to discussions</b>, <b>brainstorming solutions</b>, and <b>collaborating on group projects</b>. I was involved in creating presentation slides to showcase our ideas on environmental sustainability and road safety. Additionally, I helped design an advertisement campaign to promote <b>clean city initiatives</b>, ensuring our message was visually impactful and engaging. My involvement in these tasks strengthened my teamwork, creativity, and leadership skills, allowing me to play a key role in delivering effective solutions for a greener and safer urban environment.</p>
         </p>
       </div>
 
@@ -375,21 +450,15 @@
       
     </div>
 
-
-
-
-
-    <div class="container">
-      <h2 style="border-bottom: 2px solid white;" > Celebrating International Accounting Day and Participation on Seminar</h2>
+        <div class="container">
+      <h2>Celebrating International Accounting Day and Participation on Seminar</h2>
       <p class="subtext">"Accounting for a Better Future with Transparency, Growth, and Success"</p>
-
-      <p class="subtext"></p>
       <div class="image-box">
         <img src="WEB_PORTPOLIO/My_Activities_Accounting_two.jpg" alt="Technology Image" />
         <img src="WEB_PORTPOLIO/My_Activities_Accounting_three.jpg" alt="Technology Image" />
       </div>
       <div class="text-box">
-        <p style="text-align:justify" ><strong>Date: </strong>November 10, 2019 <br>
+        <p><strong>Date: </strong>November 10, 2019 <br>
            <strong>Venue: </strong> Library Hall, Metropolitan University. <br> <br>
           
           <strong>Overview</strong> <br>
@@ -419,17 +488,13 @@
       </div>
     </div>
 
-
-
-
     <div class="container">
-      <h2 style="border-bottom: 2px solid white;" > Honorship and Rewarding of Participation on Creative Society Quiz Competition</h2>
-      <p class="subtext"></p>
+      <h2>Honorship and Rewarding of Participation on Creative Society Quiz Competition</h2>
       <div class="image-box">
         <img src="WEB_PORTPOLIO/My_Picture_Reward_From_Surjoudoy.jpg" alt="Technology Image" />
       </div>
       <div class="text-box">
-        <p style="text-align:justify" > <strong>Date: </strong> 28 February 2017 <br>
+        <p> <strong>Date: </strong> 28 February 2017 <br>
             <strong>Venue: </strong> Kazi Nazrul Auditorium <br> <br>
           
           <strong> Overview</strong> <br>
@@ -452,13 +517,13 @@
     </div>
 
     <div class="container">
-      <h2 style="border-bottom: 2px solid white;">Application on Stop Killing Mass in Mayanmar</h2>
+      <h2>Application on Stop Killing Mass in Mayanmar</h2>
       <p class="subtext">"Stop the Rohingya Genocide, Humanity Knows No Borders"</p>
       <div class="image-box">
         <img src="WEB_PORTPOLIO/My_Activites_Humanchain_Mayanmar_Genocide.jpg" alt="Travel Image" />
       </div>
       <div class="text-box">
-        <p style="text-align:justify" > <strong>Date:</strong>  September 20, 2017 <br>
+        <p> <strong>Date:</strong>  September 20, 2017 <br>
            <strong>Organized by:</strong> Youth Ending Hunger Bangladesh <br> <br>
           
           <strong>Background:</strong> <br> <b>The Rohingya Genocide in Myanmar</b> <br>
@@ -492,22 +557,17 @@
           <b>I drew posters</b> carrying strong messages and visuals that depicted the horrors of the Rohingya crisis. These posters played a crucial role in grabbing public attention and spreading awareness about the cause.  <br>
           <b>I stood in solidarity</b> with fellow protesters in the human chain, chanting slogans and advocating for peace, human rights, and an end to ethnic cleansing. <br>
           <b>Through my engagement in this protest</b>, I made a meaningful contribution to amplifying the voices of the oppressed and strengthening the movement for justice. It was a moment of responsibility and activism, reaffirming the power of youth in standing against violence and human rights violations. <br>
-            
       </div>
     </div>
 
-    <div class="container" >
-      <h2 style="border-bottom: 2px solid white;">Attending on Connecting Classrooms [A Workshop of Tutor] </h2>
+    <div class="container">
+      <h2>Attending on Connecting Classrooms [A Workshop of Tutor]</h2>
       <p class="subtext">"Empowering Educators, Inspiring Minds, Teaching for a Brighter Future"</p>
-      <div class="image-box" style="width: 40%;">
-        <img src="WEB_PORTPOLIO/My_Activites_Connecting_Two_.png" alt="Writing Image" style="width: 40%;"/>
-
-       
-
-
+      <div class="image-box">
+        <img src="WEB_PORTPOLIO/My_Activites_Connecting_Two_.png" alt="Writing Image"/>
       </div>
       <div class="text-box">
-        <p style="text-align: justify;">
+        <p>
           <strong>Date: </strong> September 18, 2017 <br>
           <strong>Organized by:</strong> British Council / UKaid. <br> <br>
           
@@ -537,10 +597,8 @@
           Collaborative activities that encouraged teamwork and idea sharing among tutors. <br>
           Discussions on innovative teaching techniques, including integrating critical thinking, problem-solving, and interactive learning. <br>
           Hands-on sessions where I practiced developing engaging lesson plans for students <br>
-          
         </p>
       </div>
-     
     </div>
   </div>
 
@@ -548,12 +606,10 @@
     &copy; 2025 My Activities | Designed with Passion
 
     <a href="#top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
-
   </div>
 
   <div class="back-to-web">
    <a href="#back" class="back-to-page"><i class="fa-solid fa-arrow-left"></i></a>
-
   </div>
   <script>
     // the page loads at the top or with no specific section in the URL
